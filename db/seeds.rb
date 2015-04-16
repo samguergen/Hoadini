@@ -39,3 +39,21 @@ crit_3 = Criterium.create(crit3)
 crit_4 = Criterium.create(crit4)
 crit_5 = Criterium.create(crit5)
 crit_6 = Criterium.create(crit6)
+
+upref1 = {score: , user_id: , criterium_id: }
+upref2 = {score: , user_id: , criterium_id: }
+upref3 = {score: , user_id: , criterium_id: }
+upref4 = {score: , user_id: , criterium_id: }
+upref5 = {score: , user_id: , criterium_id: }
+upref6 = {score: , user_id: , criterium_id: }
+
+upref_1 = UserPreference.create(upref1)
+upref_2 = UserPreference.create(upref2)
+upref_3 = UserPreference.create(upref3)
+upref_4 = UserPreference.create(upref4)
+upref_5 = UserPreference.create(upref5)
+upref_6 = UserPreference.create(upref6)
+
+
+
+
