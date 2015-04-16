@@ -27,11 +27,11 @@ prop_6 = FavoriteProperty.create(prop6)
 
 #type is rating or distance
 crit1 = {description: "museum", type: "distance", api_url: ""}
-crit2 = {description: "subway", type: "distance", api_url: ""}
+crit2 = {description: "workplace", type: "distance", api_url: "http://maps.googleapis.com/maps/api/directions/output"}
 crit3 = {description: "park", type: "distance", api_url: ""}
-crit4 = {description: "school", type: "rating", api_url: ""}
+crit4 = {description: "school", type: "rating", api_url: "http://api.greatschools.org/schools/"}
 crit5 = {description: "price", type: "rating", api_url: ""}
-crit6 = {description: "food", type: "distance", api_url: ""}
+crit6 = {description: "crime", type: "rating", api_url: "http://api.spotcrime.com/crimes.json"}
 
 crit_1 = Criterium.create(crit1)
 crit_2 = Criterium.create(crit2)
@@ -40,12 +40,12 @@ crit_4 = Criterium.create(crit4)
 crit_5 = Criterium.create(crit5)
 crit_6 = Criterium.create(crit6)
 
-upref1 = {score: , user_id: , criterium_id: }
-upref2 = {score: , user_id: , criterium_id: }
-upref3 = {score: , user_id: , criterium_id: }
-upref4 = {score: , user_id: , criterium_id: }
-upref5 = {score: , user_id: , criterium_id: }
-upref6 = {score: , user_id: , criterium_id: }
+upref1 = {score: 9, user_id: samsam.id, criterium_id: crit_1.id }
+upref2 = {score: 10, user_id: tracetrace.id, criterium_id: crit_2.id }
+upref3 = {score: 7, user_id: hoahoa.id, criterium_id: crit_3.id  }
+upref4 = {score: 7, user_id: kevkev.id , criterium_id: crit_4.id }
+upref5 = {score: 9, user_id: hoahoa.id, criterium_id: crit_5.id }
+upref6 = {score: 10, user_id: samsam.id,, criterium_id: crit_6.id }
 
 upref_1 = UserPreference.create(upref1)
 upref_2 = UserPreference.create(upref2)
