@@ -1,0 +1,13 @@
+<h4>Create an Account</h4>
+
+  <%= form_for :user, url: '/users' do |f| %>
+    <label>Email: <%= f.text_field :email %></label>
+    <label>Password: <%= f.password_field :password %></label>
+    <label>First Name: <%= f.text_field :first_name %></label>
+    <label>Last Name: <%= f.text_field :last_name %></label>
+    <label>Age: <%= f.number_field :first_name %></label>
+    <label>Gender (optional: please type 'M' for male and 'F' for female): <%=f.text_field :gender %></label>
+
+  <%= f.submit "Create Account" %>
+
+<% end %>
