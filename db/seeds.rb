@@ -1,9 +1,9 @@
 #add user photo url/upload in migration and seed?
 
-sam = {email: sam@gmail.com, password:"1212", password_confirmation: "1212", first_name: "Samantha", last_name: "Guergenenov", gender: "F", age: 24}
-trace = {email: tracy@gmail.com, password:"2323", password_confirmation: "2323", first_name: "Tracy", last_name: "Teague", gender: "F", age: 24}
-hoa = {email: hoa@gmail.com, password:"3434", password_confirmation: "3434", first_name: "Hoa", last_name: "Nguyen", gender: "M", age: 29}
-kev = {email: kevin@gmail.com, password:"4545", password_confirmation: "4545", first_name: "Kevin", last_name: "Alwell", gender: "M", age: 17}
+sam = {email: "sam@gmail.com", password:"1212", password_confirmation: "1212", first_name: "Samantha", last_name: "Guergenenov", gender: "F", age: 24}
+trace = {email: "tracy@gmail.com", password:"2323", password_confirmation: "2323", first_name: "Tracy", last_name: "Teague", gender: "F", age: 24}
+hoa = {email: "hoa@gmail.com", password:"3434", password_confirmation: "3434", first_name: "Hoa", last_name: "Nguyen", gender: "M", age: 29}
+kev = {email: "kevin@gmail.com", password:"4545", password_confirmation: "4545", first_name: "Kevin", last_name: "Alwell", gender: "M", age: 17}
 
 samsam = User.create(sam)
 tracetrace = User.create(trace)
@@ -47,7 +47,7 @@ upref2 = {score: 10, user_id: tracetrace.id, criterium_id: crit_2.id }
 upref3 = {score: 7, user_id: hoahoa.id, criterium_id: crit_3.id  }
 upref4 = {score: 7, user_id: kevkev.id , criterium_id: crit_4.id }
 upref5 = {score: 9, user_id: hoahoa.id, criterium_id: crit_5.id }
-upref6 = {score: 10, user_id: samsam.id,, criterium_id: crit_6.id }
+upref6 = {score: 10, user_id: samsam.id, criterium_id: crit_6.id }
 upref7 = {score: 6, user_id: tracetrace.id, criterium_id: crit_7.id }
 
 upref_1 = UserPreference.create(upref1)
