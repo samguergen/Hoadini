@@ -9,7 +9,9 @@
 </div>
 <br>
 	<div class="thumbnails">
-	<%= render :partial => 'properties'  %>
+		<% @properties.each do |property|
+			<%= render :partial => 'properties', locals: {property: property} %>
+		<%end%>
 	</div>
 <br>
 <% if session[:user_id] == @user.id %>
