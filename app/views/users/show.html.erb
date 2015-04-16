@@ -1,0 +1,21 @@
+
+<div class="jumbotron">
+  <h1><%= @user.first_name %> <%=@user.last_name%></h1>
+  	  <li><%= image_tag @user.avatar, :id => 'us_avatar' %></li>
+	  <li class='user_info'><%= @user.age %></li>
+	  <li class='user_info'><%= @user.gender %></li>
+
+  <p><a class="btn btn-primary btn-lg" href="#" role="button">Find Properties!</a></p>
+</div>
+<br>
+	<div class="thumbnails">
+		<% @properties.each do |property|
+			<%= render :partial => 'properties', locals: {property: property} %>
+		<%end%>
+	</div>
+<br>
+<% if session[:user_id] == @user.id %>
+<%= link_to "Edit my profile", edit_user_path, id: 'edit_prof' %>
+<%= link_to "Delete my profile", @user, method: :delete, data: {confirm: "Are you sure?"}, id: 'delete_prof' %>
+<% end %>
+
