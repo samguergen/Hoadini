@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20150416204308) do
     t.string   "last_name",       null: false
     t.string   "gender"
     t.string   "age"
+    t.string   "avatar"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end

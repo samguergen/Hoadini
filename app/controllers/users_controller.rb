@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
 
+
   def new
   end
+
 
   def create
     @user = User.new(user_params)
@@ -13,11 +15,11 @@ class UsersController < ApplicationController
     end
 
 
-	def show
-		#@user = User.find_by(id: session[:user_id])
-		@user = User.create(first_name:'kevin', last_name: 'alwell', gender: 'Male', age: 22 )
 
-	end 
+	def show
+		@user = User.find_by(id: session[:user_id])
+		@properties = Favorite_property.where(user_id: session:[user_id])
+	end
 
   private
 
