@@ -26,12 +26,13 @@ prop_5 = FavoriteProperty.create(prop5)
 prop_6 = FavoriteProperty.create(prop6)
 
 #type is rating or distance
-crit1 = {description: "museum", type: "distance", api_url: ""}
+crit1 = {description: "museum", type: "distance", api_url: "http://api.yelp.com/v2/search"}
 crit2 = {description: "workplace", type: "distance", api_url: "http://maps.googleapis.com/maps/api/directions/output"}
-crit3 = {description: "park", type: "distance", api_url: ""}
+crit3 = {description: "park", type: "distance", api_url: "http://api.yelp.com/v2/search"}
 crit4 = {description: "school", type: "rating", api_url: "http://api.greatschools.org/schools/"}
-crit5 = {description: "price", type: "rating", api_url: ""}
+crit5 = {description: "price", type: "rating", api_url: "http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm"}
 crit6 = {description: "crime", type: "rating", api_url: "http://api.spotcrime.com/crimes.json"}
+crit7 = {description: "food", type: "distance", api_url: "http://api.yelp.com/v2/search"}
 
 crit_1 = Criterium.create(crit1)
 crit_2 = Criterium.create(crit2)
@@ -39,6 +40,7 @@ crit_3 = Criterium.create(crit3)
 crit_4 = Criterium.create(crit4)
 crit_5 = Criterium.create(crit5)
 crit_6 = Criterium.create(crit6)
+crit_7 = Criterium.create(crit7)
 
 upref1 = {score: 9, user_id: samsam.id, criterium_id: crit_1.id }
 upref2 = {score: 10, user_id: tracetrace.id, criterium_id: crit_2.id }
@@ -46,6 +48,7 @@ upref3 = {score: 7, user_id: hoahoa.id, criterium_id: crit_3.id  }
 upref4 = {score: 7, user_id: kevkev.id , criterium_id: crit_4.id }
 upref5 = {score: 9, user_id: hoahoa.id, criterium_id: crit_5.id }
 upref6 = {score: 10, user_id: samsam.id,, criterium_id: crit_6.id }
+upref7 = {score: 6, user_id: tracetrace.id, criterium_id: crit_7.id }
 
 upref_1 = UserPreference.create(upref1)
 upref_2 = UserPreference.create(upref2)
@@ -53,7 +56,7 @@ upref_3 = UserPreference.create(upref3)
 upref_4 = UserPreference.create(upref4)
 upref_5 = UserPreference.create(upref5)
 upref_6 = UserPreference.create(upref6)
-
+upref_7 = UserPreference.create(upref7)
 
 
 
