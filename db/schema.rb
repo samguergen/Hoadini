@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20150416203239) do
 
   create_table "favorite_properties", force: :cascade do |t|
     t.string   "address",    null: false
+    t.integer  "user_id"
     t.integer  "rating",     null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
