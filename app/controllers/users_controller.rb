@@ -11,12 +11,17 @@ class UsersController < ApplicationController
     else
       redirect to '/signup'
     end
-  end
+
+
+	def show
+		#@user = User.find_by(id: session[:user_id])
+		@user = User.create(first_name:'kevin', last_name: 'alwell', gender: 'Male', age: 22 )
+
+	end 
 
   private
 
   def user_params
     params.require(:user).permit(:email, :password, :first_name, :last_name, :age, :gender)
   end
-
-end
+ end
