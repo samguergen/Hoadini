@@ -8,3 +8,8 @@
 	margin: 0 auto;
 	box-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
+
+.thumbnails{
+	text-align: center;
+	float: left;
+}
