@@ -1,0 +1,13 @@
+<p id='us_name'><%= @user.first_name %> <%=@user.last_name%></p>
+<div class="user_show">
+	<ul>
+	  <li><%= image_tag @user.avatar, :id => 'us_avatar' %></li>
+	  <li class='user_info'><%= @user.age %></li>
+	  <li class='user_info'><%= @user.gender %></li>
+	</ul>
+</div>
+
+<% if session[:user_id] == @user.id %>
+<%= link_to "Edit my profile", edit_user_path, id: 'edit_prof' %>
+<%= link_to "Delete my profile", @user, method: :delete, data: {confirm: "Are you sure?"}, id: 'delete_prof' %>
+<% end %>
