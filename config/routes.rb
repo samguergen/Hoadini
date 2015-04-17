@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
   resources :users
+
   resources :favorite_properties
+
+  resources :criteria
+
+  resources :user_preferences
+
+
   # TODO: ADD ROOT ROUTE(root to: )
 
   get '/properties/:id' => 'properties#show'
