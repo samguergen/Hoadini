@@ -15,7 +15,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<% if session[:user_id] == @user.id %>
+	<% if session[:user_id]%>
 		<%= link_to "Edit my profile", edit_user_path, id: 'edit_prof' %>
 	<% end %>
 
