@@ -11,12 +11,12 @@ hoahoa = User.create(hoa)
 kevkev = User.create(kev)
 
 
-prop1 = {address: "50 E 28th St, New York, NY 10016", rating: 9, user_id: samsam.id}
-prop2 = {address: "101 W End Ave, New York, NY 10023", rating: 8, user_id: tracetrace.id}
-prop3 = {address: "1 Stuyvesant Oval, New York, NY 10009", rating: 7, user_id: hoahoa.id}
-prop4 = {address: "515 W 52nd St, New York, NY 10019", rating: 10, user_id: tracetrace.id}
-prop5 = {address: "11 E 1st St, New York, NY 10003", rating: 8, user_id: kevkev.id}
-prop6 = {address: "105 W 29th St, New York, NY 10001", rating: 9, user_id: samsam.id}
+prop1 = {address: "50 E 28th St, New York, NY 10016", rating: 9, user_id: samsam.id, title: 'Beautiful Apartment', description: 'beautiful apartment that overlooks the city, lots of people around all the damyummnyum time.'}
+prop2 = {address: "101 W End Ave, New York, NY 10023", rating: 8, user_id: tracetrace.id, title: 'Beautiful Apartment', description: 'beautiful apartment that overlooks the city, lots of people around all the damyummnyum time.'}
+prop3 = {address: "1 Stuyvesant Oval, New York, NY 10009", rating: 7, user_id: hoahoa.id, title: 'Beautiful Apartment', description: 'beautiful apartment that overlooks the city, lots of people around all the damyummnyum time.'}
+prop4 = {address: "515 W 52nd St, New York, NY 10019", rating: 10, user_id: tracetrace.id, title: 'Beautiful Apartment', description: 'beautiful apartment that overlooks the city, lots of people around all the damyummnyum time.'}
+prop5 = {address: "11 E 1st St, New York, NY 10003", rating: 8, user_id: kevkev.id, title: 'Beautiful Apartment', description: 'beautiful apartment that overlooks the city, lots of people around all the damyummnyum time.'}
+prop6 = {address: "105 W 29th St, New York, NY 10001", rating: 9, user_id: samsam.id, title: 'Beautiful Apartment', description: 'beautiful apartment that overlooks the city, lots of people around all the damyummnyum time.'}
 
 prop_1 = FavoriteProperty.create(prop1)
 prop_2 = FavoriteProperty.create(prop2)

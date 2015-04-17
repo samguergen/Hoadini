@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   resources :favorite_properties
   # TODO: ADD ROOT ROUTE(root to: )
 
+  get '/properties/:id' => 'properties#show'
+  get '/properties' => 'properties#index'
+  
   get '/signup' => 'users#new'
   post'/users' => 'users#create'
 
