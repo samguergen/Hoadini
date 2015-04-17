@@ -33,7 +33,7 @@ class CriteriaController < ApplicationController
   def update
     @criterium = Criterium.find_by(id: params[:id])
     if session[:user_id] == @criterium.user_id
-      @criterum.update_attributes(criterium_params)
+      @criterum.update_attributes(edit_criterium_params)
       redirect_to root_path
     else
       flash[:notice] = "You cannot edit these criteria"
@@ -57,6 +57,10 @@ private
 
   def criterium_params
     params.require(:criterium).permit(:description, :kind, :api_url)
+  end
+
+  def edit_criterium_params
+    params.require(:criterium).permit(:description, :kind, :api_url).merge(:user_id)
   end
 
 end
