@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :users
   resources :favorite_properties
 
+  # TODO: fix for current_user
   root 'sessions#new'
 
   get '/signup' => 'users#new'
