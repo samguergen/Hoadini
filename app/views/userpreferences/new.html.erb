@@ -1,0 +1,12 @@
+<%= form_for @new_user_pref do |f| %>
+  <fieldset>
+    <legend> What features are most important to you? </legend>
+      <%= f.label :score %>
+      <%= f.text_area :score %>
+      <%= f.label :criterium.description %>
+      <%= f.text_area :criterium.description  %>
+      <%= %>
+      <%= %>
+      <%= f.submit %>
+    </fieldset>
+  <% end %>
