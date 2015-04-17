@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :authentications
   has_secure_password
 
   has_many :favorite_properties

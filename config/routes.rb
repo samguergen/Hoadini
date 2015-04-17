@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  resources :authentications
   resources :users
   resources :favorite_properties
+
+  get '/auth/:provider/callback' => 'authentications#create'
 
   # TODO: fix for current_user
   root 'sessions#new'
