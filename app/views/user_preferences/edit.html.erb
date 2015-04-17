@@ -1,16 +1,27 @@
-<%= form_for @new_user_pref do |f| %>
-
+<%= form_for @user_pref do |f| %>
   <fieldset>
     <legend> Modify your feature preference. </legend>
     <div align="center"><br>
-      <%= form_for @user_pref do |f| %>
+      Criterium: <input type="text" name="criterium_id" value=@user_pref.criterium_id ><br>
+      Score: <input type="text" name="score" value=@user_pref.score >
+      <input type="submit" value="Modify">
+    </div>
+  </fieldset>
+<% end %>
+
+<% if false %>
+<%= form_for @user_pref do |f| %>
+  <fieldset>
+    <legend> Modify your feature preference. </legend>
+    <div align="center"><br>
       <%= f.label :criterium.description %>
       <%= f.text_area :criterium.description %>
       <%= f.label :score %>
       <%= f.text_area :score %>
-      <% end %>
       <%= f.submit value="Modify" %>
     </div>
   </fieldset>
+
+<% end %>
 
 <% end %>

@@ -5,8 +5,11 @@
     <div align="center"><br>
       <% @criteria.each do |c| %>
 
-      <input type="radio" name="criterium_id" value= <%= c.id %> > <%=c.description%> <br>
+      <input type="radio" name="criterium_id" value= <%= c.id %> > <%=c.description%>
+
+       <br>
       <% end %>
+      Your score <input name="score">
       <%= f.submit value="Add your preference!" %>
     </div>
   </fieldset>
