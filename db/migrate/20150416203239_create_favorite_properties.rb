@@ -2,8 +2,13 @@ class CreateFavoriteProperties < ActiveRecord::Migration
   def change
     create_table :favorite_properties do |t|
       t.string :address, null: false
-      t.references :user
       t.integer :rating, null: false
+      t.integer :price
+      t.string :picture
+      t.string :title
+      t.string :description
+      t.references :user
+
 
       t.timestamps null: false
     end

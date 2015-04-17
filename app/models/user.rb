@@ -10,4 +10,6 @@ class User < ActiveRecord::Base
   validates_length_of :password,
                       minimum: 5,
                       maximum: 15
+
+    
 end

@@ -12,10 +12,11 @@ class UsersController < ApplicationController
     else
       redirect to '/signup'
     end
+   end
 
 	def show
 		@user = User.find_by(id: session[:user_id])
-		@properties = Favorite_property.where(user_id: session:[user_id])
+		@properties = FavoriteProperty.where(user_id: @user.id)
 	end
 
   private
