@@ -43,7 +43,13 @@ class CriteriaController < ApplicationController
 
 
   def destroy
-
+    @doomed_criterium = Criterium.find_by(id: params[:id])
+    if session[:user_id] == @doomed_criterum.user_id
+      @doomed_criterium.destroy!
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
   end
 
 
