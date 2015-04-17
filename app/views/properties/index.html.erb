@@ -98,8 +98,15 @@ google.maps.event.addDomListener(window, 'load', initialize);
     <ul>
     <% @properties.each do |property|%>
   
-    		<li><%= property.title %></li>
-    		<li><%= property.description %></li>
+	    <div class="row">
+	  <div class="col-xs-6">
+	    <a href="/property/<%=property.id%>" class="thumbnail">
+	      <img src="http://unescovietnam.vn/vnf/images/stories/van_hoa/tin_van_hoa/Vietnam-46.jpg">
+	    </a>
+	  </div>
+	  <%=property.title%>
+	  <%=property.address%>
+	</div>
   
     <% end %>
    	</ul>
