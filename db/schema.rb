@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20150416204308) do
 
   create_table "criteria", force: :cascade do |t|
     t.string   "description", null: false
-    t.string   "type",        null: false
+    t.string   "kind",        null: false
     t.string   "api_url",     null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
