@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :users
 
+  resources :criteria
+
   # TODO: ADD ROOT ROUTE(root to: )
 
   get '/signup' => 'users#new'
