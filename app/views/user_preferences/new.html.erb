@@ -5,7 +5,7 @@
     <div align="center"><br>
       <% @criteria.each do |c| %>
 
-      <input type="radio" name=<%=c.description%> value= <%= c.description%> > <%=c.description%> <br>
+      <input type="radio" name="criterium_id" value= <%= c.id %> > <%=c.description%> <br>
       <% end %>
       <%= f.submit value="Add your preference!" %>
     </div>

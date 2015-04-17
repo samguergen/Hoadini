@@ -3,9 +3,11 @@
   <fieldset>
     <legend> Modify your feature preference. </legend>
     <div align="center"><br>
-      <%= form_for @ do |f| %>
-      <%= f.label :%>
-      <%= f.text_area
+      <%= form_for @user_pref do |f| %>
+      <%= f.label :criterium.description %>
+      <%= f.text_area :criterium.description %>
+      <%= f.label :score %>
+      <%= f.text_area :score %>
       <% end %>
       <%= f.submit value="Modify" %>
     </div>
