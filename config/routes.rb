@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :users
-
+  resources :favorite_properties
   # TODO: ADD ROOT ROUTE(root to: )
 
   get '/signup' => 'users#new'
