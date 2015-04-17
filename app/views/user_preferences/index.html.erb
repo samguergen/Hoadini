@@ -1,2 +1,5 @@
 <% @user_prefs.each do |u| %>
-<%= @u
+<p> <%= u.criterium.description %>
+| <%= u.score %>
+| <%= u.user.first_name %> </p>
+<% end %>
