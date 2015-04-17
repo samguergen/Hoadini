@@ -1,4 +1,6 @@
-<% @user_prefs.each do |u| %>
+My housing preferences:
+
+<% @all_user_prefs.each do |u| %>
 <p> <%= u.criterium.description %>
 | <%= u.score %>
 | <%= u.user.first_name %> </p>
