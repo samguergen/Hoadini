@@ -2,8 +2,8 @@
 
 sam = {name: 'sam'}
 trace = {name: 'tracy'}
-hoa = {name: 'hoa'}
-kev = {name: 'kevin'}
+hoa = {name: "Hoa The Nguyen", oauth_token: "ya29.WQFBIVWv1qLnIV9vr3s3qs92ONddMLLMv6ck3zFpKpWfn...", provider: "google_oauth2", uid: "109918401376962043632", oauth_expires_at: "2015-04-18 17:08:22 -0400"}
+kev = {name: 'Kevin Alwell', provider: "google_oauth2", uid: "108795988358950162237", oauth_token: "ya29.WQHstYEa6BsftTS7Y68yaZN_Sh0AnUfajx_6ZT6eabmYh...", provider: "google_oauth2", uid: "108795988358950162237", oauth_expires_at: "2015-04-18 16:44:50 -0400"}
 
 samsam = User.create(sam)
 tracetrace = User.create(trace)
