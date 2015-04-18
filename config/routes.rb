@@ -19,8 +19,8 @@ Rails.application.routes.draw do
   # end
   # TODO: ADD ROOT ROUTE(root to: )
 
-  get '/properties/:id' => 'properties#show'
-  get '/properties' => 'properties#index'
+  # get '/properties/:id' => 'properties#show'
+  # get '/properties' => 'properties#index'
   
   get '/signup' => 'users#new'
   post'/users' => 'users#create'
@@ -28,6 +28,15 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
+
+
+
+
+  resources :properties, only: [:show, :index] do
+    collection do
+      get 'list'
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
