@@ -25,6 +25,7 @@
 			    </div>
 
 			    <!-- Collect the nav links, forms, and other content for toggling -->
+			<%= if session[:user_id] %>
 			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			      <ul class="nav navbar-nav">
 			        <li class="active"><a href="#">Link 1 <span class="sr-only">(current)</span></a></li>
@@ -64,13 +65,53 @@
 			    </div><!-- /.navbar-collapse -->
 			  </div><!-- /.container-fluid -->
 			</nav>
-
 		</header>
+	 <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide">
+      <div class="carousel-inner">
+        <div class="item active">
+          <%= image_tag("bedroom_logo.png", :alt =>"bedroom logo") %>
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Example headline.</h1>
+              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <a class="btn btn-large btn-primary" href="#">Sign up today</a>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <%= image_tag("bedroom_logo.png", :alt =>"bedroom logo") %>
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Another example headline.</h1>
+              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <a class="btn btn-large btn-primary" href="#">Learn more</a>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <%= image_tag("bedroom_logo.png", :alt =>"bedroom logo") %>
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>One more for good measure.</h1>
+              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <a class="btn btn-large btn-primary" href="#">Browse gallery</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+    </div><!-- /.carousel -->
+
+</div>
+
 <!-- 		<div class="container">
 			<div class="row"> -->
-				<div class="jumbotron">
-					<%= image_tag("bedroom_logo.png", :alt =>"bedroom logo") %>
-				</div>
+<!-- 				<div class="jumbotron">
+					<%#= image_tag("bedroom_logo.png", :alt =>"bedroom logo") %>
+				</div> -->
 <!-- 			</div> -->
 			<div class="row">
 				<% if session[:user_id]%>
