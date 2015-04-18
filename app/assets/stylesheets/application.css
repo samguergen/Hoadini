@@ -76,12 +76,12 @@
     font-size: 13px;
     font-weight: 300;
   }
-
-  .properties-list{
-    height: 450px;
-    width: 300px;
-    float: right;
-    overflow: scroll;
-    border: 2px solid black;
-  }
+      .properties-list{
+      	text-align: center;
+      	height: 450px;
+      	width: 300px;
+      	float: right;
+      	overflow: scroll;
+      	border: 2px solid #4d90fe;
+      }
 
