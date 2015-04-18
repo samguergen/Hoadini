@@ -7,13 +7,16 @@ Rails.application.routes.draw do
 
   resources :user_preferences
 
+  # GoogleAuthExample::Application.routes.draw do
+   get 'auth/:provider/callback', to: 'sessions#create'
+   get 'auth/failure', to: redirect('/')
+   get 'signout', to: 'sessions#destroy', as: 'signout'
 
   if @current_user
     root 'users#show'
   else
     root 'sessions#new'
   end
-
   get '/properties/:id' => 'properties#show'
   get '/properties' => 'properties#index'
 

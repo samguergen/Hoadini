@@ -1,15 +1,24 @@
-My preferences:
+<h2> What features are important for you? </h2>
 
-<% @user_prefs.each do |u| %>
 
-<p> <%= u.criterium.description %>
-| <%= u.score %>
-| <%= u.user.first_name %> </p>
+<b> Criteria | Importance (1-10) </b>
+
 
 <%= link_to "Edit my priority score for this preference", edit_user_preference_path(u) %>
 
-<%= link_to "Delete preference", u,  method: :delete, data: {confirm: "Are you sure?"} %>
+ <p> <% @user_prefs.sort_by do |u| %>
+
+
+<p> <%= u.criterium.description %> | <%= u.score %>
+
+<%= link_to "Edit", edit_user_preference_path(u) %>
+
+<%= link_to "Delete", u,  method: :delete, data: {confirm: "Are you sure?"} %>
+</p>
+</p>
 
 <% end %>
+
+</p>
 
 
