@@ -80,21 +80,22 @@ function initialize() {
   // current map's viewport.
 google.maps.event.addListener(map, 'bounds_changed', function() {
     var bounds = map.getBounds();
-    var ne = bound.getNorthEast();
-    var sw = bound.getSouthWest();
+    var ne = bounds.getNorthEast();
+    var sw = bounds.getSouthWest();
     var nelat = ne.lat();
     var nelng = ne.lng();
     var swlat = sw.lat();
     var swlng = sw.lng();
     searchBox.setBounds(bounds);
     $.ajax({
+
       url: '/properties/list',
       data: {nelatitude: nelat,
              nelongitude: nelng,
               swlatitde: swlat,
               swlongitude : swlng
            }
-    })
+    });
   });
 }
 
