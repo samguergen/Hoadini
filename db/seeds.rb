@@ -1,9 +1,9 @@
 #add user photo url/upload in migration and seed?
 
-sam = {email: "sam@gmail.com", password:"12122", password_confirmation: "12122", first_name: "Samantha", last_name: "Guergenenov", gender: "F", age: 24}
-trace = {email: "tracy@gmail.com", password:"23233", password_confirmation: "23233", first_name: "Tracy", last_name: "Teague", gender: "F", age: 24}
-hoa = {email: "hoa@gmail.com", password:"34344", password_confirmation: "34344", first_name: "Hoa", last_name: "Nguyen", gender: "M", age: 29}
-kev = {email: "kevin@gmail.com", password:"45455", password_confirmation: "45455", first_name: "Kevin", last_name: "Alwell", gender: "M", age: 17}
+sam = {name: 'sam'}
+trace = {name: 'tracy'}
+hoa = {name: 'hoa'}
+kev = {name: 'kevin'}
 
 samsam = User.create(sam)
 tracetrace = User.create(trace)
