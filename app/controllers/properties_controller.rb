@@ -5,7 +5,6 @@ class PropertiesController < ApplicationController
 	end
 
 	def show
-
 	end
 
   def list
