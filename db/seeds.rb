@@ -1,9 +1,9 @@
 #add user photo url/upload in migration and seed?
 
-sam = {email: "sam@gmail.com", password:"12122", password_confirmation: "12122", first_name: "Samantha", last_name: "Guergenenov", gender: "F", age: 24}
-trace = {email: "tracy@gmail.com", password:"23233", password_confirmation: "23233", first_name: "Tracy", last_name: "Teague", gender: "F", age: 24}
-hoa = {email: "hoa@gmail.com", password:"34344", password_confirmation: "34344", first_name: "Hoa", last_name: "Nguyen", gender: "M", age: 29}
-kev = {email: "kevin@gmail.com", password:"45455", password_confirmation: "45455", first_name: "Kevin", last_name: "Alwell", gender: "M", age: 17}
+sam = {name: 'sam'}
+trace = {name: 'tracy'}
+hoa = {name: "Hoa The Nguyen", oauth_token: "ya29.WQFBIVWv1qLnIV9vr3s3qs92ONddMLLMv6ck3zFpKpWfn...", provider: "google_oauth2", uid: "109918401376962043632", oauth_expires_at: "2015-04-18 17:08:22 -0400"}
+kev = {name: 'Kevin Alwell', provider: "google_oauth2", uid: "108795988358950162237", oauth_token: "ya29.WQHstYEa6BsftTS7Y68yaZN_Sh0AnUfajx_6ZT6eabmYh...", provider: "google_oauth2", uid: "108795988358950162237", oauth_expires_at: "2015-04-18 16:44:50 -0400"}
 
 samsam = User.create(sam)
 tracetrace = User.create(trace)
