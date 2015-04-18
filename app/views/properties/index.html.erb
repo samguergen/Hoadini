@@ -4,7 +4,7 @@
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    
+
     <title>Places search box</title>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
 
@@ -78,9 +78,17 @@ function initialize() {
 
   // Bias the SearchBox results towards places that are within the bounds of the
   // current map's viewport.
-  google.maps.event.addListener(map, 'bounds_changed', function() {
+google.maps.event.addListener(map, 'bounds_changed', function() {
     var bounds = map.getBounds();
+    var ne = bound.getNorthEast();
+    var nelat = ne.lat();
+    var nelng = ne.lng();
     searchBox.setBounds(bounds);
+    $.ajax({
+      url: '/properties/list',
+      data: {nelatitude: nelat,
+             nelongitude: nelng}
+    })
   });
 }
 
@@ -99,7 +107,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
     <div class='properties-list'>
     <ul>
     <% @properties.each do |property|%>
-  
+
 	    <div class="row">
 	  <div class="col-xs-6">
 	    <a href="/property/<%=property.id%>" class="thumbnail">
@@ -109,7 +117,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 	  <%=property.title%>
 	  <%=property.address%>
 	</div>
-  
+
     <% end %>
    	</ul>
     </div>
