@@ -1,5 +1,5 @@
 <div id='navigator-bar'>
-  Logged in as: <%= @user.email %> |
+  Logged in as: <%= @user.name %>
   <a href="/users/<%= session[:user_id]%>">User Account</a> |
   <a href="/properties">Search Properties</a> |
   <%= link_to 'Logout', '/logout' %>
