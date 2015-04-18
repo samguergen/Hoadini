@@ -8,11 +8,15 @@ Rails.application.routes.draw do
   resources :user_preferences
 
 
-  # TODO: ADD ROOT ROUTE(root to: )
+  if @current_user
+    root 'users#show'
+  else
+    root 'sessions#new'
+  end
 
   get '/properties/:id' => 'properties#show'
   get '/properties' => 'properties#index'
-  
+
   get '/signup' => 'users#new'
   post'/users' => 'users#create'
 
