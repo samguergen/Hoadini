@@ -16,7 +16,7 @@
 <div class='delete'>
 	<% if session[:user_id] == @user.id %>
 		<%= link_to "Delete profile", @user, method: :delete, data: {confirm: "Are you sure?"}, id: 'delete_prof' %>
-		
+
 		<%= link_to "Edit my profile", edit_user_path, id: 'edit_prof' %>
 	<% end %>
 </div>

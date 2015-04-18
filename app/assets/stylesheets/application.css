@@ -1,84 +1,87 @@
+
 .jumbotron{
-	text-align: center;
+  text-align: center;
 }
 
 .ui_avatar {
-	width: 3.3em;
-	height: 3.3em;
-	margin: 0 auto;
-	box-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  width: 3.3em;
+  height: 3.3em;
+  margin: 0 auto;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 .thumbnails{
-	text-align: center;
-	float: left;
+  text-align: center;
+  float: left;
 }
 
 /*nav bar*/
 
 #nav-menu{
-	text-align: center;
-	width: auto;
-  	font-family: Helvetica, Arial, sans-serif;
-  	color: #ffffff;
+  text-align: center;
+  width: auto;
+  font-family: Helvetica, Arial, sans-serif;
+  color: #ffffff;
 }
 
-      html, body, #map-canvas {
-        height: 80%;
-  		margin: 100px;
-  		padding: 0px;
-  		width: 70%;
-      }
-      .container{
-      	width:100%;
-      }
+  html, body, #map-canvas {
+    height: 80%;
+    margin: 100px;
+    padding: 0px;
+    width: 70%;
+  }
 
-      .controls{
-        margin-top: 16px;
-        border: 1px solid transparent;
-        border-radius: 2px 0 0 2px;
-        box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        height: 32px;
-        outline: none;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-      }
+  .container{
+    width:100%;
+  }
 
-      #pac-input{
-        background-color: #fff;
-        font-family: Roboto;
-        font-size: 15px;
-        font-weight: 300;
-        margin-left: 12px;
-        padding: 0 11px 0 13px;
-        text-overflow: ellipsis;
-        width: 400px;
-      }
+  .controls{
+    margin-top: 16px;
+    border: 1px solid transparent;
+    border-radius: 2px 0 0 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    height: 32px;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  }
 
-      #pac-input:focus {
-        border-color: #4d90fe;
-      }
+  #pac-input{
+    background-color: #fff;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    margin-left: 12px;
+    padding: 0 11px 0 13px;
+    text-overflow: ellipsis;
+    width: 400px;
+  }
 
-      .pac-container {
-        font-family: Roboto;
-      }
+  #pac-input:focus {
+    border-color: #4d90fe;
+  }
 
-      #type-selector {
-        color: #fff;
-        background-color: #4d90fe;
-        padding: 5px 11px 0px 11px;
-      }
+  .pac-container {
+    font-family: Roboto;
+  }
 
-      #type-selector label {
-        font-family: Roboto;
-        font-size: 13px;
-        font-weight: 300;
-      }
+  #type-selector {
+    color: #fff;
+    background-color: #4d90fe;
+    padding: 5px 11px 0px 11px;
+  }
 
-      .properties-list{
-      	height: 450px;
-      	width: 300px;
-      	float: right;
-      	overflow: scroll;
-      	border: 2px solid black;
-      }
+  #type-selector label {
+    font-family: Roboto;
+    font-size: 13px;
+    font-weight: 300;
+  }
+
+  .properties-list{
+    height: 450px;
+    width: 300px;
+    float: right;
+    overflow: scroll;
+    border: 2px solid black;
+  }
+
