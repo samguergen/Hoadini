@@ -48,6 +48,7 @@ function initialize() {
 
     // For each place, get the icon, place name, and location.
     markers = [];
+    //variable bounds contains window boundaries
     var bounds = new google.maps.LatLngBounds();
     for (var i = 0, place; place = places[i]; i++) {
       var image = {
@@ -112,6 +113,5 @@ google.maps.event.addDomListener(window, 'load', initialize);
     <% end %>
    	</ul>
     </div>
-
   </body>
 </html>
