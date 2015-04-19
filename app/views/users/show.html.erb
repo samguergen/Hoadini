@@ -1,12 +1,25 @@
+ <!-- Bootstrap core CSS -->
+<link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="../../dist/css/user_show.css" rel="stylesheet">
 
+<!-- Jumbotron -->
 <div class="jumbotron">
-
-  <h1><%= @user.name %></h1>
-  <p><a class="btn btn-primary btn-lg" href="#" role="button">Find Properties!</a></p>
+  <h3><%= @user.name %></h3>
+ <p><a class="btn btn-primary btn-sm" href="/properties" role="button">Find Properties!</a></
 </div>
-<br>
-    <% @properties.each do |property| %>
-      <%= render :partial => 'properties', locals: {property: property} %>
-    <%end%>
+
+<!-- Example row of columns -->
+<h4>Favorite Properties</h4>
+    <p>There will be three columns with divs below containing property information, including picture, description, and link to view individual property here.</p>
+<div class="row">
+  <% @properties.each do |property| %>
+  <div class="col-lg-4">
+    <h3><%= property %></h3>
+    <p><%=property.description%></p>
+    <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
   </div>
-<br>
+  <% end %>
+</div>
+
+
+
