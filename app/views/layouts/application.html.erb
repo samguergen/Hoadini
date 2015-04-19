@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>Hoadini</title>
-	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	  <%= stylesheet_link_tag    'application', media: 'all' %>
+	  <%= javascript_include_tag 'application' %>
 	  <%= csrf_meta_tags %>
 	  <!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -18,7 +18,8 @@
 	<% if session[:user_id]%>
 		<ul id='nav-menu'>
 		  <li><a href="/users/<%= session[:user_id]%>">Home</a></li>
-		  <li><a href="/properties">search</a></li>
+		  <li><a href="/user_preferences">Property Criteria</a></li>
+		  <li><a href="/properties">Search</a></li>
 		  <li><a href="/login">Not You?</a></li>
 		  <li><a href="/logout">Logout</a></li>
 		</ul>
