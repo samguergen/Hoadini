@@ -30,6 +30,8 @@ gem "omniauth-google-oauth2", "~> 0.2.1"
 
 gem 'httparty'
 
+gem 'yelp', require: 'yelp'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
