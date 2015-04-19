@@ -32,9 +32,10 @@ class PropertiesController < ApplicationController
   end
 
   def yummy
-    @yelp = HTTParty.get('http://api.yelp.com/v2/business'),
+    @yelp = HTTParty.get('http://api.yelp.com/v2/business',
                       {query: {distance: params[:distance],
                                location: params[:location],
-                               name: params[:name]}}
+                               name: params[:name]}
+                      })
   end
 end
