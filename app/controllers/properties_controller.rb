@@ -30,12 +30,4 @@ class PropertiesController < ApplicationController
                       })
     # will count the number of crimes within the radius of the location via results as shown through properties/crime.html.erb
   end
-
-  def yummy
-    @yelp = HTTParty.get('http://api.yelp.com/v2/business',
-                      {query: {distance: params[:distance],
-                               location: params[:location],
-                               name: params[:name]}
-                      })
-  end
 end

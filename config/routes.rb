@@ -36,7 +36,6 @@ Rails.application.routes.draw do
     collection do
       get 'list'
       get 'crime'
-      get 'yummy'
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.
