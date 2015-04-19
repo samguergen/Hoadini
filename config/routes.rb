@@ -18,8 +18,6 @@ Rails.application.routes.draw do
     root 'sessions#new'
   end
 
-  get '/properties/:id' => 'properties#show'
-  get '/properties' => 'properties#index'
   # resources :sessions, only: [:create, :destroy]
   # resource :home, only: [:show]
 
@@ -43,7 +41,9 @@ Rails.application.routes.draw do
     collection do
       get 'list'
       get 'crime'
+      get 'yelp_distance_subway'
     end
+
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -13,6 +13,8 @@
 
 ActiveRecord::Schema.define(version: 20150416204308) do
 
+  enable_extension "plpgsql"
+
   create_table "criteria", force: :cascade do |t|
     t.string   "description", null: false
     t.string   "kind",        null: false

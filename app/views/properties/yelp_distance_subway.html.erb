@@ -1,0 +1,5 @@
+<p><b> Subway name | Distance from property (in meters)</b></p>
+<% @subways.businesses.each do |b| %>
+<p> <%= b.name %>
+| <%= b.distance %> </p>
+<% end %>
