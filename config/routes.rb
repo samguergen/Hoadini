@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   # get '/properties/:id' => 'properties#show'
   # get '/properties' => 'properties#index'
-  
+
   get '/signup' => 'users#new'
   post'/users' => 'users#create'
 
@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   resources :properties, only: [:show, :index] do
     collection do
       get 'list'
+      get 'crime'
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.
