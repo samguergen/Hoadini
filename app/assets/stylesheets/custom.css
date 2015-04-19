@@ -29,7 +29,7 @@ html {
 */
 /* Kevin's CSS */
 
-/*
+
 .ui_avatar {
   width: 3.3em;
   height: 3.3em;
@@ -40,7 +40,7 @@ html {
 .thumbnails{
   text-align: center;
   float: left;
-}*/
+}
 
 /*nav bar*/
 
@@ -50,19 +50,21 @@ html {
   font-family: Helvetica, Arial, sans-serif;
   color: #ffffff;
 }
-
-  html, body, #map-canvas {
-    height: 80%;
-    margin: 100px;
+*/
+  body, #map-canvas {
+    visibility: visible !important;
+    position: absolute !important;
+    height: 70%;
+    margin: 50px;
     padding: 0px;
     width: 70%;
   }
-
+/*
   .container {
     width:100%;
     background-color: yellow;
     ;
-  }
+  }*/
 
   .controls{
     margin-top: 16px;
@@ -112,5 +114,5 @@ html {
         float: right;
         overflow: scroll;
         border: 2px solid #4d90fe;
-      }*/
+      }
 
