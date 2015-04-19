@@ -38,7 +38,7 @@ class PropertiesController < ApplicationController
   end
 
 
-  def yelp
+  def yelp_distance
    # this is just to setup the connection
     businesses = Yelp::Client.new({ consumer_key: 'UY_Ov3aMEcbjqLLvnZ1Qfw',
                                      consumer_secret: 'nyuOcG7kvFI83aeiAxg2PA5w6tU',
