@@ -56,9 +56,9 @@ html {
   body, #map-canvas {
     visibility: visible !important;
     position: absolute !important;
-    height: 70%;
-    margin: 50px;
-    padding: 0px;
+    height: 80%;
+/*    margin: 50px;*/
+    padding: 30px 0px 0px 30px;
     width: 70%;
   }
 /*
@@ -109,12 +109,15 @@ html {
     font-size: 13px;
     font-weight: 300;
   }
-      .properties-list{
-        text-align: center;
-        height: 450px;
-        width: 300px;
-        float: right;
-        overflow: scroll;
-        border: 2px solid #4d90fe;
-      }
+
+
+  .properties-list{
+    position: relative;
+    text-align: center;
+    height: 500px;
+    width: 30%;
+    float: right;
+    overflow: scroll;
+    border: 2px solid #4d90fe;
+  }
 

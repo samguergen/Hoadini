@@ -8,15 +8,19 @@
 
   <%= javascript_include_tag "google_map.js" %>
 
+    <style>
+      #target {
+        width: 345px;
+      }
     </style>
   </head>
   <body>
-    <div> .col-xs-12 .col-sm-6 .col-lg-8>
-      <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-      <div id="map-canvas"></div>
-    </div>
+  <div .col-xs-12 .col-sm-6 .col-lg-8>
+    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+    <div id="map-canvas"></div>
+  </div>
 
-  <div class='properties-list'.col-xs-12 .col-sm-6 .col-lg-4>
+  <div class='properties-list'>
     <ul>
     <% @properties.each do |property|%>
 
@@ -32,7 +36,6 @@
 
     <% end %>
     </ul>
-      </div>
     </div>
   </body>
 </html>
