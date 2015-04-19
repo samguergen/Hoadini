@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   resources :properties, only: [:show, :index] do
     collection do
       get 'list'
+      get 'crime'
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.

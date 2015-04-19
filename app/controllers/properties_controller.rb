@@ -5,6 +5,7 @@ class PropertiesController < ApplicationController
 	end
 
 	def show
+    #
 	end
 
   def list
@@ -17,4 +18,17 @@ class PropertiesController < ApplicationController
                                provider: 'airbnb,housetrip'},
                        headers: {'X-Mashape-Key' => 'Aq8RN3VWDnmshWqAaThekfgTPEbap1a3Tn3jsnBYV3fjrNDyQZ'}})
   end
+
+  def crime
+    # get URL is the api call up until the '?' for proceeding params
+    @crime = HTTParty.get('http://api.spotcrime.com/crimes.json',
+    # take from params on URL
+                      { query: { lat: params[:lat],
+                                 lon: params[:lon],
+                                 key: params[:key],
+                                 radius: params[:radius]}
+                      })
+    # will count the number of crimes within the radius of the location via results as shown through properties/crime.html.erb
+  end
+
 end
