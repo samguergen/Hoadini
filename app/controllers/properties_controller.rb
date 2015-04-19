@@ -37,4 +37,21 @@ class PropertiesController < ApplicationController
     # will count the number of crimes within the radius of the location via results as shown through properties/crime.html.erb
   end
 
+
+  def yelp
+   # this is just to setup the connection
+    businesses = Yelp::Client.new({ consumer_key: 'UY_Ov3aMEcbjqLLvnZ1Qfw',
+                                     consumer_secret: 'nyuOcG7kvFI83aeiAxg2PA5w6tU',
+                                     token: 'F0xUFQo9Tu6yTHtFli-8Ds-jxLHlLjYs',
+                                     token_secret: 'o_UfHL_LzaTu12UlPmw3vft-o-c'
+                          })
+
+    params = { term: 'food',
+               limit: 10,
+               category_filter: 'discgolf'}
+
+    # This is how you search
+        @search = businesses.search('San Francisco', params)
+  end
+
 end
