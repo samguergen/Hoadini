@@ -1,41 +1,21 @@
-  <head>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
+<%= javascript_include_tag "google_map.js" %>
 
-    <title>Places search box</title>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
-
-
-  <%= javascript_include_tag "google_map.js" %>
-
-    <style>
-      #target {
-        width: 345px;
-      }
-    </style>
-  </head>
-  <body>
-  <div .col-xs-12 .col-sm-6 .col-lg-8>
-    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-    <div id="map-canvas"></div>
-  </div>
-
+<div id="map-canvas">
+  <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+</div>
   <div class='properties-list'>
     <ul>
     <% @properties.each do |property|%>
-
       <div class="row">
-    <div class="col-xs-6">
-      <a href="/property/<%=property.id%>" class="thumbnail">
-        <img src="http://unescovietnam.vn/vnf/images/stories/van_hoa/tin_van_hoa/Vietnam-46.jpg">
-      </a>
-    </div>
-    <%=property.title%>
-    <%=property.address%>
-  </div>
-
+        <div .col-md-4 .col-xs-4 >
+          <a href="/properties/<%property.id%>" class="thumbnail">
+          <img src="http://unescovietnam.vn/vnf/images/stories/van_hoa/tin_van_hoa/Vietnam-46.jpg">
+          </a>
+        </div>
+        <%=property.title%>
+        <%=property.address%>
+      </div>
     <% end %>
     </ul>
-    </div>
-  </body>
-</html>
+  </div>
+</div>
