@@ -1,22 +1,15 @@
 Rails.application.routes.draw do
   resources :users
-
   resources :favorite_properties
-
+  resources :properties
   resources :criteria
-
   resources :user_preferences
+  resources :welcome
 
   # GoogleAuthExample::Application.routes.draw do
    get 'auth/:provider/callback', to: 'sessions#create'
    get 'auth/failure', to: redirect('/')
    get 'signout', to: 'sessions#destroy', as: 'signout'
-
-  if @current_user
-    root 'users#show'
-  else
-    root 'sessions#new'
-  end
 
   get '/properties/:id' => 'properties#show'
   get '/properties' => 'properties#index'
@@ -24,7 +17,6 @@ Rails.application.routes.draw do
   # resource :home, only: [:show]
 
   # end
-  # TODO: ADD ROOT ROUTE(root to: )
 
   # get '/properties/:id' => 'properties#show'
   # get '/properties' => 'properties#index'
@@ -35,8 +27,7 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
-
-
+  get '/welcome' => 'welcome#index'
 
 
   resources :properties, only: [:show, :index] do
@@ -48,7 +39,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root to: 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
