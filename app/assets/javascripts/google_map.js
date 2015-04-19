@@ -5,14 +5,12 @@
 function initialize() {
 
   var markers = [];
-  var map = new google.maps.Map(document.getElementById('map-canvas'), {
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-  });
-
-  var defaultBounds = new google.maps.LatLngBounds(
-      new google.maps.LatLng(-33.8902, 151.1759),
-      new google.maps.LatLng(-33.8474, 151.2631));
-  map.fitBounds(defaultBounds);
+  var mapOptions = {
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          center: { lat: 40.7063634, lng: -74.0090963},
+          zoom: 15
+        };
+  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
   // Create the search box and link it to the UI element.
   var input = /** @type {HTMLInputElement} */(
@@ -67,7 +65,13 @@ function initialize() {
 
   // Bias the SearchBox results towards places that are within the bounds of the
   // current map's viewport.
-google.maps.event.addListener(map, 'bounds_changed', function() {
+  google.maps.event.addListener(map, 'bounds_changed', function() {
+    var bounds = map.getBounds();
+    searchBox.setBounds(bounds);
+  });
+
+  // find properties when map moves
+  google.maps.event.addListener(map, 'idle', function() {
     var bounds = map.getBounds();
     var ne = bounds.getNorthEast();
     var sw = bounds.getSouthWest();
@@ -75,17 +79,32 @@ google.maps.event.addListener(map, 'bounds_changed', function() {
     var nelng = ne.lng();
     var swlat = sw.lat();
     var swlng = sw.lng();
-    searchBox.setBounds(bounds);
     $.ajax({
-
       url: '/properties/list',
       data: {nelatitude: nelat,
              nelongitude: nelng,
-              swlatitde: swlat,
-              swlongitude : swlng
+             swlatitude: swlat,
+             swlongitude: swlng
            }
+    }).done(function(response){
+      $('.properties-list ul').empty();
+      $('.properties-list ul').append(print_property(response, map));
     });
   });
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
+
+function print_property(jsonArray, map) {
+  html = ''
+  jsonArray.forEach(function(json){
+    html += "<a href='/properties/" + json.id + "'><img src='" + json.photos[0].small + "' height='100' width='100'></a><div>" + json.attr.heading + "<div>"
+  })
+
+  // var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
+
+  console.log("asdf" + map);
+
+  return html;
+}
+
