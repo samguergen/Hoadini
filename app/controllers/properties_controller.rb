@@ -5,7 +5,13 @@ class PropertiesController < ApplicationController
 	end
 
 	def show
-    #
+    @property = HTTParty.get('https://zilyo.p.mashape.com/id',
+                    {query: {id: params[:id]},
+                     headers: {'X-Mashape-Key' => 'Aq8RN3VWDnmshWqAaThekfgTPEbap1a3Tn3jsnBYV3fjrNDyQZ'}
+                    })
+
+    @property_hash = JSON.parse(@property.body)
+# ?id=air1158977
 	end
 
   def list

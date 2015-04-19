@@ -12,10 +12,17 @@ Rails.application.routes.draw do
    get 'auth/failure', to: redirect('/')
    get 'signout', to: 'sessions#destroy', as: 'signout'
 
+  if @current_user
+    root 'users#show'
+  else
+    root 'sessions#new'
+  end
+
+  get '/properties/:id' => 'properties#show'
+  get '/properties' => 'properties#index'
   # resources :sessions, only: [:create, :destroy]
   # resource :home, only: [:show]
 
-   root to: "sessions#new"
   # end
   # TODO: ADD ROOT ROUTE(root to: )
 
