@@ -3,7 +3,7 @@
 <!-- TODO: Relocate link on page once formatted -->
 <%= link_to 'Back to Properties', '/properties' %>
 
-  <h4>Description</h4>
+<h4>Description</h4>
     <div>
         <p><%= @property_hash["result"]["attr"]["description"] %><p>
     </div>
@@ -12,7 +12,7 @@
     <div>
       <ul>
         <li>Monthly: <%= @property_hash["result"]["price"]["monthly"] %></li>
-        <li>Nightly :<%= @property_hash["result"]["price"]["nightly"] %></li>
+        <li>Nightly: <%= @property_hash["result"]["price"]["nightly"] %></li>
         <li>Weekend: <%= @property_hash["result"]["price"]["weekend"] %></li>
         <li>Weekly: <%= @property_hash["result"]["price"]["weekly"] %></li>
       </ul>
