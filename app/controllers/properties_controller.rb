@@ -46,6 +46,23 @@ class PropertiesController < ApplicationController
     # will count the number of crimes within the radius of the location via results as shown through properties/crime.html.erb
   end
 
+  def yelp_distance_subway
+    # this is just to setup the connection
+    subway = Yelp::Client.new({ consumer_key: 'UY_Ov3aMEcbjqLLvnZ1Qfw',
+                                     consumer_secret: 'nyuOcG7kvFI83aeiAxg2PA5w6tU',
+                                     token: 'F0xUFQo9Tu6yTHtFli-8Ds-jxLHlLjYs',
+                                     token_secret: 'o_UfHL_LzaTu12UlPmw3vft-o-c'
+                          })
+
+    params = { term: 'public transportation',
+               limit: 4
+             }
+
+    coordinates = { latitude: params[], longitude: params[] }
+    @subways = subway.search_by_coordinates(coordinates, params)
+
+  end
+
 
   private
 
@@ -61,4 +78,3 @@ class PropertiesController < ApplicationController
     # will count the number of crimes within the radius of the location via results as shown through properties/crime.html.erb
   end
 
-end
