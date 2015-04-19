@@ -18,8 +18,6 @@ Rails.application.routes.draw do
     root 'sessions#new'
   end
 
-  get '/properties/:id' => 'properties#show'
-  get '/properties' => 'properties#index'
   # resources :sessions, only: [:create, :destroy]
   # resource :home, only: [:show]
 
