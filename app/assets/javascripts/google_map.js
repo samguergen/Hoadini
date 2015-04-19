@@ -71,7 +71,7 @@ function initialize() {
   });
 
   // find properties when map moves
-  google.maps.event.addListener(map, 'dragend', function() {
+  google.maps.event.addListener(map, 'idle', function() {
     var bounds = map.getBounds();
     var ne = bounds.getNorthEast();
     var sw = bounds.getSouthWest();
@@ -83,13 +83,28 @@ function initialize() {
       url: '/properties/list',
       data: {nelatitude: nelat,
              nelongitude: nelng,
-              swlatitde: swlat,
-              swlongitude: swlng
+             swlatitude: swlat,
+             swlongitude: swlng
            }
     }).done(function(response){
-      console.log(response);
+      $('.properties-list ul').empty();
+      $('.properties-list ul').append(print_property(response, map));
     });
   });
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
+
+function print_property(jsonArray, map) {
+  html = ''
+  jsonArray.forEach(function(json){
+    html += "<a href='/properties/" + json.id + "'><img src='" + json.photos[0].small + "' height='100' width='100'></a><div>" + json.attr.heading + "<div>"
+  })
+
+  // var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
+
+  console.log("asdf" + map);
+
+  return html;
+}
+

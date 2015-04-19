@@ -15,21 +15,22 @@ class PropertiesController < ApplicationController
 	end
 
   def list
-    @list = JSON.parse(HTTParty.get('https://zilyo.p.mashape.com/search',
+    list = JSON.parse(HTTParty.get('https://zilyo.p.mashape.com/search',
                                     {query: {nelatitude: params[:nelatitude],
                                              nelongitude: params[:nelongitude],
                                              swlatitude: params[:swlatitude],
-                                             swlongitude: params[:swlongitude],
-                                             isinstantbook: 'true',
-                                             provider: 'airbnb,housetrip'},
+                                             swlongitude: params[:swlongitude]},
                                      headers: {'X-Mashape-Key' => 'Aq8RN3VWDnmshWqAaThekfgTPEbap1a3Tn3jsnBYV3fjrNDyQZ'}}).body)
-#     @list['result'].each do |r|
-#       r['calc'] = 100#[1..100].sample
-# #      @crime = JSON.parse(crime(params[:nelatitude], params[:nelongitude], 5).body)
-#     end
-#     @list['result'].each do |r|
-#       p r['calc']
-#     end
+
+    # save each score into each result
+    list['result'].each do |r|
+      crime = JSON.parse(crime(r['latLng'][0], r['latLng'][1], 0.5).body)
+      r['calc'] = crime['crimes'].count
+    end
+
+    top_list = list['result'].sort {|x,y| y['calc']<=>x['calc']}[0..2]
+
+    render json: top_list
   end
 
 
