@@ -77,4 +77,4 @@ class PropertiesController < ApplicationController
                       })
     # will count the number of crimes within the radius of the location via results as shown through properties/crime.html.erb
   end
-
+end
