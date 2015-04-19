@@ -1,5 +1,3 @@
-require 'yelp'
-
 class User < ActiveRecord::Base
 
   has_many :favorite_properties
