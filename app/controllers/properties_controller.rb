@@ -49,12 +49,10 @@ class PropertiesController < ApplicationController
     params = { term: 'public transportation',
                limit: 4
              }
-      #lat and long or @property_hash?
-coordinates = { latitude: "40.70", longitude: "-74" }
+
+coordinates = { latitude: params[], longitude: params[] }
 @subways = subway.search_by_coordinates(coordinates, params)
 
-
-    # @distance = @search.business.distance
   end
 
 end
