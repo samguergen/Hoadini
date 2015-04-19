@@ -2,11 +2,16 @@ body {
   background-color: #C9E2E9;
 }
 
-/*.container {
+.container .property-show {
+  background-color: #C9E2E9;
+  color: black;
+  text-align: left;
+}
+.container {
   width: 100%;
   height: 100%;
   background-color: #C9E2E9;
-}*/
+}
 
 /*.hoadini-logo {
   background-color: #C9E2E9;

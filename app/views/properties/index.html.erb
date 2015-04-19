@@ -1,3 +1,4 @@
+<div class="container">
 <%= javascript_include_tag "google_map.js" %>
 
 <div id="map-canvas">
@@ -7,7 +8,7 @@
     <ul>
     <% @properties.each do |property|%>
       <div class="row">
-        <div .col-md-4 .col-xs-4 >
+        <div class=".col-md-4 .col-xs-4" >
           <a href="/properties/<%property.id%>" class="thumbnail">
           <img src="http://unescovietnam.vn/vnf/images/stories/van_hoa/tin_van_hoa/Vietnam-46.jpg">
           </a>
@@ -18,4 +19,5 @@
     <% end %>
     </ul>
   </div>
+</div>
 </div>
