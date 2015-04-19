@@ -20,7 +20,7 @@ class UserPreferencesController < ApplicationController
   def create
     if session[:user_id]
       @new_user_pref = UserPreference.create!(userpref_params)
-      redirect_to root_path
+      redirect_to user_preferences_path
     else
       flash[:notice] = "You must be a member to add your preference!"
       redirect_to new_user_preference_path
@@ -37,7 +37,7 @@ class UserPreferencesController < ApplicationController
     @user_pref = UserPreference.find_by(id: params[:id])
     if session[:user_id] == @user_pref.user_id
       @user_pref.update_attributes(edit_userpref_params)
-      redirect_to root_path
+      redirect_to user_preferences_path
     else
       flash[:notice] = "You cannot edit these criteria"
       redirect_to edit_userpreference_path
@@ -49,9 +49,9 @@ class UserPreferencesController < ApplicationController
     @user_pref = UserPreference.find_by(id: params[:id])
     if session[:user_id] == @user_pref.user_id
       @user_pref.destroy!
-      redirect_to root_path
+      redirect_to user_preferences_path
     else
-      redirect_to root_path
+      redirect_to user_preferences_path
     end
   end
 
