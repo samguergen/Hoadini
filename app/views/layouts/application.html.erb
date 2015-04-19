@@ -8,9 +8,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
 	  <!-- Latest compiled and minified CSS -->
 </head>
-
-	<body>
-    <% if @user %>
+  <body>
     <header>
       <!-- navigation bar code -->
       <nav class="navbar navbar-default">
@@ -23,14 +21,14 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/users/<%=@user.id%>">Hoadini</a>
+            <a class="navbar-brand" href="#">Hoadini</a>
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Search Properties<span class="sr-only">(current)</span></a></li>
-              <li><a href="#">My Favorites</a></li>
+              <li class="active"><a href="#">Link 1 <span class="sr-only">(current)</span></a></li>
+              <li><a href="#">Link</a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
@@ -51,7 +49,7 @@
               <button type="submit" class="btn btn-default">Submit</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="/logout">Logout</a></li>
+              <li><a href="#">Link</a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
@@ -66,25 +64,11 @@
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
       </nav>
-    </header>
-    <% end %>
 
-<!-- 		<div class="container">
-			<div class="row"> -->
-<!-- 				<div class="jumbotron">
-					<%#= image_tag("bedroom_logo.png", :alt =>"bedroom logo") %>
-				</div> -->
-<!-- 			</div> -->
-<!-- 			<div class="row">
-				<#% if session[:user_id]%>
-					<#%= render :partial => 'layouts/navigation_bar' %>
-			  <#% end %>
-			</div> -->
-<!--       <div class="container">
-				<div class="row"> -->
-				<%= yield %>
-<!-- 				</div>
-			</div> -->
-		</div>
-	</body>
+    </header>
+      </div>
+        <%= yield %>
+    </div>
+
+  </body>
 </html>
