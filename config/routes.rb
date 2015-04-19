@@ -11,8 +11,11 @@ Rails.application.routes.draw do
    get 'auth/failure', to: redirect('/')
    get 'signout', to: 'sessions#destroy', as: 'signout'
 
-  get '/properties/:id' => 'properties#show'
-  get '/properties' => 'properties#index'
+  if @current_user
+    root 'users#show'
+  else
+    root 'sessions#new'
+  end
   # resources :sessions, only: [:create, :destroy]
   # resource :home, only: [:show]
 
@@ -34,7 +37,9 @@ Rails.application.routes.draw do
     collection do
       get 'list'
       get 'crime'
+      get 'yelp_distance_subway'
     end
+
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
