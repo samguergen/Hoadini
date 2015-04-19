@@ -1,0 +1,121 @@
+html {
+}
+.container {
+
+}
+
+/*.hoadini-logo {
+  background-color: #C9E2E9;
+  color: #2F8CAB;
+  font-family: "Rouge Script",
+  cursive;
+  font-size: 60px;
+  line-height: 160px;
+  font-weight: normal;
+  margin-bottom: 0px;
+  margin-top: 40px;
+  text-align: center;
+  text-shadow: 0 1px 1px #fff;
+}*/
+
+.jumbotron {
+  text-align: center;
+  background-color: #C9E2E9;
+  color: #2F8CAB;
+  width: 100%;
+}
+
+/*h1 { color: #d54d7b; font-family: "Great Vibes", cursive; font-size: 165px; line-height: 160px; font-weight: normal; margin-bottom: 0px; margin-top: 40px; text-align: center; text-shadow: 0 1px 1px #fff; }
+*/
+/* Kevin's CSS */
+
+
+.ui_avatar {
+  width: 3.3em;
+  height: 3.3em;
+  margin: 0 auto;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.thumbnails{
+  text-align: center;
+  float: left;
+}
+
+/*nav bar*/
+
+/*#nav-menu{
+  text-align: center;
+  width: auto;
+  font-family: Helvetica, Arial, sans-serif;
+  color: #ffffff;
+}
+*/
+  body, #map-canvas {
+    visibility: visible !important;
+    position: absolute !important;
+    height: 80%;
+/*    margin: 50px;*/
+    padding: 30px 0px 0px 30px;
+    width: 70%;
+  }
+/*
+  .container {
+    width:100%;
+    background-color: yellow;
+    ;
+  }*/
+
+  .controls{
+    margin-top: 16px;
+    border: 1px solid transparent;
+    border-radius: 2px 0 0 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    height: 32px;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  }
+
+  #pac-input{
+    background-color: #fff;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    margin-left: 12px;
+    padding: 0 11px 0 13px;
+    text-overflow: ellipsis;
+    width: 400px;
+  }
+
+  #pac-input:focus {
+    border-color: #4d90fe;
+  }
+
+  .pac-container {
+    font-family: Roboto;
+  }
+
+  #type-selector {
+    color: #fff;
+    background-color: #4d90fe;
+    padding: 5px 11px 0px 11px;
+  }
+
+  #type-selector label {
+    font-family: Roboto;
+    font-size: 13px;
+    font-weight: 300;
+  }
+
+
+  .properties-list{
+    position: relative;
+    text-align: center;
+    height: 500px;
+    width: 30%;
+    float: right;
+    overflow: scroll;
+    border: 2px solid #4d90fe;
+  }
+
