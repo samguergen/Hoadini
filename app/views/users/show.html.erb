@@ -1,26 +1,138 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
 
- <!-- Bootstrap core CSS -->
-<link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="../../dist/css/user_show.css" rel="stylesheet">
+<head>
 
-<!-- Jumbotron -->
-<div class="jumbotron">
-  <h2>FAVORITE PROPERTIES</h2>
-</div>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-<p><a class="btn btn-primary" id="property-btn" href="/properties" role="button">Search Properties</a></p>
+    <title>Hoadini: User Page</title>
 
-<div class="row">
-  <% @properties.each do |property| %>
-  <div class="col-lg-4">
-    <h3><%= property.title %></h3>
-    <p><%= property.address %></p>
-    <p class="img"><%= image_tag(property.picture) %></p>
-    <p><a class="btn btn-primary" href="/properties/<%=property.z_id%>" role="button">View details &raquo;</a></p>
-  </div>
-  <% end %>
-</div>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/business-frontpage.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="tagline" href="/welcome">Hoadini</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/properties">Search Properties</a>
+                    </li>
+                    <li>
+                        <a href="/users/<%=current_user.id%>">My Favorites</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="/users/<%=current_user.id%>">Logged in as: <%=current_user.name%></a></li>
+                  <li><a href="/logout">Logout</a></li>
+               </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Image Background Page Header -->
+    <!-- Note: The background image is set within the business-casual.css file. -->
+    <header class="business-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="tagline">My Properties</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <hr>
+
+        <div class="row">
+            <div class="col-sm-8">
+              <div class="user-preferences">
+                <h2>User Preferences</h2>
+                <p>User Preferences will be listed and iterated through here.</p>
+              </div>
+            </div>
+            <div class="col-sm-4">
+                 <p>
+                    <a class="btn btn-default btn-lg" href="#" role="button">Edit Preferences</a>
+                 </p>
+                 <p>
+                    <a class="btn btn-default btn-lg" href="/properties" role="button">Search Properties</a>
+                 </p>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+    <h2>Saved Favorites</h2>
+        <div class="row">
+            <% @properties.each do |property| %>
+            <div class="col-xs-12 col-sm-4 col-lg-4">
+                <p class="circular-image"><%= image_tag(property.picture) %></p>
+                <h3><%= property.title %></h3>
+                <p><%= property.address %></p>
+                <p><a class="btn btn-primary" href="/properties/<%=property.z_id%>" role="button">View details &raquo;</a></p>
+            </div>
+            <% end %>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Hoadini 2015</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
 </html>
-
 
