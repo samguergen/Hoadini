@@ -61,6 +61,8 @@ function initialize() {
 
     map.fitBounds(bounds);
   });
+
+    
   // [END region_getplaces]
 
   // Bias the SearchBox results towards places that are within the bounds of the
@@ -69,6 +71,8 @@ function initialize() {
     var bounds = map.getBounds();
     searchBox.setBounds(bounds);
   });
+
+
 
   // find properties when map moves
   google.maps.event.addListener(map, 'idle', function() {
@@ -99,9 +103,16 @@ function print_property(jsonArray, map) {
   html = ''
   jsonArray.forEach(function(json){
     html += "<a href='/properties/" + json.id + "'><img src='" + json.photos[0].small + "' height='100' width='100'></a><div>" + json.attr.heading + "<div>"
+  
+    var myLatlng = new google.maps.LatLng(json.latLng[0],json.latLng[1]);
+     //add the marker to the map, use the 'map' property
+    var marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        title:json.title
+    });
   })
 
-  // var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
 
   console.log("asdf" + map);
 
