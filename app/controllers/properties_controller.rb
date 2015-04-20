@@ -98,6 +98,23 @@ class PropertiesController < ApplicationController
     @foods = food.search_by_coordinates(coordinates, params)
   end
 
+     def yelp_distance_park
+    # get URL is the api call up until the '?' for proceeding params
+    park = Yelp::Client.new({ consumer_key: 'UY_Ov3aMEcbjqLLvnZ1Qfw',
+                                     consumer_secret: 'nyuOcG7kvFI83aeiAxg2PA5w6tU',
+                                     token: 'F0xUFQo9Tu6yTHtFli-8Ds-jxLHlLjYs',
+                                     token_secret: 'o_UfHL_LzaTu12UlPmw3vft-o-c'
+                          })
+
+    params = { term: 'park',
+               limit: 6,
+               sort: 1
+             }
+
+    coordinates = { latitude: "40.706502", longitude: "-74.009176" }
+    @parks = park.search_by_coordinates(coordinates, params)
+  end
+
   private
 
   def crime(lat, lon, radius)
