@@ -110,7 +110,6 @@ function initialize() {
 google.maps.event.addDomListener(window, 'load', initialize);
 
 
-
 function print_property(jsonArray, map) {
   html = ''
   jsonArray.forEach(function(json){
@@ -123,10 +122,19 @@ function print_property(jsonArray, map) {
         position: myLatlng,
         map: map,
         animation: google.maps.Animation.DROP,
-        title: json.title,
+        title: json.attr.heading,
         icon: image
     });
     markersArray.push(marker);
+
+    //Sets info window for marker
+    var infowindow = new google.maps.InfoWindow({
+         content: '<img src=' + json.photos[0].small + '>'
+     });
+
+    google.maps.event.addListener(marker, 'click', function() {
+      infowindow.open(map,marker);
+    });
 
 
   })
