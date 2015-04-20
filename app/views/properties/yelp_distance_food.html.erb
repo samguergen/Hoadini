@@ -1,0 +1,5 @@
+<p><b> Food | Distance from property (in meters)</b></p>
+<% @foods.businesses.each do |b| %>
+<p> <%= b.name %>
+| <%= b.distance %> </p>
+<% end %>
