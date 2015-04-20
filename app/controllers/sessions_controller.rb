@@ -9,8 +9,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to "/users/#{@user.id}"
     else
-      #flash notice try again
-      redirect_to '/login' #root_path?
+      redirect_to '/login'
     end
   end
 
