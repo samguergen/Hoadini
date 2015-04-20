@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20150416204308) do
   end
 
   create_table "favorite_properties", force: :cascade do |t|
+    t.string   "z_id",                    null: false
     t.string   "address",                 null: false
     t.integer  "rating",      default: 0, null: false
     t.integer  "price"

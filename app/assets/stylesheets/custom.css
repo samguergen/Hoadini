@@ -1,6 +1,11 @@
+#welcome-background {
+  background-image: url("welcome_apt.jpg");
+}
+
 body {
   background-color: #C9E2E9;
 }
+
 
 .container {
   width: 100%;

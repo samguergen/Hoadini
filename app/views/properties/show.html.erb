@@ -8,7 +8,7 @@
 
 <!-- TODO: ADD ACTUAL RATING - REMOVE PLACEHOLDER -->
 
-    <%= link_to 'Add to Favorites', favorite_properties_path(:favorite_properties => {:address => @property_hash["result"]["location"]["all"], :rating => 0, :price => @property_hash["result"]["price"]["monthly"], :picture => @property_hash["result"]["photos"][0]["medium"], :title => @property_hash["result"]["attr"]["propType"]["text"]}), {:method=>:post} %>
+    <%= link_to 'Add to Favorites', favorite_properties_path(:favorite_properties => {:z_id => @property_hash["result"]["id"], :address => @property_hash["result"]["location"]["all"], :address => @property_hash["result"]["location"]["all"], :rating => 0, :price => @property_hash["result"]["price"]["monthly"], :picture => @property_hash["result"]["photos"][0]["medium"], :title => @property_hash["result"]["attr"]["propType"]["text"]}), {:method=>:post} %>
 
     <p><%= @property_hash["result"]["location"]["all"] %><p>
 

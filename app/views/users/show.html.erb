@@ -4,22 +4,18 @@
 
 <!-- Jumbotron -->
 <div class="jumbotron">
-
-
-  <h1><%= @user.name %></h1>
-  <p><a class="btn btn-primary btn-lg" href="/properties" role="button">Find Properties!</a></p>
+  <h2><%= @user.name %></h2>
+  <p><a class="btn btn-primary" href="/properties" role="button">Find Properties!</a></p>
 </div>
 
-<!-- Example row of columns -->
 <h4>Favorite Properties</h4>
-    <p>There will be three columns with divs below containing property information, including picture, description, and link to view individual property here.</p>
 <div class="row">
   <% @properties.each do |property| %>
   <div class="col-lg-4">
     <h3><%= property.title %></h3>
     <p><%= property.address %></p>
     <p><%= image_tag(property.picture) %></p>
-    <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+    <p><a class="btn btn-primary" href="/properties/<%=property.z_id%>" role="button">View details &raquo;</a></p>
   </div>
   <% end %>
 </div>
