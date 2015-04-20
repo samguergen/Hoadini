@@ -55,7 +55,8 @@ class PropertiesController < ApplicationController
                           })
 
     params = { term: 'public transportation',
-               limit: 4
+               limit: 8,
+               sort: 1
              }
 
     coordinates = { latitude: params[], longitude: params[] }
@@ -63,6 +64,22 @@ class PropertiesController < ApplicationController
 
   end
 
+ def yelp_distance_museum
+    # get URL is the api call up until the '?' for proceeding params
+    museum = Yelp::Client.new({ consumer_key: 'UY_Ov3aMEcbjqLLvnZ1Qfw',
+                                     consumer_secret: 'nyuOcG7kvFI83aeiAxg2PA5w6tU',
+                                     token: 'F0xUFQo9Tu6yTHtFli-8Ds-jxLHlLjYs',
+                                     token_secret: 'o_UfHL_LzaTu12UlPmw3vft-o-c'
+                          })
+
+    params = { term: 'museums',
+               limit: 8
+
+             }
+
+    coordinates = { latitude: "40.706502", longitude: "-74.009176" }
+    @museums = museum.search_by_coordinates(coordinates, params)
+  end
 
   private
 
@@ -78,23 +95,9 @@ class PropertiesController < ApplicationController
     # will count the number of crimes within the radius of the location via results as shown through properties/crime.html.erb
   end
 
-  private
 
-    def yelp_distance_museum(lat, lon, radius)
-    # get URL is the api call up until the '?' for proceeding params
-    museum = Yelp::Client.new({ consumer_key: 'UY_Ov3aMEcbjqLLvnZ1Qfw',
-                                     consumer_secret: 'nyuOcG7kvFI83aeiAxg2PA5w6tU',
-                                     token: 'F0xUFQo9Tu6yTHtFli-8Ds-jxLHlLjYs',
-                                     token_secret: 'o_UfHL_LzaTu12UlPmw3vft-o-c'
-                          })
 
-    params = { term: 'museum',
-               limit: 8
-             }
 
-    coordinates = { latitude: params[], longitude: params[] }
-    @museums = museum.search_by_coordinates(coordinates, params)
-  end
 
 
 end
