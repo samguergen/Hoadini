@@ -6,7 +6,7 @@
 a,
 a:focus,
 a:hover {
-  color: #fff;
+  color: #2F8CAB;
 }
 
 /* Custom default button */
@@ -30,7 +30,7 @@ body {
   background-color: #333;
 }
 body {
-  color: #fff;
+  color: white;
   text-align: center;
   text-shadow: 0 1px 3px rgba(0,0,0,.5);
 }
