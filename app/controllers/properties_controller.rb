@@ -92,9 +92,8 @@ class PropertiesController < ApplicationController
                limit: 8
              }
 
-    bounding_box = { sw_latitude: 37.7577, sw_longitude: -122.4376, ne_latitude: 37.785381, ne_longitude: -122.391681 }
-
-    @museums = museum.search_by_bounding_box(bounding_box, params)
+    coordinates = { latitude: params[], longitude: params[] }
+    @museums = museum.search_by_coordinates(coordinates, params)
   end
 
 
