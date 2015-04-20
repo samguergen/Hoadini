@@ -8,41 +8,9 @@
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
     <!-- Latest compiled and minified CSS -->
 </head>
-<% if @user == nil%>
-	<nav class="navbar navbar-default">
-			  <div class="container-fluid">
-			    <!-- Brand and toggle get grouped for better mobile display -->
-			    <div class="navbar-header">
-			      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-			        <span class="sr-only">Toggle navigation</span>
-			        <span class="icon-bar"></span>
-			        <span class="icon-bar"></span>
-			        <span class="icon-bar"></span>
-			      </button>
-			      
-			    </div>
 
-			    <!-- Collect the nav links, forms, and other content for toggling -->
-			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			      <ul class="nav navbar-nav">
-			        <li class="active"><a href="/properties">Search Properties<span class="sr-only">(current)</span></a></li>
-			        <li><a href="/favorite_properties">My Favorites</a></li>
-              <li><a href="/user_preferences">Neighborhood criteria</a></li>
-              <form class="navbar-form navbar-left" role="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Search Property">
-                </div>
-                <button type="submit" class="btn btn-default">Find Home</button>
-              </form>
-			      </ul>
-			      <ul class="nav navbar-nav navbar-right">
-			        <li><a href="/logout">Logout</a></li>
-			      </ul>
-			    </div><!-- /.navbar-collapse -->
-			  </div><!-- /.container-fluid -->
-			</nav>
-			<%end%>
-	<body>
+<!-- 		this ends the first header bar for user nil
+ -->	<body>
     <% if @user %>
     <header>
       <!-- navigation bar code -->
@@ -67,23 +35,18 @@
               <li><a href="/user_preferences">Neighborhood criteria</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+            <li><form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search Property">
+                </div>
+                <button type="submit" class="btn btn-default">Search</button>
+              </form></li>
               <li><a href="/logout">Logout</a></li>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
       </nav>
     </header>
-    <% end %>
-
-              <form class="navbar-form navbar-left" role="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Search Property">
-                </div>
-                <button type="submit" class="btn btn-default">Search</button>
-              </form>
-			      </ul>
-			      <ul class="nav navbar-nav navbar-right">
-			        <li><a href="/logout">Logout</a></li>
 			      </ul>
 			    </div><!-- /.navbar-collapse -->
 			  </div><!-- /.container-fluid -->
@@ -126,15 +89,11 @@
       </div>
       <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
       <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
-    </div><!-- /.carousel -->
+    </div>
   <% end %>
 </div>
 
-<!--       <div class="container">
-        <div class="row"> -->
         <%= yield %>
-<!--         </div>
-      </div> -->
 
   </body>
 </html>
