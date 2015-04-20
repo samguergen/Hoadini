@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   resources :users
   resources :favorite_properties
-  resources :properties
   resources :criteria
   resources :user_preferences
   resources :welcome
