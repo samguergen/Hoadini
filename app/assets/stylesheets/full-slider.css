@@ -1,0 +1,49 @@
+html,
+body {
+    height: 100%;
+}
+
+#calibeach-img {
+  background-image: url("calibeach.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.carousel,
+.item,
+.active {
+    height: 100%;
+}
+
+.carousel-inner {
+    height: 100%;
+}
+
+/* Background images are set within the HTML using inline CSS, not here */
+
+.fill {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+#grandcanyon-img {
+  background-image: url("grandcanyon.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+footer {
+    margin: 50px 0;
+}
+
+#nycskyline-img {
+  background-image: url("nycskyline.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+

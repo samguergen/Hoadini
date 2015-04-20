@@ -1,5 +1,7 @@
 #welcome-background {
   background-image: url("welcome_apt.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
 body {
