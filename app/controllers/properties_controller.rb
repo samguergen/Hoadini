@@ -77,4 +77,20 @@ class PropertiesController < ApplicationController
                       })
     # will count the number of crimes within the radius of the location via results as shown through properties/crime.html.erb
   end
+
+  private
+
+    def yelp_distance_museum(lat, lon, radius)
+    # get URL is the api call up until the '?' for proceeding params
+    @crime = HTTParty.get('http://api.spotcrime.com/crimes.json',
+    # take from params on URL
+                      { query: { lat: lat,
+                                 lon: lon,
+                                 key: 'MLC-restricted-key',
+                                 radius: radius}
+                      })
+    # will count the number of crimes within the radius of the location via results as shown through properties/crime.html.erb
+  end
+
+
 end
