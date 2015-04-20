@@ -73,8 +73,8 @@ class PropertiesController < ApplicationController
                           })
 
     params = { term: 'museums',
-               limit: 8
-
+               limit: 8,
+               sort: 1
              }
 
     coordinates = { latitude: "40.706502", longitude: "-74.009176" }
