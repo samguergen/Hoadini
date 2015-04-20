@@ -1,10 +1,10 @@
 class PropertiesController < ApplicationController
 
-	def index
-		@properties = FavoriteProperty.all
-	end
+  def index
+    @properties = FavoriteProperty.all
+  end
 
-	def show
+  def show
     @property = HTTParty.get('https://zilyo.p.mashape.com/id',
                     {query: {id: params[:id]},
                      headers: {'X-Mashape-Key' => 'Aq8RN3VWDnmshWqAaThekfgTPEbap1a3Tn3jsnBYV3fjrNDyQZ'}
@@ -12,7 +12,7 @@ class PropertiesController < ApplicationController
 
     @property_hash = JSON.parse(@property.body)
 # ?id=air1158977
-	end
+  end
 
   def list
     list = JSON.parse(HTTParty.get('https://zilyo.p.mashape.com/search',
@@ -55,8 +55,7 @@ class PropertiesController < ApplicationController
                           })
 
     params = { term: 'public transportation',
-               limit: 4,
-               sort: 1
+               limit: 4
              }
 
     coordinates = { latitude: params[], longitude: params[] }
@@ -64,56 +63,6 @@ class PropertiesController < ApplicationController
 
   end
 
- def yelp_distance_museum
-    # get URL is the api call up until the '?' for proceeding params
-    museum = Yelp::Client.new({ consumer_key: 'UY_Ov3aMEcbjqLLvnZ1Qfw',
-                                     consumer_secret: 'nyuOcG7kvFI83aeiAxg2PA5w6tU',
-                                     token: 'F0xUFQo9Tu6yTHtFli-8Ds-jxLHlLjYs',
-                                     token_secret: 'o_UfHL_LzaTu12UlPmw3vft-o-c'
-                          })
-
-    params = { term: 'museums',
-               limit: 4,
-               sort: 1
-             }
-
-    coordinates = { latitude: "40.706502", longitude: "-74.009176" }
-    @museums = museum.search_by_coordinates(coordinates, params)
-  end
-
-   def yelp_distance_food
-    # get URL is the api call up until the '?' for proceeding params
-    food = Yelp::Client.new({ consumer_key: 'UY_Ov3aMEcbjqLLvnZ1Qfw',
-                                     consumer_secret: 'nyuOcG7kvFI83aeiAxg2PA5w6tU',
-                                     token: 'F0xUFQo9Tu6yTHtFli-8Ds-jxLHlLjYs',
-                                     token_secret: 'o_UfHL_LzaTu12UlPmw3vft-o-c'
-                          })
-
-    params = { term: 'food',
-               limit: 6,
-               sort: 1
-             }
-
-    coordinates = { latitude: "40.706502", longitude: "-74.009176" }
-    @foods = food.search_by_coordinates(coordinates, params)
-  end
-
-     def yelp_distance_park
-    # get URL is the api call up until the '?' for proceeding params
-    park = Yelp::Client.new({ consumer_key: 'UY_Ov3aMEcbjqLLvnZ1Qfw',
-                                     consumer_secret: 'nyuOcG7kvFI83aeiAxg2PA5w6tU',
-                                     token: 'F0xUFQo9Tu6yTHtFli-8Ds-jxLHlLjYs',
-                                     token_secret: 'o_UfHL_LzaTu12UlPmw3vft-o-c'
-                          })
-
-    params = { term: 'park',
-               limit: 6,
-               sort: 1
-             }
-
-    coordinates = { latitude: "40.706502", longitude: "-74.009176" }
-    @parks = park.search_by_coordinates(coordinates, params)
-  end
 
   private
 
@@ -128,10 +77,4 @@ class PropertiesController < ApplicationController
                       })
     # will count the number of crimes within the radius of the location via results as shown through properties/crime.html.erb
   end
-
-
-
-
-
-
 end

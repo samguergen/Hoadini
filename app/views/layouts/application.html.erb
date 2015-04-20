@@ -9,9 +9,8 @@
     <!-- Latest compiled and minified CSS -->
 </head>
 
-<!-- 		this ends the first header bar for user nil
- -->	<body>
-    <% if @user %>
+  <body>
+    <% if current_user %>
     <header>
       <!-- navigation bar code -->
       <nav class="navbar navbar-default">
@@ -24,7 +23,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/users/<%=@user.id%>">Hoadini</a>
+            <a class="navbar-brand" href="/users/<%=current_user.id%>">Hoadini</a>
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
