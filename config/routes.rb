@@ -37,6 +37,9 @@ Rails.application.routes.draw do
       get 'list'
       get 'crime'
       get 'yelp_distance_subway'
+      get 'yelp_distance_museum'
+      get 'yelp_distance_food'
+      get 'yelp_distance_park'
     end
 
   end
