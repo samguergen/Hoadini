@@ -12,7 +12,6 @@ class FavoritePropertiesController < ApplicationController
   private
 
   def favorite_properties_params
-    p "PARAMS: #{params}"
      params.require(:favorite_properties).permit(:z_id, :address, :rating, :price, :picture, :title).merge(:user => current_user)
   end
 
