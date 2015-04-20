@@ -55,7 +55,7 @@ class PropertiesController < ApplicationController
                           })
 
     params = { term: 'public transportation',
-               limit: 8,
+               limit: 4,
                sort: 1
              }
 
@@ -73,7 +73,7 @@ class PropertiesController < ApplicationController
                           })
 
     params = { term: 'museums',
-               limit: 8,
+               limit: 4,
                sort: 1
              }
 
