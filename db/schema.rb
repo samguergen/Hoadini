@@ -13,6 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20150416204308) do
 
+  # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "criteria", force: :cascade do |t|
@@ -24,15 +25,15 @@ ActiveRecord::Schema.define(version: 20150416204308) do
   end
 
   create_table "favorite_properties", force: :cascade do |t|
-    t.string   "address",     null: false
-    t.integer  "rating",      null: false
+    t.string   "address",                 null: false
+    t.integer  "rating",      default: 0, null: false
     t.integer  "price"
     t.string   "picture"
     t.string   "title"
     t.string   "description"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "user_preferences", force: :cascade do |t|

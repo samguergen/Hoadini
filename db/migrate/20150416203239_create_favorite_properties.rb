@@ -2,7 +2,7 @@ class CreateFavoriteProperties < ActiveRecord::Migration
   def change
     create_table :favorite_properties do |t|
       t.string :address, null: false
-      t.integer :rating, null: false
+      t.integer :rating, null: false, default: 0
       t.integer :price
       t.string :picture
       t.string :title
