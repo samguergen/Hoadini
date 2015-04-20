@@ -27,13 +27,14 @@ kevkev = User.create(kev)
 
 #kind is rating or distance
 crit1 = {description: "museum", kind: "distance", api_url: "http://api.yelp.com/v2/search"}
-crit2 = {description: "workplace", kind: "distance", api_url: "http://maps.googleapis.com/maps/api/directions/output"}
+crit2 = {description: "landmark", kind: "distance", api_url: "http://api.yelp.com/v2/search"}
 crit3 = {description: "park", kind: "distance", api_url: "http://api.yelp.com/v2/search"}
-crit4 = {description: "school", kind: "rating", api_url: "http://api.greatschools.org/schools/"}
+crit4 = {description: "shopping", kind: "distance", api_url: "http://api.yelp.com/v2/search"}
 crit5 = {description: "price", kind: "rating", api_url: "http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm"}
 crit6 = {description: "crime", kind: "rating", api_url: "http://api.spotcrime.com/crimes.json"}
 crit7 = {description: "food", kind: "distance", api_url: "http://api.yelp.com/v2/search"}
 crit8 = {description: "subway station", kind: "distance", api_url: "http://api.yelp.com/v2/search"}
+
 
 crit_1 = Criterium.create(crit1)
 crit_2 = Criterium.create(crit2)
