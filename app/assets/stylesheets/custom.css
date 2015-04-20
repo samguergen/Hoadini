@@ -1,8 +1,18 @@
-html {
+body {
+  background-color: #C9E2E9;
 }
-.container {
 
+.container {
+  width: 100%;
+  height: 100%;
+  background-color: #C9E2E9;
 }
+.container .property-show {
+  background-color: #C9E2E9;
+  color: black;
+  text-align: left;
+}
+
 
 /*.hoadini-logo {
   background-color: #C9E2E9;
@@ -51,12 +61,12 @@ html {
   color: #ffffff;
 }
 */
-  body, #map-canvas {
+  #map-canvas {
     visibility: visible !important;
     position: absolute !important;
     height: 80%;
 /*    margin: 50px;*/
-    padding: 30px 0px 0px 30px;
+/*    padding: 30px 0px 0px 30px;*/
     width: 70%;
   }
 /*
@@ -110,6 +120,7 @@ html {
 
 
   .properties-list{
+    visibility: visible !important;
     position: relative;
     text-align: center;
     height: 500px;
@@ -118,4 +129,3 @@ html {
     overflow: scroll;
     border: 2px solid #4d90fe;
   }
-

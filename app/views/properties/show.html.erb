@@ -1,40 +1,44 @@
-<div>
+<div class="container">
+  <div class="row">
+  <div class="property-show">
 
-<!-- TODO: Relocate link on page once formatted -->
-<%= link_to 'Back to Properties', '/properties' %>
+    <!-- TODO: Relocate link on page once formatted -->
+    <%= link_to 'Back to Properties', '/properties' %>
 
-  <h4>Description</h4>
-    <div>
-        <p><%= @property_hash["result"]["attr"]["description"] %><p>
-    </div>
+    <h4>Description</h4>
+        <div>
+            <p><%= @property_hash["result"]["attr"]["description"] %><p>
+        </div>
 
-  <h4> Prices </h4>
-    <div>
-      <ul>
-        <li>Monthly: <%= @property_hash["result"]["price"]["monthly"] %></li>
-        <li>Nightly :<%= @property_hash["result"]["price"]["nightly"] %></li>
-        <li>Weekend: <%= @property_hash["result"]["price"]["weekend"] %></li>
-        <li>Weekly: <%= @property_hash["result"]["price"]["weekly"] %></li>
-      </ul>
-    </div>
+      <h4> Prices </h4>
+        <div>
+          <ul>
+            <li>Monthly: <%= @property_hash["result"]["price"]["monthly"] %></li>
+            <li>Nightly: <%= @property_hash["result"]["price"]["nightly"] %></li>
+            <li>Weekend: <%= @property_hash["result"]["price"]["weekend"] %></li>
+            <li>Weekly: <%= @property_hash["result"]["price"]["weekly"] %></li>
+          </ul>
+        </div>
 
-    <h4>Renter Information</h4>
-      <div>
-        <li>Room Type: <%= @property_hash["result"]["attr"]["roomType"]["text"] %></li>
-        <li>Property Type: <%= @property_hash["result"]["attr"]["propType"]["text"] %></li>
-        <li>Minimum Nights: <%= @property_hash["result"]["price"]["minNight"] %></li>
-        <li>Maximum Nights: <%= @property_hash["result"]["price"]["maxNight"] %></li>
-        <li>Number of Bathrooms: <%= @property_hash["result"]["attr"]["bathrooms"] %></li>
-        <li>Number of Bedrooms: <%= @property_hash["result"]["attr"]["bedrooms"] %></li>
-        <li>Total Occupancy: <%= @property_hash["result"]["attr"]["occupancy"] %></li>
+        <h4>Renter Information</h4>
+          <div>
+            <li>Room Type: <%= @property_hash["result"]["attr"]["roomType"]["text"] %></li>
+            <li>Property Type: <%= @property_hash["result"]["attr"]["propType"]["text"] %></li>
+            <li>Minimum Nights: <%= @property_hash["result"]["price"]["minNight"] %></li>
+            <li>Maximum Nights: <%= @property_hash["result"]["price"]["maxNight"] %></li>
+            <li>Number of Bathrooms: <%= @property_hash["result"]["attr"]["bathrooms"] %></li>
+            <li>Number of Bedrooms: <%= @property_hash["result"]["attr"]["bedrooms"] %></li>
+            <li>Total Occupancy: <%= @property_hash["result"]["attr"]["occupancy"] %></li>
+          </div>
+
+      <h5>Photos</h5>
+      <!-- TODO: Reformat and possibly make carousel for individual/3 photos -->
+        <div>
+          <% @property_hash["result"]["photos"].each do |photo| %>
+            <%= image_tag photo["medium"] %>
+          <% end %>
+        </div>
       </div>
-
-  <h5>Photos</h5>
-  <!-- TODO: Reformat and possibly make carousel for individual/3 photos -->
-    <div>
-      <% @property_hash["result"]["photos"].each do |photo| %>
-        <%= image_tag photo["medium"] %>
-      <% end %>
     </div>
-
+  </div>
 </div>
