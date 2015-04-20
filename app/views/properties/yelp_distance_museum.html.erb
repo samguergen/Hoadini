@@ -1,0 +1,5 @@
+<p><b> Museum name | Distance from property (in meters)</b></p>
+<% @museums.businesses.each do |b| %>
+<p> <%= b.name %>
+| <%= b.distance %> </p>
+<% end %>

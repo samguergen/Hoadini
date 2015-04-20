@@ -33,6 +33,7 @@ crit4 = {description: "school", kind: "rating", api_url: "http://api.greatschool
 crit5 = {description: "price", kind: "rating", api_url: "http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm"}
 crit6 = {description: "crime", kind: "rating", api_url: "http://api.spotcrime.com/crimes.json"}
 crit7 = {description: "food", kind: "distance", api_url: "http://api.yelp.com/v2/search"}
+crit8 = {description: "subway station", kind: "distance", api_url: "http://api.yelp.com/v2/search"}
 
 crit_1 = Criterium.create(crit1)
 crit_2 = Criterium.create(crit2)
@@ -41,6 +42,7 @@ crit_4 = Criterium.create(crit4)
 crit_5 = Criterium.create(crit5)
 crit_6 = Criterium.create(crit6)
 crit_7 = Criterium.create(crit7)
+crit_8 = Criterium.create(crit8)
 
 upref1 = {score: 9, user_id: samsam.id, criterium_id: crit_1.id }
 upref2 = {score: 10, user_id: tracetrace.id, criterium_id: crit_2.id }

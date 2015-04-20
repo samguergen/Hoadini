@@ -5,8 +5,8 @@ class FavoritePropertiesController < ApplicationController
     redirect_to '/properties'
 	end
 
-	def show
-		@properties = FavoriteProperty.where(user_id: params)
+	def index
+		@properties = FavoriteProperty.where(user_id: session[:user_id])
 	end
 
   private
