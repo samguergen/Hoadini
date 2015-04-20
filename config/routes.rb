@@ -40,6 +40,8 @@ Rails.application.routes.draw do
       get 'yelp_distance_museum'
       get 'yelp_distance_food'
       get 'yelp_distance_park'
+      get 'yelp_distance_landmark'
+      get 'yelp_distance_shopping'
     end
 
   end

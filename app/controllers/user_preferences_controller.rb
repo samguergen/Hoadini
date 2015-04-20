@@ -36,7 +36,7 @@ class UserPreferencesController < ApplicationController
   def update
     @user_pref = UserPreference.find_by(id: params[:id])
     if session[:user_id] == @user_pref.user_id
-      @user_pref.update_attributes(edit_userpref_params)
+      @user_pref.update_attributes(userpref_params)
       redirect_to user_preferences_path
     else
       flash[:notice] = "You cannot edit these criteria"

@@ -2,6 +2,7 @@
 // feature. People can enter geographical searches. The search box will return a
 // pick list containing a mix of places and predicted search terms.
 var markersArray = [];
+var image = '/images/house.png';
 
 function initialize() {
 
@@ -79,7 +80,7 @@ function initialize() {
     for(i=0;i<markersArray.length; i++){
       markersArray[i].setMap(null);
     }
-    
+
   });
 
 
@@ -109,7 +110,6 @@ function initialize() {
 google.maps.event.addDomListener(window, 'load', initialize);
 
 
-
 function print_property(jsonArray, map) {
   html = ''
   jsonArray.forEach(function(json){
@@ -121,9 +121,20 @@ function print_property(jsonArray, map) {
     var marker = new google.maps.Marker({
         position: myLatlng,
         map: map,
-        title:json.title
+        animation: google.maps.Animation.DROP,
+        title: json.attr.heading,
+        icon: image
     });
     markersArray.push(marker);
+
+    //Sets info window for marker
+    var infowindow = new google.maps.InfoWindow({
+         content: '<img src=' + json.photos[0].small + '>'
+     });
+
+    google.maps.event.addListener(marker, 'click', function() {
+      infowindow.open(map,marker);
+    });
 
 
   })
