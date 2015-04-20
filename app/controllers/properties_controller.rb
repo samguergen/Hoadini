@@ -82,14 +82,19 @@ class PropertiesController < ApplicationController
 
     def yelp_distance_museum(lat, lon, radius)
     # get URL is the api call up until the '?' for proceeding params
-    @crime = HTTParty.get('http://api.spotcrime.com/crimes.json',
-    # take from params on URL
-                      { query: { lat: lat,
-                                 lon: lon,
-                                 key: 'MLC-restricted-key',
-                                 radius: radius}
-                      })
-    # will count the number of crimes within the radius of the location via results as shown through properties/crime.html.erb
+    museum = Yelp::Client.new({ consumer_key: 'UY_Ov3aMEcbjqLLvnZ1Qfw',
+                                     consumer_secret: 'nyuOcG7kvFI83aeiAxg2PA5w6tU',
+                                     token: 'F0xUFQo9Tu6yTHtFli-8Ds-jxLHlLjYs',
+                                     token_secret: 'o_UfHL_LzaTu12UlPmw3vft-o-c'
+                          })
+
+    params = { term: 'museum',
+               limit: 8
+             }
+
+    bounding_box = { sw_latitude: 37.7577, sw_longitude: -122.4376, ne_latitude: 37.785381, ne_longitude: -122.391681 }
+
+    @museums = museum.search_by_bounding_box(bounding_box, params)
   end
 
 
