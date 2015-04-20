@@ -11,19 +11,19 @@ hoahoa = User.create(hoa)
 kevkev = User.create(kev)
 
 
-prop1 = {address: "50 E 28th St, New York, NY 10016", rating: 9, user_id: samsam.id, title: 'Beautiful Apartment', description: 'beautiful apartment that overlooks the city, lots of people around all the damyummnyum time.'}
-prop2 = {address: "101 W End Ave, New York, NY 10023", rating: 8, user_id: tracetrace.id, title: 'Beautiful Apartment', description: 'beautiful apartment that overlooks the city, lots of people around all the damyummnyum time.'}
-prop3 = {address: "1 Stuyvesant Oval, New York, NY 10009", rating: 7, user_id: hoahoa.id, title: 'Beautiful Apartment', description: 'beautiful apartment that overlooks the city, lots of people around all the damyummnyum time.'}
-prop4 = {address: "515 W 52nd St, New York, NY 10019", rating: 10, user_id: tracetrace.id, title: 'Beautiful Apartment', description: 'beautiful apartment that overlooks the city, lots of people around all the damyummnyum time.'}
-prop5 = {address: "11 E 1st St, New York, NY 10003", rating: 8, user_id: kevkev.id, title: 'Beautiful Apartment', description: 'beautiful apartment that overlooks the city, lots of people around all the damyummnyum time.'}
-prop6 = {address: "105 W 29th St, New York, NY 10001", rating: 9, user_id: samsam.id, title: 'Beautiful Apartment', description: 'beautiful apartment that overlooks the city, lots of people around all the damyummnyum time.'}
+# prop1 = {address: "50 E 28th St, New York, NY 10016", rating: 9, user_id: samsam.id, title: 'Beautiful Apartment', description: 'beautiful apartment that overlooks the city, lots of people around all the damyummnyum time.'}
+# prop2 = {address: "101 W End Ave, New York, NY 10023", rating: 8, user_id: tracetrace.id, title: 'Beautiful Apartment', description: 'beautiful apartment that overlooks the city, lots of people around all the damyummnyum time.'}
+# prop3 = {address: "1 Stuyvesant Oval, New York, NY 10009", rating: 7, user_id: hoahoa.id, title: 'Beautiful Apartment', description: 'beautiful apartment that overlooks the city, lots of people around all the damyummnyum time.'}
+# prop4 = {address: "515 W 52nd St, New York, NY 10019", rating: 10, user_id: tracetrace.id, title: 'Beautiful Apartment', description: 'beautiful apartment that overlooks the city, lots of people around all the damyummnyum time.'}
+# prop5 = {address: "11 E 1st St, New York, NY 10003", rating: 8, user_id: kevkev.id, title: 'Beautiful Apartment', description: 'beautiful apartment that overlooks the city, lots of people around all the damyummnyum time.'}
+# prop6 = {address: "105 W 29th St, New York, NY 10001", rating: 9, user_id: samsam.id, title: 'Beautiful Apartment', description: 'beautiful apartment that overlooks the city, lots of people around all the damyummnyum time.'}
 
-prop_1 = FavoriteProperty.create(prop1)
-prop_2 = FavoriteProperty.create(prop2)
-prop_3 = FavoriteProperty.create(prop3)
-prop_4 = FavoriteProperty.create(prop4)
-prop_5 = FavoriteProperty.create(prop5)
-prop_6 = FavoriteProperty.create(prop6)
+# prop_1 = FavoriteProperty.create(prop1)
+# prop_2 = FavoriteProperty.create(prop2)
+# prop_3 = FavoriteProperty.create(prop3)
+# prop_4 = FavoriteProperty.create(prop4)
+# prop_5 = FavoriteProperty.create(prop5)
+# prop_6 = FavoriteProperty.create(prop6)
 
 #kind is rating or distance
 crit1 = {description: "museum", kind: "distance", api_url: "http://api.yelp.com/v2/search"}
