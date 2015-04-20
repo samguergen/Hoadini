@@ -28,7 +28,7 @@ class PropertiesController < ApplicationController
       r['calc'] = crime['crimes'].count
     end
 
-    top_list = list['result'].sort {|x,y| y['calc']<=>x['calc']}[0..2]
+    top_list = list['result'].sort {|x,y| y['calc']<=>x['calc']}[0..7]
 
     render json: top_list
   end
