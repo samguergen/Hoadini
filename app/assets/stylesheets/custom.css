@@ -4,6 +4,10 @@ html {
 
 }
 
+.lead{
+  color: #8A3D3D !important;
+  text-shadow: 0 2px 3px rgba(0,0,0,.6)
+}
 /*.hoadini-logo {
   background-color: #C9E2E9;
   color: #2F8CAB;
