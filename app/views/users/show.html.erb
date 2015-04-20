@@ -16,8 +16,9 @@
 <div class="row">
   <% @properties.each do |property| %>
   <div class="col-lg-4">
-    <h3><%= property %></h3>
-    <p><%=property.description%></p>
+    <h3><%= property.title %></h3>
+    <p><%= property.address %></p>
+    <p><%= image_tag(property.picture) %></p>
     <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
   </div>
   <% end %>

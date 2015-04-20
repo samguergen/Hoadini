@@ -3,7 +3,14 @@
   <div class="property-show">
 
     <!-- TODO: Relocate link on page once formatted -->
+    <!-- TODO: Relocate link on page once formatted -->
     <%= link_to 'Back to Properties', '/properties' %>
+
+<!-- TODO: ADD ACTUAL RATING - REMOVE PLACEHOLDER -->
+
+    <%= link_to 'Add to Favorites', favorite_properties_path(:favorite_properties => {:address => @property_hash["result"]["location"]["all"], :rating => 0, :price => @property_hash["result"]["price"]["monthly"], :picture => @property_hash["result"]["photos"][0]["medium"], :title => @property_hash["result"]["attr"]["propType"]["text"]}), {:method=>:post} %>
+
+    <p><%= @property_hash["result"]["location"]["all"] %><p>
 
     <h4>Description</h4>
         <div>
