@@ -28,14 +28,21 @@ class PropertiesController < ApplicationController
       UserPreference.get_user_pref(current_user).each do |pref|
         case pref.criterium.description
         when 'museum'
+          # type museum
         when 'park'
+          # type park
         when 'price'
+          # price range per day
         when 'crime'
+          # less is better
           # get crime in a 0.05 miles radius
+
           crime = JSON.parse(crime_call(r['latLng'][0], r['latLng'][1], 0.05).body)
           r['crimes'] = crime['crimes']
         when 'food'
+          # type food
         when 'subway station'
+          # distance to closest subway
         end
       end
     end
@@ -66,7 +73,8 @@ class PropertiesController < ApplicationController
                                 token_secret: 'o_UfHL_LzaTu12UlPmw3vft-o-c'
                               })
 
-    query = { term: 'public transport',
+    query = { term: 'subway',
+              category_filter: 'publictransport',
               limit: 4
             }
 
@@ -248,7 +256,8 @@ class PropertiesController < ApplicationController
                                 token_secret: 'o_UfHL_LzaTu12UlPmw3vft-o-c'
                               })
 
-    params = { term: 'public transport',
+    params = { term: 'subway',
+               category_filter: 'public transport',
                limit: 4
              }
 
