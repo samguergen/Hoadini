@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 20150416204308) do
   create_table "user_preferences", force: :cascade do |t|
     t.integer  "user_id",      null: false
     t.integer  "criterium_id", null: false
+    t.string   "search"
+    t.boolean  "has_search"
     t.integer  "score",        null: false
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
