@@ -52,9 +52,9 @@
 
 <p> <%= u.criterium.description %>| <%= u.search %> | <%= u.score %>
 
-<%= link_to "Edit", edit_user_preference_path(u) %>
+<%= link_to "Edit", edit_user_preference_path(u), id: "edit" %>
 
-<%= link_to "Delete", u,  method: :delete, data: {confirm: "Are you sure?"} %>
+<%= link_to "Delete", u,  method: :delete, data: {confirm: "Are you sure?"}, id: "delete" %>
 </p>
 </p>
 
