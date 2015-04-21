@@ -12,9 +12,14 @@ body {
 /* Main marketing message and sign up button */
 .jumbotron {
   text-align: center;
-  background-color: transparent;
+  background-color: #C9E2E9;
 }
-.jumbotron .btn {
+
+.img {
+  border-color: FE4902;
+}
+
+#property-btn {
   padding: 14px 24px;
   font-size: 21px;
 }

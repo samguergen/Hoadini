@@ -1,80 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
 
     <title>Hoadini</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="cover.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/full-slider.css" rel="stylesheet">
 
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
+</head>
 
-  <body id="welcome-background">
+<body>
+    <!-- Full Page Image Background Carousel Header -->
+    <header id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
 
-    <div class="site-wrapper">
+        <!-- Wrapper for Slides -->
+        <div class="carousel-inner">
 
-      <div class="site-wrapper-inner">
-
-        <div class="cover-container">
-<!-- TODO ADD KEVIN NAVBAR -->
-<!--           <div class="masthead clearfix">
-            <div class="inner">
-              <h3 class="masthead-brand">Search & Stay</h3>
-              <nav>
-                <ul class="nav masthead-nav">
-                  <li class="active"><a href="#">Home</a></li>
-                  <li><a href="#">Features</a></li>
-                  <li><a href="#">Contact</a></li>
-                </ul>
-              </nav>
+           <div class="item active">
+                <!-- Set the first background image using inline CSS below. -->
+                <div class="fill" id="calibeach-img"></div>
+                <div class="carousel-caption">
+                    <h1 class="hoadini">HOADINI<h1>
+                    <h1>Traveling far, far away (or two towns over), but don't know where to stay?</h1>
+                </div>
             </div>
-          </div> -->
 
-          <div class="inner cover">
-            <h1 class="cover-heading">Hoadini</h1>
-            <p class="lead">Let us do the magic of apartment searching for you.</p>
-            <p class="lead">
-              <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
-            </p>
-          </div>
-
-          <div class="mastfoot">
-            <div class="inner">
-              <p>Hoadini, Inc.</p>
+            <div class="item">
+                <!-- Set the second background image using inline CSS below. -->
+                <div class="fill" id="nycskyline-img"></div>
+                <div class="carousel-caption">
+                    <h1>Desire to be near the MoMa, but also want to be close to some of NYC's best halal?</h1>
+                </div>
             </div>
-          </div>
 
+            <div class="item">
+                <!-- Set the third background image using inline CSS below. -->
+                <div class="fill" id="grandcanyon-img"></div>
+                <div class="carousel-caption">
+                    <h1>No need to stress, we'll do the magic in finding the perfect place for you.</h1>
+                </div>
+            </div>
         </div>
 
-      </div>
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+
+    </header>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>About Hoadini</h2>
+                <!--TODO ADD INFO ABOUT HOADINI-->
+                <p>Placeholder for schpeel on why use Hoadini</p>
+
+            </div>
+        </div>
+
+        <hr>
+
+    <!-- Team Section -->
+    <section id="team" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h3 class="section-heading">Our Dynamic Team</h3>
+                    <h4 class="section-subheading text-muted">Hopeful NYC Dev Bootcamp Graduates</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                    <div class="team-member">
+                        <%= image_tag("kevin.jpg") %>
+                        <h4>Kevin Alwell</h4>
+                        <p class="text-muted">The Hulk of Positivity</p>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                    <div class="team-member">
+                        <%= image_tag("sam.jpg") %>
+                        <h4>Sam Guergenenov</h4>
+                        <p class="text-muted">API Extrordinaire</p>
+
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                    <div class="team-member">
+                        <%= image_tag("hoa.jpg") %>
+                        <h4>Hoa Nguyen</h4>
+                        <p class="text-muted">The Man, the Myth, the Legend, Himself</p>
+
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                    <div class="team-member">
+                        <%= image_tag("tracy.jpg") %>
+                        <h4>Tracy Teague</h4>
+                        <p class="text-muted">The Stylistic Newbie</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <p class="large text-muted">With their strong programming background and copy-and-paste skills launching at DevBootCamp NYC, these individuals attribute their success to their knowledgable instructors, enthusiastic cohort mates, cherished loved ones, and, most importantly, unlimited coffee and candy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Hoadini 2015</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
 
     </div>
+    <!-- /.container -->
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Script to Activate the Carousel -->
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 //changes the speed
+    })
+    </script>
+
+</body>
+
 </html>
