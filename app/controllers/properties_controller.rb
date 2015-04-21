@@ -76,7 +76,8 @@ class PropertiesController < ApplicationController
       end
     end
 
-    top_list = list['result'][0..2]
+    # sort later .sort {|x,y| y['calc']<=>x['calc']}
+    top_list = list['result'][0..7]
 
     render json: top_list
   end
