@@ -16,7 +16,18 @@
         <div class="col-sm-8">
             <div class="user-preferences">
                 <h2>User Preferences</h2>
-                <p>User Preferences will be listed and iterated through here.</p>
+
+                <%= render "user_preferences/upref" %>
+              </div>
+            </div>
+            <div class="col-sm-4">
+                 <p>
+                    <a class="btn btn-primary btn-lg" href="/user_preferences" role="button">Edit Preferences</a>
+                 </p>
+                 <p>
+                    <a class="btn btn-primary btn-lg" href="/properties" role="button">Search Properties</a>
+                 </p>
+
             </div>
         </div>
         <div class="col-sm-4">
