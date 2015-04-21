@@ -34,7 +34,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="tagline">My Properties</h1>
+                    
                 </div>
             </div>
         </div>
@@ -69,7 +69,7 @@
         <div class="row">
             <% @properties.each do |property| %>
             <div class="col-xs-12 col-sm-4 col-lg-4">
-                <p class="circular-image"><%= image_tag(property.picture) %></p>
+                <%= image_tag(property.picture) %>
                 <h3><%= property.title %></h3>
                 <p><%= property.address %></p>
                 <p><a class="btn btn-primary" href="/properties/<%=property.z_id%>" role="button">View details &raquo;</a></p>
