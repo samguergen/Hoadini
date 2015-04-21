@@ -43,6 +43,10 @@ class PropertiesController < ApplicationController
           # type food
         when 'subway station'
           # distance to closest subway
+        when 'landmark'
+          # distance to landmark
+        when 'shopping'
+          # distance to shopping
         end
       end
     end
