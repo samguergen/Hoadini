@@ -4,7 +4,6 @@ class CreateCriteria < ActiveRecord::Migration
       t.string :description, null: false
       t.string :kind, null: false
       t.string :api_url, null: false
-      t.boolean :has_search
 
       t.timestamps null: false
     end

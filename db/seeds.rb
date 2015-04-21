@@ -1,4 +1,4 @@
-#add user photo url/upload in migration and seed?
+ #add user photo url/upload in migration and seed?
 
 sam = {name: 'sam'}
 trace = {name: 'tracy'}
@@ -26,14 +26,14 @@ kevkev = User.create(kev)
 # prop_6 = FavoriteProperty.create(prop6)
 
 #kind is rating or distance
-crit1 = {description: "museum", kind: "distance", api_url: "http://api.yelp.com/v2/search", has_search: true}
-crit2 = {description: "landmark", kind: "distance", api_url: "http://api.yelp.com/v2/search", has_search: true}
-crit3 = {description: "park", kind: "distance", api_url: "http://api.yelp.com/v2/search", has_search: true}
-crit4 = {description: "shopping", kind: "distance", api_url: "http://api.yelp.com/v2/search", has_search: true}
-crit5 = {description: "price", kind: "rating", api_url: "http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm", has_search: true}
-crit6 = {description: "crime", kind: "rating", api_url: "http://api.spotcrime.com/crimes.json", has_search: false}
-crit7 = {description: "food", kind: "distance", api_url: "http://api.yelp.com/v2/search", has_search: true}
-crit8 = {description: "subway station", kind: "distance", api_url: "http://api.yelp.com/v2/search", has_search: false}
+crit1 = {description: "museum", kind: "distance", api_url: "http://api.yelp.com/v2/search"}
+crit2 = {description: "landmark", kind: "distance", api_url: "http://api.yelp.com/v2/search"}
+crit3 = {description: "park", kind: "distance", api_url: "http://api.yelp.com/v2/search"}
+crit4 = {description: "shopping", kind: "distance", api_url: "http://api.yelp.com/v2/search"}
+crit5 = {description: "price", kind: "rating", api_url: "http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm"}
+crit6 = {description: "crime", kind: "rating", api_url: "http://api.spotcrime.com/crimes.json"}
+crit7 = {description: "food", kind: "distance", api_url: "http://api.yelp.com/v2/search"}
+crit8 = {description: "subway station", kind: "distance", api_url: "http://api.yelp.com/v2/search"}
 
 
 crit_1 = Criterium.create(crit1)
