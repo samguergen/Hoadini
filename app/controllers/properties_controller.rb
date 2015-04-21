@@ -23,12 +23,24 @@ class PropertiesController < ApplicationController
                                      headers: {'X-Mashape-Key' => 'Aq8RN3VWDnmshWqAaThekfgTPEbap1a3Tn3jsnBYV3fjrNDyQZ'}}).body)
 
     # save each score into each result
+
     list['result'].each do |r|
-      crime = JSON.parse(crime(r['latLng'][0], r['latLng'][1], 0.5).body)
-      r['calc'] = crime['crimes'].count
+      UserPreference.get_user_pref(current_user).each do |pref|
+        case pref.criterium.description
+        when 'museum'
+        when 'park'
+        when 'price'
+        when 'crime'
+          # get crime in a 0.05 miles radius
+          crime = JSON.parse(crime_call(r['latLng'][0], r['latLng'][1], 0.05).body)
+          r['crimes'] = crime['crimes']
+        when 'food'
+        when 'subway station'
+        end
+      end
     end
 
-    top_list = list['result'].sort {|x,y| y['calc']<=>x['calc']}[0..2]
+    top_list = list['result'].sort {|x,y| x['crimes'].count<=>y['crimes'].count}[0..2]
 
     render json: top_list
   end
@@ -46,7 +58,7 @@ class PropertiesController < ApplicationController
     # will count the number of crimes within the radius of the location via results as shown through properties/crime.html.erb
   end
 
-def yelp_distance_subway
+  def yelp_distance_subway
     # this is just to setup the connection
     subway = Yelp::Client.new({ consumer_key: 'UY_Ov3aMEcbjqLLvnZ1Qfw',
                                 consumer_secret: 'nyuOcG7kvFI83aeiAxg2PA5w6tU',
@@ -65,7 +77,7 @@ def yelp_distance_subway
 
   end
 
- def yelp_distance_museum
+  def yelp_distance_museum
     # get URL is the api call up until the '?' for proceeding params
     museum = Yelp::Client.new({ consumer_key: 'UY_Ov3aMEcbjqLLvnZ1Qfw',
                                      consumer_secret: 'nyuOcG7kvFI83aeiAxg2PA5w6tU',
@@ -78,7 +90,7 @@ def yelp_distance_subway
                sort: 1
              }
 
-    coordinates = { latitude: "40.706502", longitude: "-74.009176" }
+    coordinates = { latitude: params[:lat], longitude: params[:lon] }
     @museums = museum.search_by_coordinates(coordinates, query)
   end
 
@@ -96,7 +108,8 @@ def yelp_distance_subway
               sort: 1
              }
 
-    coordinates = { latitude: "40.706502", longitude: "-74.009176" }
+    coordinates = { latitude: params[:lat],
+                    longitude: params[:lon] }
     @foods = food.search_by_coordinates(coordinates, query)
   end
 
@@ -113,11 +126,194 @@ def yelp_distance_subway
                sort: 1
              }
 
-    coordinates = { latitude: "40.706502", longitude: "-74.009176" }
-    @parks = park.search_by_coordinates(coordinates, query)
+    coordinates = { latitude: params[:lat], longitude: params[:lon] }
+    @parks = park.search_by_coordin
+                  tes(coordinates, query)
   end
 
- def yelp_distance_museum
+  def yelp_distance_museum
+    # get URL is the api call up until the '?' for proceeding params
+    museum = Yelp::Client.new({ consumer_key: 'UY_Ov3aMEcbjqLLvnZ1Qfw',
+                                consumer_secret: 'nyuOcG7kvFI83aeiAxg2PA5w6tU',
+                                token: 'F0xUFQo9Tu6yTHtFli-8Ds-jxLHlLjYs',
+                                token_secret: 'o_UfHL_LzaTu12UlPmw3vft-o-c'
+                          })
+
+    query = { term: 'museums',
+               limit: 4,
+               sort: 1
+             }
+
+    coordinates = { latitude: params[:lat],
+                    longitude: params[:lon] }
+    @museums = museum.search_by_coordin
+                  tes(coordinates, query)
+  end
+
+  def yelp_distance_food
+    # get URL is the api call up until the '?' for proceeding params
+    food = Yelp::Client.new({ consumer_key: 'UY_Ov3aMEcbjqLLvnZ1Qfw',
+                                     consumer_secret: 'nyuOcG7kvFI83aeiAxg2PA5w6tU',
+                                     token: 'F0xUFQo9Tu6yTHtFli-8Ds-jxLHlLjYs',
+                                     token_secret: 'o_UfHL_LzaTu12UlPmw3vft-o-c'
+                          })
+
+    query = { term: 'food',
+               limit: 6,
+               sort: 1
+             }
+
+    coordinates = { latitude: params[:lat],
+                    longitude: params[:lon] }
+    @foods = food.search_by_coordin
+                  tes(coordinates, query)
+  end
+
+  def yelp_distance_park
+    # get URL is the api call up until the '?' for proceeding params
+    park = Yelp::Client.new({ consumer_key: 'UY_Ov3aMEcbjqLLvnZ1Qfw',
+                                     consumer_secret: 'nyuOcG7kvFI83aeiAxg2PA5w6tU',
+                                     token: 'F0xUFQo9Tu6yTHtFli-8Ds-jxLHlLjYs',
+                                     token_secret: 'o_UfHL_LzaTu12UlPmw3vft-o-c'
+                          })
+
+    query = { term: 'park',
+               limit: 6,
+               sort: 1
+             }
+
+    coordinates = { latitude: params[:lat],
+                    longitude: params[:lon] }
+    @parks = park.search_by_coordin
+                  tes(coordinates, query)
+  end
+
+
+  def yelp_distance_landmark
+    # get URL is the api call up until the '?' for proceeding params
+    landmark = Yelp::Client.new({ consumer_key: 'UY_Ov3aMEcbjqLLvnZ1Qfw',
+                                     consumer_secret: 'nyuOcG7kvFI83aeiAxg2PA5w6tU',
+                                     token: 'F0xUFQo9Tu6yTHtFli-8Ds-jxLHlLjYs',
+                                     token_secret: 'o_UfHL_LzaTu12UlPmw3vft-o-c'
+                          })
+
+    query = { term: 'landmark',
+               limit: 6,
+               sort: 1
+             }
+
+    coordinates = { latitude: params[:lat],
+                    longitude: params[:lon] }
+    @landmarks = landmark.search_by_coordinates(coordinates, query)
+  end
+
+
+  def yelp_distance_shopping
+    # get URL is the api call up until the '?' for proceeding params
+    shopping = Yelp::Client.new({ consumer_key: 'UY_Ov3aMEcbjqLLvnZ1Qfw',
+                                     consumer_secret: 'nyuOcG7kvFI83aeiAxg2PA5w6tU',
+                                     token: 'F0xUFQo9Tu6yTHtFli-8Ds-jxLHlLjYs',
+                                     token_secret: 'o_UfHL_LzaTu12UlPmw3vft-o-c'
+                          })
+
+    query = { term: 'shopping',
+               limit: 6,
+               sort: 1
+             }
+
+    coordinates = { latitude: params[:lat],
+                    longitude: params[:lon] }
+    @shops = shopping.search_by_coordinates(coordinates, query)
+  end
+
+  private
+
+  def crime_call(lat, lon, radius)
+    # get URL is the api call up until the '?' for proceeding params
+    @crime = HTTParty.get('http://api.spotcrime.com/crimes.json',
+    # take from params on URL
+                      { query: { lat: lat,
+                                 lon: lon,
+                                 key: 'MLC-restricted-key',
+                                 radius: radius}
+                      })
+    # will count the number of crimes within the radius of the location via results as shown through properties/crime.html.erb
+  end
+
+  def yelp_distance_subway_call(lat, lon)
+    # this is just to setup the connection
+    subway = Yelp::Client.new({ consumer_key: 'UY_Ov3aMEcbjqLLvnZ1Qfw',
+                                consumer_secret: 'nyuOcG7kvFI83aeiAxg2PA5w6tU',
+                                token: 'F0xUFQo9Tu6yTHtFli-8Ds-jxLHlLjYs',
+                                token_secret: 'o_UfHL_LzaTu12UlPmw3vft-o-c'
+                              })
+
+    params = { term: 'public transport',
+               limit: 4
+             }
+
+    coordinates = { latitude: lat,
+                    longitude: lon }
+
+    @subways = subway.search_by_coordinates(coordinates, params).businesses.sort {|x,y| x.distance <=> y.distance}
+
+  end
+
+  def yelp_distance_museum_call(lat, lon)
+    # get URL is the api call up until the '?' for proceeding params
+    museum = Yelp::Client.new({ consumer_key: 'UY_Ov3aMEcbjqLLvnZ1Qfw',
+                                consumer_secret: 'nyuOcG7kvFI83aeiAxg2PA5w6tU',
+                                token: 'F0xUFQo9Tu6yTHtFli-8Ds-jxLHlLjYs',
+                                token_secret: 'o_UfHL_LzaTu12UlPmw3vft-o-c'
+                          })
+
+    query = { term: 'museums',
+               limit: 4,
+               sort: 1
+             }
+
+    coordinates = { latitude: lat,
+                    longitude: lon }
+    @museums = museum.search_by_coordinates(coordinates, query)
+  end
+
+  def yelp_distance_food_call(lat, lon)
+    # get URL is the api call up until the '?' for proceeding params
+    food = Yelp::Client.new({ consumer_key: 'UY_Ov3aMEcbjqLLvnZ1Qfw',
+                              consumer_secret: 'nyuOcG7kvFI83aeiAxg2PA5w6tU',
+                              token: 'F0xUFQo9Tu6yTHtFli-8Ds-jxLHlLjYs',
+                              token_secret: 'o_UfHL_LzaTu12UlPmw3vft-o-c'
+                            })
+
+    params = { term: 'mexican',
+              category_filter: 'food',
+              limit: 6,
+              sort: 1
+             }
+
+    coordinates = { latitude: lat, longitude: lon }
+    @foods = food.search_by_coordinates(coordinates, params)
+  end
+
+  def yelp_distance_park_call(lat, lon)
+    # get URL is the api call up until the '?' for proceeding params
+    park = Yelp::Client.new({ consumer_key: 'UY_Ov3aMEcbjqLLvnZ1Qfw',
+                              consumer_secret: 'nyuOcG7kvFI83aeiAxg2PA5w6tU',
+                              token: 'F0xUFQo9Tu6yTHtFli-8Ds-jxLHlLjYs',
+                              token_secret: 'o_UfHL_LzaTu12UlPmw3vft-o-c'
+                            })
+
+    params = { term: 'park',
+               limit: 6,
+               sort: 1
+             }
+
+    coordinates = { latitude: lat,
+                    longitude: lon }
+    @parks = park.search_by_coordinates(coordinates, params)
+  end
+
+  def yelp_distance_museum_call(lat, lon)
     # get URL is the api call up until the '?' for proceeding params
     museum = Yelp::Client.new({ consumer_key: 'UY_Ov3aMEcbjqLLvnZ1Qfw',
                                      consumer_secret: 'nyuOcG7kvFI83aeiAxg2PA5w6tU',
@@ -130,11 +326,12 @@ def yelp_distance_subway
                sort: 1
              }
 
-    coordinates = { latitude: "40.706502", longitude: "-74.009176" }
+    coordinates = { latitude: lat,
+                    longitude: lon }
     @museums = museum.search_by_coordinates(coordinates, params)
   end
 
-   def yelp_distance_food
+  def yelp_distance_food_call(lat, lon)
     # get URL is the api call up until the '?' for proceeding params
     food = Yelp::Client.new({ consumer_key: 'UY_Ov3aMEcbjqLLvnZ1Qfw',
                                      consumer_secret: 'nyuOcG7kvFI83aeiAxg2PA5w6tU',
@@ -147,11 +344,12 @@ def yelp_distance_subway
                sort: 1
              }
 
-    coordinates = { latitude: "40.706502", longitude: "-74.009176" }
+    coordinates = { latitude: lat,
+                    longitude: lon }
     @foods = food.search_by_coordinates(coordinates, params)
   end
 
-     def yelp_distance_park
+  def yelp_distance_park_call(lat, lon)
     # get URL is the api call up until the '?' for proceeding params
     park = Yelp::Client.new({ consumer_key: 'UY_Ov3aMEcbjqLLvnZ1Qfw',
                                      consumer_secret: 'nyuOcG7kvFI83aeiAxg2PA5w6tU',
@@ -164,12 +362,13 @@ def yelp_distance_subway
                sort: 1
              }
 
-    coordinates = { latitude: "40.706502", longitude: "-74.009176" }
+    coordinates = { latitude: lat,
+                    longitude: lon }
     @parks = park.search_by_coordinates(coordinates, params)
   end
 
 
-    def yelp_distance_landmark
+  def yelp_distance_landmark_call(lat, lon)
     # get URL is the api call up until the '?' for proceeding params
     landmark = Yelp::Client.new({ consumer_key: 'UY_Ov3aMEcbjqLLvnZ1Qfw',
                                      consumer_secret: 'nyuOcG7kvFI83aeiAxg2PA5w6tU',
@@ -182,12 +381,13 @@ def yelp_distance_subway
                sort: 1
              }
 
-    coordinates = { latitude: "40.706502", longitude: "-74.009176" }
+    coordinates = { latitude: lat,
+                    longitude: lon }
     @landmarks = landmark.search_by_coordinates(coordinates, params)
   end
 
 
-    def yelp_distance_shopping
+  def yelp_distance_shopping_call(lat, lon)
     # get URL is the api call up until the '?' for proceeding params
     shopping = Yelp::Client.new({ consumer_key: 'UY_Ov3aMEcbjqLLvnZ1Qfw',
                                      consumer_secret: 'nyuOcG7kvFI83aeiAxg2PA5w6tU',
@@ -200,21 +400,9 @@ def yelp_distance_subway
                sort: 1
              }
 
-    coordinates = { latitude: "40.706502", longitude: "-74.009176" }
+    coordinates = { latitude: lat,
+                    longitude: lon }
     @shops = shopping.search_by_coordinates(coordinates, params)
   end
 
-  private
-
-  def crime(lat, lon, radius)
-    # get URL is the api call up until the '?' for proceeding params
-    @crime = HTTParty.get('http://api.spotcrime.com/crimes.json',
-    # take from params on URL
-                      { query: { lat: lat,
-                                 lon: lon,
-                                 key: 'MLC-restricted-key',
-                                 radius: radius}
-                      })
-    # will count the number of crimes within the radius of the location via results as shown through properties/crime.html.erb
-  end
 end
