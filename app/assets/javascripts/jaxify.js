@@ -7,6 +7,7 @@ $('#add').on('click', function(event){
   $.ajax({
     url: '/user_preferences/new'
   }).done(function(result){
+    $('#add').toggle(false);
     $('.preflist').append(result);
   });
   });
@@ -32,7 +33,7 @@ $.ajax({
       search: search
     }
   }).done(function(result){
-    $('.preflist').empty().append(result);
+    $('.preflist').append(result);
   });
 });
 
