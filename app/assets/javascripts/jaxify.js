@@ -33,6 +33,7 @@ $.ajax({
       search: search
     }
   }).done(function(result){
+    console.log(result);
     $('.preflist').append(result);
   });
 });
