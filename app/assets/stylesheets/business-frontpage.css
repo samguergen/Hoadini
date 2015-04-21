@@ -26,9 +26,10 @@ body {
 
 .tagline {
     text-shadow: 0 0 10px #000;
-    color: #fff;
-    font-size: 25px;
+    color: #007E80;
+    font-size: 30px;
     text-align: left;
+    float: left;
 }
 
 .img-center {

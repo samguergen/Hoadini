@@ -1,31 +1,73 @@
-<div class="container">
-  <div class="row">
-  <div class="property-show">
+<!DOCTYPE html>
+<html lang="en">
 
-    <!-- TODO: Relocate link on page once formatted -->
-    <!-- TODO: Relocate link on page once formatted -->
-    <%= link_to 'Back to Properties', '/properties' %>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Hoadini: User Page</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/business-frontpage.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+      <header class="business-header">
+        <div class="container">
+        </div>
+    </header>
+
+    <div class="container">
+          <p class="favorite-button">
+            <%= link_to 'FAVORITE ME', favorite_properties_path(:favorite_properties => {:z_id => @property_hash["result"]["id"], :address => @property_hash["result"]["location"]["all"], :address => @property_hash["result"]["location"]["all"], :rating => 0, :price => @property_hash["result"]["price"]["monthly"], :picture => @property_hash["result"]["photos"][0]["medium"], :title => @property_hash["result"]["attr"]["propType"]["text"]}), {:method=>:post} %>
+         </p>
+        <hr>
+
+        <div class="row">
+            <div class="col-xs-12 col-md-12 col-lg-12">
+              <div class="user-preferences">
+                <h2><%= @property_hash["result"]["location"]["all"] %></h2>
+              </div>
+            </div>
+                 <p>
+                    <a class="btn btn-primary btn-lg" href="/properties" role="button">Back to Properties</a>
+                 </p>
+
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+
 
 <!-- TODO: ADD ACTUAL RATING - REMOVE PLACEHOLDER -->
 
-    <%= link_to 'Add to Favorites', favorite_properties_path(:favorite_properties => {:z_id => @property_hash["result"]["id"], :address => @property_hash["result"]["location"]["all"], :address => @property_hash["result"]["location"]["all"], :rating => 0, :price => @property_hash["result"]["price"]["monthly"], :picture => @property_hash["result"]["photos"][0]["medium"], :title => @property_hash["result"]["attr"]["propType"]["text"]}), {:method=>:post} %>
 
-    <p><%= @property_hash["result"]["location"]["all"] %><p>
 
-    <h4>Description</h4>
-        <div>
-            <p><%= @property_hash["result"]["attr"]["description"] %><p>
-        </div>
-
-      <h4> Prices </h4>
-        <div>
-          <ul>
-            <li>Monthly: <%= @property_hash["result"]["price"]["monthly"] %></li>
-            <li>Nightly: <%= @property_hash["result"]["price"]["nightly"] %></li>
-            <li>Weekend: <%= @property_hash["result"]["price"]["weekend"] %></li>
-            <li>Weekly: <%= @property_hash["result"]["price"]["weekly"] %></li>
-          </ul>
-        </div>
+<div class="property-show">
+      <h4> Pricing </h4>
+          <div>
+            Monthly: <%= @property_hash["result"]["price"]["monthly"] %> |
+            Nightly: <%= @property_hash["result"]["price"]["nightly"] %> |
+            Weekend: <%= @property_hash["result"]["price"]["weekend"] %> |
+            Weekly: <%= @property_hash["result"]["price"]["weekly"] %> 
+          </div>
 
         <h4>Renter Information</h4>
           <div>
@@ -38,7 +80,13 @@
             <li>Total Occupancy: <%= @property_hash["result"]["attr"]["occupancy"] %></li>
           </div>
 
-      <h5>Photos</h5>
+    <h4>Description</h4>
+        <div>
+            <p><%= @property_hash["result"]["attr"]["description"] %><p>
+        </div>
+
+
+    <h4>Photos</h4>
       <!-- TODO: Reformat and possibly make carousel for individual/3 photos -->
         <div>
           <% @property_hash["result"]["photos"].each do |photo| %>
@@ -49,3 +97,33 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Hoadini 2015</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
