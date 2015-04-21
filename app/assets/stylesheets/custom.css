@@ -46,7 +46,6 @@ body {
 /*info window*/
  .property{
   display: flex;
-  border: 2px solid #4d90fe;
   display: inline-block;
   /*width: 200px;*/
   width: 100%;
@@ -157,6 +156,6 @@ body {
     height: 500px;
     width: 30%;
     float: right;
-    /*overflow: scroll;*/
+    overflow: scroll;
     border: 2px solid #4d90fe;
   }

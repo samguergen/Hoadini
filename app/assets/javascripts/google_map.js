@@ -114,7 +114,7 @@ function print_properties(jsonArray, map) {
   jsonArray.forEach(function(json){
     html += "<li class='property'>" +
               "<a href='/properties/" + json.id + "'>" +
-                "<h1 class='property-title'>" + json.attr.heading + "</h1>" +
+                "<h4 class='property-title'>" + json.attr.heading + "</h4>" +
                   "<nobr><ul class=property-img-list>";
     for(i=0;i < json.photos.length;i++){
       html +=       "<img class=property-img src='" + json.photos[i].small + "'>";
