@@ -341,5 +341,6 @@ class PropertiesController < ApplicationController
     coordinates = { latitude: lat,
                     longitude: lng }
     shops = shopping.search_by_coordinates(coordinates, query).businesses.sort {|x,y| x.distance <=> y.distance}
+
   end
 end
