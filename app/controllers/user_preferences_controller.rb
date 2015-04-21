@@ -18,6 +18,7 @@ class UserPreferencesController < ApplicationController
 
 
   def create
+    p params
     if session[:user_id]
       @new_user_pref = UserPreference.create!(userpref_params)
       redirect_to user_preferences_path
