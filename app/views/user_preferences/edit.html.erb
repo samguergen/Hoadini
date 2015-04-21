@@ -1,3 +1,4 @@
+<div class="editcrit">
 <%= form_for @user_pref do |f| %>
   <fieldset>
     <legend> Modify your feature preference. </legend>
@@ -11,3 +12,5 @@
 <% end %>
 
 <%= link_to "Delete preference", @user_pref,  method: :delete, data: {confirm: "Are you sure?"} %>
+
+</div>
