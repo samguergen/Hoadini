@@ -102,6 +102,7 @@ function initialize() {
            }
      }).done(function(response){
       $('.properties-list ul').html(print_properties(response, map));
+      $('.properties-list ul').html(set_map(response, map));
     });
   });
 }
@@ -112,17 +113,63 @@ google.maps.event.addDomListener(window, 'load', initialize);
 function print_properties(jsonArray, map) {
   html = ''
   jsonArray.forEach(function(json){
-    html += "<li class='property'>" +
-              "<a href='/properties/" + json.id + "'>" +
-                "<h4 class='property-title'>" + json.attr.heading + "</h4>" +
-                  "<nobr><ul class=property-img-list>";
-    for(i=0;i < json.photos.length;i++){
-      html +=       "<img class=property-img src='" + json.photos[i].small + "'>";
-    }
-    html +=       "</ul></nobr>" +
-               "</a>" +
-             "</li>";
+  console.log(json);
+   html += '<h6>'+json.attr.heading+'</h6>'+'<div id="carousel-example-generic-' + json.id + '" class="carousel slide" data-ride="carousel">'+
+      '<ol class="carousel-indicators">'+
+        '<li data-target="#carousel-example-generic" data-slide-to="0" class="active">'+
+          '</li>'+
+            '<li data-target="#carousel-example-generic" data-slide-to="1"></li>'+
+            '<li data-target="#carousel-example-generic" data-slide-to="2"></li>'+
+      '</ol>'+
+    '<div class="carousel-inner" role="listbox">'+
+      '<div class="item active">'+
+        "<a href='/properties/" + json.id + "'><img src='"+ json.photos[0].small + "'height = '200' width = '200'>"+
+        "</a>"+
+          '<div class="carousel-caption">'+
+           // ''+ json.attr.heading + ''+
+          '</div>'+
+        '</div>'+
+        '<div class="item">'+
+          "<a href='/properties/" + json.id + "'><img src='"+ json.photos[1].small + "''height = '200' width = '200'>"+
+          "</a>"+
+          '<div class="carousel-caption">'+
+          // ''+ json.attr.heading + ''+
+        '</div>'+
+      '</div>'+
+        '<div class="item">'+
+          "<a href='/properties/" + json.id + "'><img src='"+ json.photos[2].small + "''height = '200' width = '200'>"+
+          "</a>"+
+          '<div class="carousel-caption">'+
+          // ''+ json.attr.heading + ''+
+        '</div>'+
+      '</div>'+
+    '</div>'+
 
+    '<a class="left carousel-control" href="#carousel-example-generic-' + json.id + '" role="button" data-slide="prev">'+
+      '<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>'+
+      '<span class="sr-only">Previous</span>'+
+    '</a>'+
+    '<a class="right carousel-control" href="#carousel-example-generic-' + json.id + '" role="button" data-slide="next">'+
+      '<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>'+
+      '<span class="sr-only">Next</span>'+
+    '</a>'+
+    '</div>';
+  })
+  console.log(html);
+  return html;
+}
+    // html += "<li class='property'>" +
+    //           "<a href='/properties/" + json.id + "'>" +
+    //             "<h4 class='property-title'>" + json.attr.heading + "</h4>" +
+    //               "<nobr><ul class=property-img-list>";
+    // for(i=0;i < json.photos.length;i++){
+    //   html +=       "<img class=property-img src='" + json.photos[i].small + "'>";
+    // }
+    // html +=       "</ul></nobr>" +
+    //            "</a>" +
+    //          "</li>";
+ function set_map(jsonArray, map) {   
+  jsonArray.forEach(function(json){
     var myLatlng = new google.maps.LatLng(json.latLng[0],json.latLng[1]);
      //add the marker to the map, use the 'map' property
     var marker = new google.maps.Marker({
@@ -133,7 +180,7 @@ function print_properties(jsonArray, map) {
         icon: image
     });
     markersArray.push(marker);
-    console.log(json);
+
     //Sets info window for marker
     var infowindow = new google.maps.InfoWindow({
          content: '<h6>' + json.location.all + '</h6>'
@@ -145,6 +192,5 @@ function print_properties(jsonArray, map) {
 
 
   })
-  return html;
 }
 
