@@ -17,12 +17,14 @@
             <div class="user-preferences">
                 <h2>User Preferences</h2>
 
+
             <% @user_prefs = UserPreference.all.where(user_id: session[:user_id]) %>
                             <p> <% @user_prefs.sort_by do |u| %>
 
             <p> <%= u.criterium.description %>| <%= u.search %> | <%= u.score %>
 
                 <% end %>
+
 
               </div>
             </div>
