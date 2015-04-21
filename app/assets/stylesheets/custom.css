@@ -7,12 +7,17 @@
   height: 100%;
   background-color: #C9E2E9;
 }*/
+
 .property-show {
   text-align: left;
 }
 
 h4 {
   color: #004853 !important;
+}
+
+h1 {
+  color: white;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -31,6 +36,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #004853;
   font-weight: bolder;
 }
+
 
 /*.hoadini-logo {
   background-color: #C9E2E9;
@@ -70,6 +76,10 @@ h1, h2, h3, h4, h5, h6 {
   float: left;
 }
 
+.team-member img {
+  border-radius: 40px;
+  border: 5px solid #007E80;
+}
 /*nav bar*/
 
 /*#nav-menu{
