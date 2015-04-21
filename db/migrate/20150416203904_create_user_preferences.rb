@@ -3,6 +3,7 @@ class CreateUserPreferences < ActiveRecord::Migration
     create_table :user_preferences do |t|
       t.references :user, null: false
       t.references :criterium, null: false
+      t.string :search
       t.integer :score, null: false
 
       t.timestamps null: false

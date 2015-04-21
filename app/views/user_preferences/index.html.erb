@@ -49,7 +49,7 @@
 
 <p> <% @user_prefs.sort_by do |u| %>
 
-<p> <%= u.criterium.description %> | <%= u.score %>
+<p> <%= u.criterium.description %>| <%= u.search %> | <%= u.score %>
 
 <%= link_to "Edit", edit_user_preference_path(u) %>
 
