@@ -100,10 +100,8 @@ function initialize() {
              swlatitude: swlat,
              swlongitude: swlng
            }
-    }).done(function(response){
-      console.log(response)
-      $('.properties-list ul').empty();
-      $('.properties-list ul').append(print_property(response, map));
+     }).done(function(response){
+      $('.properties-list ul').html(print_properties(response, map));
     });
   });
 }
@@ -111,11 +109,19 @@ function initialize() {
 google.maps.event.addDomListener(window, 'load', initialize);
 
 
-function print_property(jsonArray, map) {
+function print_properties(jsonArray, map) {
   html = ''
   jsonArray.forEach(function(json){
-    html += "<a href='/properties/" + json.id + "'><img src='" + json.photos[0].small + "' height='100' width='100'></a><div>" + json.attr.heading + "<div>"
-
+    html += "<li class='property'>" +
+              "<a href='/properties/" + json.id + "'>" +
+                "<h4 class='property-title'>" + json.attr.heading + "</h4>" +
+                  "<nobr><ul class=property-img-list>";
+    for(i=0;i < json.photos.length;i++){
+      html +=       "<img class=property-img src='" + json.photos[i].small + "'>";
+    }
+    html +=       "</ul></nobr>" +
+               "</a>" +
+             "</li>";
 
     var myLatlng = new google.maps.LatLng(json.latLng[0],json.latLng[1]);
      //add the marker to the map, use the 'map' property
@@ -127,10 +133,10 @@ function print_property(jsonArray, map) {
         icon: image
     });
     markersArray.push(marker);
-
+    console.log(json);
     //Sets info window for marker
     var infowindow = new google.maps.InfoWindow({
-         content: '<img src=' + json.photos[0].small + '>'
+         content: '<h6>' + json.location.all + '</h6>'
      });
 
     google.maps.event.addListener(marker, 'click', function() {
