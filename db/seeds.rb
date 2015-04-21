@@ -1,4 +1,4 @@
-#add user photo url/upload in migration and seed?
+ #add user photo url/upload in migration and seed?
 
 sam = {name: 'sam'}
 trace = {name: 'tracy'}
