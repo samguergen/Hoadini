@@ -100,6 +100,7 @@ function initialize() {
              swlongitude: swlng
            }
     }).done(function(response){
+      console.log(response)
       $('.properties-list ul').empty();
       $('.properties-list ul').append(print_property(response, map));
     });
