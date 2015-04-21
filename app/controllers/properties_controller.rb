@@ -22,10 +22,34 @@ class PropertiesController < ApplicationController
                                              swlongitude: params[:swlongitude]},
                                      headers: {'X-Mashape-Key' => 'Aq8RN3VWDnmshWqAaThekfgTPEbap1a3Tn3jsnBYV3fjrNDyQZ'}}).body)
 
-    # save each score into each result
-    list['result'].each do |r|
+# # # # # # # # # #FOR REFERENCE
+    # # save each score into each result
+    # list['result'].each do |r|
+
+
+    #   lat = r['latLng'][0]
+    #   lng = r['latLng'][1]
+    #   UserPreference.get_user_pref(current_user).each do |pref|
+    #     case pref.criterium.description
+    #     when 'museum'
+
+    #       r['museums'] = 0
+
+    #     when 'food'
+    #       f = yelp_distance_food_call(lat, lng, pref.search)
+    #       # .search is on the model for the user search for that preference
+
+    #       r['foods'] = f.businesses
+    #       # r is individual property
+    #       # businesses key value
+
+    # # # # ## # ##
+
       crime = JSON.parse(crime(r['latLng'][0], r['latLng'][1], 0.5).body)
       r['calc'] = crime['crimes'].count
+
+
+
     end
 
     top_list = list['result'].sort {|x,y| y['calc']<=>x['calc']}[0..7]
