@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20150416204308) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "criteria", force: :cascade do |t|
     t.string   "description", null: false
     t.string   "kind",        null: false
@@ -40,6 +37,7 @@ ActiveRecord::Schema.define(version: 20150416204308) do
   create_table "user_preferences", force: :cascade do |t|
     t.integer  "user_id",      null: false
     t.integer  "criterium_id", null: false
+    t.string   "search"
     t.integer  "score",        null: false
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false

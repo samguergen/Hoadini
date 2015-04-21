@@ -1,12 +1,12 @@
 <h2> What features are important for you? </h2>
 
 
-<b> Criteria | Importance (1-10) </b>
+<b> Criteria | Search for | Importance (1-10) </b>
 
  <p> <% @user_prefs.sort_by do |u| %>
 
 
-<p> <%= u.criterium.description %> | <%= u.score %>
+<p> <%= u.criterium.description %>| <%= u.search %> | <%= u.score %>
 
 <%= link_to "Edit", edit_user_preference_path(u) %>
 
