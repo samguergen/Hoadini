@@ -43,8 +43,9 @@ $.ajax({
 
 $('#edit').on('click', function(event){
   event.preventDefault();
+  target = event.target;
   $.ajax({
-    url: '/user_preferences/#{u.id}/edit'
+    url: target.pathname
   }).done(function(result){
     $('#edit').toggle(false);
     $('.preflist').append(result);
@@ -53,27 +54,27 @@ $('#edit').on('click', function(event){
 
 // ajax edit form
 
-$('.preflist').on('submit', '.newcrit', function(event){
-  event.preventDefault();
+// $('.preflist').on('submit', '.newcrit', function(event){
+//   event.preventDefault();
 
-  var $form = $( this ),
+//   var $form = $( this ),
 
-  crit = $form.find( "input[name='criterium_id']" ).val(),
-  score = $form.find( "input[name='score']" ).val(),
-  search = $form.find( "input[name='search']" ).val();
-  // url = $form.attr( "action" );
-$.ajax({
-    method: 'POST',
-    url: '/user_preferences',
-    data: {
-      criterium_id: crit,
-      score: score,
-      search: search
-    }
-  }).done(function(result){
-    console.log(result);
-    $('.newcrit').prepend(result);
-  });
-});
+//   crit = $form.find( "input[name='criterium_id']" ).val(),
+//   score = $form.find( "input[name='score']" ).val(),
+//   search = $form.find( "input[name='search']" ).val();
+//   // url = $form.attr( "action" );
+// $.ajax({
+//     method: 'POST',
+//     url: '/user_preferences',
+//     data: {
+//       criterium_id: crit,
+//       score: score,
+//       search: search
+//     }
+//   }).done(function(result){
+//     console.log(result);
+//     $('.newcrit').prepend(result);
+//   });
+// });
 
 });
