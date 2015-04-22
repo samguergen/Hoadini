@@ -162,7 +162,7 @@ function print_properties(jsonArray, map) {
         position: myLatlng,
         map: map,
         animation: google.maps.Animation.DROP,
-        title: json.attr.heading,
+        title: json.location.all,
         icon: image,
         id: json.id
     });
@@ -170,14 +170,25 @@ function print_properties(jsonArray, map) {
 
     //Sets info window for marker
     var infowindow = new google.maps.InfoWindow({
-         content: '<h6>' + json.location.all + '</h6>'
+         content: '<h6>' + json.attr.heading + '</h6>'
      });
+
+    //custom scrollTo function for property
+    jQuery.fn.scrollTo = function(elem, speed) { 
+        $(this).animate({
+            scrollTop:  $(this).scrollTop() - $(this).offset().top + $(elem).offset().top 
+        }, speed == undefined ? 1000 : speed); 
+        return this; 
+    };
+
+
+
     //Open Info Window from marker when mouseover
       google.maps.event.addListener(marker, 'mouseover', function() {
           infowindow.open(map,marker);
           var selector = "#" + marker.id;
           $(selector).addClass('highlighted');
-          $(selector).scrollTop();
+          $(".properties-list").scrollTo(selector, 2000);
       });
 
       google.maps.event.addListener(marker, 'mouseout', function() {
