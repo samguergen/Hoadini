@@ -36,7 +36,9 @@
                     <div class="property">
                     <% @properties.each do |property| %>
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                            <div class="property-image">
                             <%= image_tag(property.picture) %>
+                            </div>
                             <h3><%= property.title %></h3>
                                 <p><%= property.address %></p>
                                 <p><a class="btn btn-primary" href="/properties/<%=property.z_id%>" role="button">View details &raquo;</a></p>

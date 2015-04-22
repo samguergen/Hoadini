@@ -60,11 +60,18 @@ p {
 }*/
 
 .property {
-    width: 600px;
+    width: 500px;
     height: auto;
     float: left;
     margin: 3px;
     padding: 3px;
+}
+
+.property-image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 75px;
+  border: 5px solid #232838;
 }
 
 /*.jumbotron {
@@ -162,7 +169,6 @@ p {
     font-size: 13px;
     font-weight: 300;
   }
-
 
   .properties-list {
     visibility: visible !important;
