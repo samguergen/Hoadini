@@ -203,3 +203,12 @@ p {
   border: 5px solid #004853;
   margin: 0 auto;
 }
+  .prop-item{
+    height: 200px !important;
+    width: 200px !important;
+  }
+  .prop-img{
+    height: 100% !important;
+    width: 100% !important;
+  }
+
