@@ -160,3 +160,26 @@ h1, h2, h3, h4, h5, h6 {
     overflow: scroll;
     border: 2px solid #4d90fe;
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .prop-item{
+    height: 200px !important;
+    width: 200px !important;
+  }
+  .prop-img{
+    height: 100% !important;
+    width: 100% !important;
+  }
