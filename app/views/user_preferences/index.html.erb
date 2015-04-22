@@ -43,45 +43,47 @@
     <!-- Page Content -->
 
 
-        <hr>
+    <hr>
 
-<div class="container">
-    <div class="row">
-        <div class="preflist">
-<h2> WHICH FEATURES ARE MOST IMPORTANT TO YOU? </h2>
-<h4>Rate criteria based on a scale of 1 (least important) to 10 (most important)</h4>
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <div class="user-preferences">
-                <% @user_prefs = UserPreference.all.where(user_id: session[:user_id]) %>
-                    <% @user_prefs.sort_by do |u| %>
-                        <h5 class='rating-criteria'><%= u.criterium.description.capitalize %> </h5>
-                        <h5 class='rating-criteria'><em><%= u.search %></em></h5>
-                         <p class='rating-criteria'>Rating: <%= u.score %></p>
-                    <% end %>
+    <div class="container">
+        <div class="row">
+            <div class="preflist">
+                <h2> WHICH FEATURES ARE MOST IMPORTANT TO YOU? </h2>
+                <h4>Rate criteria based on a scale of 1 (least important) to 10 (most important)</h4>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="user-preferences">
+                        <% @user_prefs.sort_by do |u| %>
+                            <h5 class='rating-criteria'><%= u.criterium.description.capitalize %> </h5>
+                            <h5 class='rating-criteria'><em><%= u.search %></em></h5>
+                            <p class='rating-criteria'>Rating: <%= u.score %></p>
+
+                            <%= link_to "Edit", edit_user_preference_path(u), id: "edit" %>
+
+                            <%= link_to "Delete", u,  method: :delete, data: {confirm: "Are you sure?"}, id: "delete" %>
+                        <% end %>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 
-
-<p><%= link_to "Add a criterium", new_user_preference_path, id: "add" %></p>
+    <p><%= link_to "Add a criterium", new_user_preference_path, id: "add" %></p>
 
 
 
 
-        <hr>
+    <hr>
 
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Hoadini 2015</p>
-                </div>
+    <!-- Footer -->
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; Hoadini 2015</p>
             </div>
-            <!-- /.row -->
-        </footer>
+        </div>
+        <!-- /.row -->
+    </footer>
 
     </div>
     <!-- /.container -->
