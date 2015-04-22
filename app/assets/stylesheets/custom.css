@@ -17,7 +17,7 @@ hr {
 }
 
 .navbar-right a {
-  font-family: Open Sans Condensed;
+  font-family: Ubuntu 300;
   font-weight: bolder;
   font-size: 20px;
   color: #232838 !important;
@@ -34,12 +34,12 @@ hr {
 h1, h2, h3, h4, h5, h6 {
   color: #F15946;
   text-shadow: 0 1px 3px #232838;
-  font-family: Luckiest Guy;
+  font-family: Ubuntu 500;
   font-weight: bold 700;
 }
 
 p {
-  font-family: Open Sans Condensed;
+  font-family: Ubuntu 300;
 }
 
 .container .favorite-button {
@@ -63,7 +63,8 @@ p {
     width: 500px;
     height: auto;
     float: left;
-    margin: 3px;
+    margin-left: 20%;
+    margin-right: 20%;
     padding: 3px;
 }
 
@@ -140,7 +141,7 @@ p {
 /*Search bar*/
   #pac-input{
     background-color: #fff;
-    font-family: Roboto;
+    font-family: Ubuntu 300;
     font-size: 15px;
     font-weight: 300;
     margin-left: 12px;
@@ -155,7 +156,7 @@ p {
   }
 
   .pac-container {
-    font-family: Roboto;
+    font-family: Ubuntu 300;
   }
 
   #type-selector {
@@ -165,7 +166,7 @@ p {
   }
 
   #type-selector label {
-    font-family: Roboto;
+    font-family: Ubuntu 300;
     font-size: 13px;
     font-weight: 300;
   }

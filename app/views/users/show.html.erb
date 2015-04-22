@@ -10,28 +10,30 @@
 
 <hr>
 
-<div class="container">
+<!-- <div class="container">
     <div class="row">
-        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="user-preferences">
-
                 <p>
-                    <a class="btn btn-primary btn-md" href="/user_preferences" role="button">Edit Preferences</a>
+
                 </p>
                 <h2>User Preferences</h2>
-                <% @user_prefs = UserPreference.all.where(user_id: session[:user_id]) %>
-                    <% @user_prefs.sort_by do |u| %>
-                        <h5><%= u.criterium.description.capitalize %>    <em><%= u.search %></em></h5>
-                         <p>Rating: <%= u.score %></p>
-                    <% end %>
+                <#% @user_prefs = UserPreference.all.where(user_id: session[:user_id]) %>
+                    <#% @user_prefs.sort_by do |u| %>
+                        <h5><#%= u.criterium.description.capitalize %>    <em><#%= u.search %></em></h5>
+                         <p>Rating: <#%= u.score %></p>
+                    <#% end %>
             </div>
         </div>
-
-        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+    </div>
+<hr> -->
+     <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <p>
+                <a class="btn btn-primary btn-md" href="/user_preferences" role="button">Edit Preferences</a>
                 <a class="btn btn-primary btn-md" href="/properties" role="button">Search Properties</a>
             </p>
-            <h2>Saved Favorites</h2>
+            <h2>My Favorites</h2>
                 <div class="row">
                     <div class="property">
                     <% @properties.each do |property| %>
@@ -43,7 +45,7 @@
                                 <p><%= property.address %></p>
                                 <p><a class="btn btn-primary" href="/properties/<%=property.z_id%>" role="button">View details &raquo;</a></p>
                         </div>
-                    <% end %>
+                     <% end %>
                     </div>
                 </div>
             </div>
