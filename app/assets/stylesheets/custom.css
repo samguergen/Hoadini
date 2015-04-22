@@ -219,3 +219,8 @@ p {
     width: 100% !important;
   }
 
+.highlighted {
+  -moz-box-shadow:    3px 3px 5px 6px #00CED1;
+  -webkit-box-shadow: 3px 3px 5px 6px #00CED1;
+  box-shadow:         3px 3px 5px 6px #00CED1;
+}

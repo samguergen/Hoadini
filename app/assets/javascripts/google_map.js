@@ -110,7 +110,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 
 function print_properties(jsonArray, map) {
-  html = ''
+  html = '<div #carousel-container';
   jsonArray.forEach(function(json){
    html += '<h6>'+json.attr.heading+'</h6>'+'<div id="carousel-example-generic-' + json.id + '" class="carousel slide" data-ride="carousel">'+
       '<ol class="carousel-indicators">'+
@@ -150,6 +150,7 @@ function print_properties(jsonArray, map) {
     '</a>'+
     '</div>';
   })
+  html += "</div>";
   return html;
 }
 
@@ -171,13 +172,18 @@ function print_properties(jsonArray, map) {
     var infowindow = new google.maps.InfoWindow({
          content: '<h6>' + json.location.all + '</h6>'
      });
-
+    //Open Info Window from marker when mouseover
       google.maps.event.addListener(marker, 'mouseover', function() {
           infowindow.open(map,marker);
+          var selector = "#" + marker.id;
+          $(selector).addClass('highlighted');
+          $(selector).scrollTop();
       });
 
       google.maps.event.addListener(marker, 'mouseout', function() {
           infowindow.close();
+          var selector = "#" + marker.id;
+          $(selector).removeClass('highlighted');
       });
 
 
