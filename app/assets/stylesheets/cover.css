@@ -6,7 +6,9 @@
 a,
 a:focus,
 a:hover {
-  color: #2F8CAB;
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
 }
 
 /* Custom default button */

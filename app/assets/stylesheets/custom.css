@@ -2,6 +2,9 @@ html {
   background-color: white;
 }
 
+.show-margin {
+  margin-top: 60px;
+}
 .team-caption{
   font-style: italic;
   text-shadow: none;
@@ -93,6 +96,7 @@ li .property-header{
   padding: 20px;
   height: 250px;
   margin-bottom: 10px;
+
 }
 
 .pricing-info {
