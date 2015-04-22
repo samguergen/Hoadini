@@ -1,8 +1,8 @@
 class FavoritePropertiesController < ApplicationController
 
 	def create
-		FavoriteProperty.create(favorite_properties_params)
-    redirect_to '/properties'
+		property = FavoriteProperty.create(favorite_properties_params)
+    	redirect_to "/properties/#{property.z_id}"
 	end
 
 	def index
