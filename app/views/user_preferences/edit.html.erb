@@ -1,10 +1,11 @@
 <div class="editcrit">
+  &nbsp
+  <h3> Edit your criteria</h3>
   <%= form_for @user_pref, :html => {:'data-crit-id' => @user_pref.id } do |f| %>
-    <div align="center"><br>
-      <%=@user_pref.criterium.description%><br>
+      <b><%=@user_pref.criterium.description.titleize%></b><br>
       Score: <input type="text" name="score" value="<%=@user_pref.score%>" />
       Search for: <input type="text" name="search" value="<%=@user_pref.search%>" />
       <input type="submit" value="Modify">
-    </div>
+
   <% end %>
 </div>

@@ -1,15 +1,21 @@
 
 
-  <div id="crits_<%= @new_user_pref.id %>" class="container">
+  <div id="crits_<%= @new_user_pref.id %>">
+&nbsp
     <div class="row">
       <h5 class='rating-criteria'>
-
       <br><%= @new_user_pref.criterium.description.titleize %> </h5>
-      <h5 class='rating-criteria'><%= @new_user_pref.search %></h5>
-        <p class='rating-criteria'>Rating: <%= @new_user_pref.score %></p>
+      <h5 class='rating-criteria'><%=@new_user_pref.search %></h5>
+        <p class='rating-criteria'>Rating: <%=@new_user_pref.score %></p>
 
         <%= link_to "Edit", edit_user_preference_path(@new_user_pref), id: "edit" %>
         <%= link_to "Delete", '#', class:'ajax-delete', data: {id:@new_user_pref.id }  %>
 
+      </div>
+      </p>
+
+&nbsp
+
+        <p><%= link_to "Add a criterium", new_user_preference_path, id: "add" %></p>
+
   </div>
-</div>

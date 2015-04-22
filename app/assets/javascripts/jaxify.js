@@ -35,6 +35,7 @@ $(document).ready(function(){
     }).done(function(result){
       $('.preflist').append(result);
       $('.newcrit').toggle(false);
+      $('.editcrit').toggle(false);
     });
   });
 
