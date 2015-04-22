@@ -65,7 +65,7 @@ function initialize() {
     map.fitBounds(bounds);
   });
 
-    
+
   // [END region_getplaces]
 
   // Bias the SearchBox results towards places that are within the bounds of the
@@ -156,7 +156,7 @@ function print_properties(jsonArray, map) {
   return html;
 }
 
- function set_map(jsonArray, map) {   
+ function set_map(jsonArray, map) {
   jsonArray.forEach(function(json){
     var myLatlng = new google.maps.LatLng(json.latLng[0],json.latLng[1]);
      //add the marker to the map, use the 'map' property

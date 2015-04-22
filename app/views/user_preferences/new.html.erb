@@ -3,20 +3,21 @@
   <p>
 <%= form_for @new_user_pref do |f| %>
 
-  <fieldset>
-    <legend> What features are most important to you? </legend>
-    <div align="center"><br>
+  <div>
+    <h3> What features are most important to you?</h3>
+      <div align="center"><br>
+
       <% @criteria.each do |c| %>
 
       <input type="radio" name="criterium_id" value= <%= c.id %> > <%=c.description%>
 
        <br>
       <% end %>
-      Your score <input name="score">
-      Search for <input name="search">
-      <%= f.submit value="Add your preference!" %>
+      <p>Your score <input name="score"><p>
+      <p>Search for <input name="search"><p>
+      <p><%= f.submit value="Add your preference!" %><p>
     </div>
-  </fieldset>
+  </div>
 
 <% end %>
 </p>
