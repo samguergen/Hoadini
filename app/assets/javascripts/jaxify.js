@@ -40,7 +40,7 @@ $.ajax({
 
 //ajax get for displaying edit criteria form
 
-$('#edit').on('click', function(event){
+$('.edit').on('click', function(event){
   event.preventDefault();
   target = event.target;
   $.ajax({

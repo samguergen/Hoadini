@@ -57,9 +57,9 @@
                             <h5 class='rating-criteria'><em><%= u.search %></em></h5>
                             <p class='rating-criteria'>Rating: <%= u.score %></p>
 
-                            <%= link_to "Edit", edit_user_preference_path(u), id: "edit_#{u}" %>
+                            <%= link_to "Edit", edit_user_preference_path(u), class: "edit" %>
 
-                            <%= link_to "Delete", u,  method: :delete, data: {confirm: "Are you sure?"}, id: "delete_#{u}" %>
+                            <%= link_to "Delete", u,  method: :delete, data: {confirm: "Are you sure?"}, class: "delete" %>
                         <% end %>
                     </div>
                 </div>
