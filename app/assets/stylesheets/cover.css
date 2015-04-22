@@ -7,8 +7,7 @@ a,
 a:focus,
 a:hover {
   color: black;
-  font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 /* Custom default button */
