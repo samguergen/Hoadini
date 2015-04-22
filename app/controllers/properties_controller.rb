@@ -18,47 +18,38 @@ class PropertiesController < ApplicationController
     lng = @property_hash['result']['latLng'][1]
     UserPreference.get_user_pref(current_user).each do |pref|
       case pref.criterium.description
+
       when 'museum'
-        # type museum
         m = yelp_distance_museum_call(lat, lng, pref.search)
-        # put in list of businesses into each property
         @property_hash['museums'] = m
+
       when 'park'
-        # type park
         p = yelp_distance_park_call(lat, lng, pref.search)
-        # put in list of businesses into each property
         @property_hash['parks'] = p
+
       when 'price'
-        # price range per day
-
         @property_hash['prices'] = []
-      when 'crime'
-        # less is better
-        # get crime in a 0.05 miles radius
 
+      when 'crime'
         crime = JSON.parse(crime_call(lat, lng, 0.05).body)
         @property_hash['crimes'] = crime['crimes']
+
       when 'food'
-        # type food
-        #  pref.search is the search box on the criteria
         f = yelp_distance_food_call(lat, lng, pref.search)
-        # put in list of businesses into each property
         @property_hash['foods'] = f
+
       when 'subway station'
-        # distance to closest subway
         sub = yelp_distance_subway_call(lat, lng, pref.search)
-        # put in list of businesses into each property
-        @property_hash['subways'] = sub
+        @property_hash['subway stations'] = sub
+
       when 'landmark'
-        # distance to landmark
         l = yelp_distance_landmark_call(lat, lng, pref.search)
-
         @property_hash['landmarks'] = l
-      when 'shopping'
-        # distance to shopping
-        shop = yelp_distance_shopping_call(lat, lng, pref.search)
 
+      when 'shopping'
+        shop = yelp_distance_shopping_call(lat, lng, pref.search)
         @property_hash['shops'] = shop
+
       end
     end
 #example ?id=air1158977
@@ -108,7 +99,7 @@ class PropertiesController < ApplicationController
           # distance to closest subway
           sub = yelp_distance_subway_call(lat, lng, pref.search)
           # put in list of businesses into each property
-          r['subways'] = sub
+          r['subway stations'] = sub
         when 'landmark'
           # distance to landmark
           l = yelp_distance_landmark_call(lat, lng, pref.search)
@@ -280,7 +271,7 @@ class PropertiesController < ApplicationController
                               })
 
     params = { term: 'subway ' + term,
-               category_filter: 'public transport',
+               category_filter: 'publictransport',
                radius_filter: 1,
                limit: 4
              }
