@@ -1,13 +1,12 @@
 
-<div class="container">
+
   <div class="row">
    <h5 class='rating-criteria'>
     <%= @user_pref.criterium.description.titleize %> </h5>
-      <h5 class='rating-criteria'><%= @user_pref.search %></h5>
-      <p class='rating-criteria'>Rating: <%= @user_pref.score %></p>
+      <h5 class='rating-criteria'><%=@user_pref.search %></h5>
+      <p class='rating-criteria'>Rating: <%=@user_pref.score %></p>
 
       <%= link_to "Edit", edit_user_preference_path(@user_pref), class: "edit" %>
 
       <%= link_to "Delete", '#', class:'ajax-delete', data: {id:@user_pref.id } %>
   </div>
-</div>
