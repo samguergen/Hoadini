@@ -21,9 +21,8 @@
                     <%= image_tag(property.picture, class: 'user_fave_img') %>
                 </div>
                 <div>
-                    <h3><%= property.title %></h3>
-                        <p><%= property.address %></p>
-                        <p><a class="btn btn-primary" href="/properties/<%=property.z_id%>" role="button">View details &raquo;</a></p>
+                    <p><%= property.address %></p>
+                    <p><a class="btn btn-primary" href="/properties/<%=property.z_id%>" role="button">View details &raquo;</a></p>
                 </div>
             </div>
          <% end %>
