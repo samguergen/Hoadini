@@ -18,7 +18,7 @@ class UserPreferencesController < ApplicationController
 
 
   def create
-    p params
+    p "WOOO..#{params}"
     if session[:user_id]
       @new_user_pref = UserPreference.create!(userpref_params)
       render partial: "user_preferences/newcriteria"
