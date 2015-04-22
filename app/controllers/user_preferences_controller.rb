@@ -70,6 +70,4 @@ private
   def userpref_params
     params.permit(:criterium_id, :score, :search).merge(user_id: session[:user_id])
   end
-
-
 end
