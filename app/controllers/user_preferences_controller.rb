@@ -18,9 +18,10 @@ class UserPreferencesController < ApplicationController
 
 
   def create
+    p params
     if session[:user_id]
       @new_user_pref = UserPreference.create!(userpref_params)
-      redirect_to user_preferences_path
+      render partial: "user_preferences/newcriteria"
     else
       flash[:notice] = "You must be a member to add your preference!"
       redirect_to new_user_preference_path

@@ -44,6 +44,7 @@
     <div class="container">
 
         <hr>
+<div class="preflist">
 <h2> WHICH FEATURES ARE MOST IMPORTANT TO YOU? </h2>
 <h3>Rate criteria based on a scale of 1 (least important) to 10 (most important)</h3>
 
@@ -51,17 +52,21 @@
 
 <p> <%= u.criterium.description %>| <%= u.search %> | <%= u.score %>
 
-<%= link_to "Edit", edit_user_preference_path(u) %>
+<%= link_to "Edit", edit_user_preference_path(u), id: "edit" %>
 
-<%= link_to "Delete", u,  method: :delete, data: {confirm: "Are you sure?"} %>
+<%= link_to "Delete", u,  method: :delete, data: {confirm: "Are you sure?"}, id: "delete" %>
 </p>
 </p>
 
 <% end %>
 
-<%= link_to "Add a criterium", new_user_preference_path %>
+</div>
 
-</p>
+
+
+<p><%= link_to "Add a criterium", new_user_preference_path, id: "add" %></p>
+
+
 
 
         <hr>

@@ -13,9 +13,6 @@ function initialize() {
           zoom: 15
         };
 
-
-
-
   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
   // Create the search box and link it to the UI element.
@@ -86,6 +83,8 @@ function initialize() {
 
   // find properties when map moves
   google.maps.event.addListener(map, 'idle', function() {
+    //TODO placeholder for showing loading
+    $('.properties-list ul').html('Loading');
     var bounds = map.getBounds();
     var ne = bounds.getNorthEast();
     var sw = bounds.getSouthWest();
@@ -113,7 +112,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
 function print_properties(jsonArray, map) {
   html = ''
   jsonArray.forEach(function(json){
-  console.log(json);
    html += '<h6>'+json.attr.heading+'</h6>'+'<div id="carousel-example-generic-' + json.id + '" class="carousel slide" data-ride="carousel">'+
       '<ol class="carousel-indicators">'+
         '<li data-target="#carousel-example-generic" data-slide-to="0" class="active">'+
@@ -122,22 +120,22 @@ function print_properties(jsonArray, map) {
             '<li data-target="#carousel-example-generic" data-slide-to="2"></li>'+
       '</ol>'+
     '<div class="carousel-inner" role="listbox">'+
-      '<div class="item active">'+
-        "<a href='/properties/" + json.id + "'><img src='"+ json.photos[0].small + "'height = '200' width = '200'>"+
+      '<div class="item prop-item active">'+
+        "<a href='/properties/" + json.id + "'><img class='prop-img' src='"+ json.photos[0].small + "'>"+
         "</a>"+
           '<div class="carousel-caption">'+
            // ''+ json.attr.heading + ''+
           '</div>'+
         '</div>'+
-        '<div class="item">'+
-          "<a href='/properties/" + json.id + "'><img src='"+ json.photos[1].small + "''height = '200' width = '200'>"+
+        '<div class="item prop-item ">'+
+          "<a href='/properties/" + json.id + "'><img class='prop-img' src='"+ json.photos[1].small + "'>"+
           "</a>"+
           '<div class="carousel-caption">'+
           // ''+ json.attr.heading + ''+
         '</div>'+
       '</div>'+
-        '<div class="item">'+
-          "<a href='/properties/" + json.id + "'><img src='"+ json.photos[2].small + "''height = '200' width = '200'>"+
+        '<div class="item prop-item ">'+
+          "<a href='/properties/" + json.id + "'><img class='prop-img' src='"+ json.photos[2].small + "'>"+
           "</a>"+
           '<div class="carousel-caption">'+
           // ''+ json.attr.heading + ''+
@@ -146,28 +144,18 @@ function print_properties(jsonArray, map) {
     '</div>'+
 
     '<a class="left carousel-control" href="#carousel-example-generic-' + json.id + '" role="button" data-slide="prev">'+
-      '<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>'+
+      '<span class="icon-prev" aria-hidden="true"></span>'+
       '<span class="sr-only">Previous</span>'+
     '</a>'+
     '<a class="right carousel-control" href="#carousel-example-generic-' + json.id + '" role="button" data-slide="next">'+
-      '<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>'+
+      '<span class="icon-next" aria-hidden="true"></span>'+
       '<span class="sr-only">Next</span>'+
     '</a>'+
     '</div>';
   })
-  console.log(html);
   return html;
 }
-    // html += "<li class='property'>" +
-    //           "<a href='/properties/" + json.id + "'>" +
-    //             "<h4 class='property-title'>" + json.attr.heading + "</h4>" +
-    //               "<nobr><ul class=property-img-list>";
-    // for(i=0;i < json.photos.length;i++){
-    //   html +=       "<img class=property-img src='" + json.photos[i].small + "'>";
-    // }
-    // html +=       "</ul></nobr>" +
-    //            "</a>" +
-    //          "</li>";
+
  function set_map(jsonArray, map) {   
   jsonArray.forEach(function(json){
     var myLatlng = new google.maps.LatLng(json.latLng[0],json.latLng[1]);
