@@ -55,6 +55,8 @@ $('.edit').on('click', function(event){
 
 $('.preflist').on('submit', '.editcrit', function(event){
   event.preventDefault();
+    // debugger;
+    target = event.target;
 
   var $form = $( this ),
 
@@ -62,14 +64,15 @@ $('.preflist').on('submit', '.editcrit', function(event){
   search = $form.find( "input[name='search']" ).val();
   // url = $form.attr( "action" );
 $.ajax({
-    method: 'PUT',
-    url: '/user_preferences',
+    method: 'PATCH',
+    url: target.action,
     data: {
       score: score,
       search: search
     }
   }).done(function(result){
     console.log(result);
+    $('.editcrit').toggle(false);
     $('.editcrit').prepend(result);
   });
 });
