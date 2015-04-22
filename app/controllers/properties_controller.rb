@@ -55,6 +55,7 @@ class PropertiesController < ApplicationController
 
           crime = JSON.parse(crime_call(lat, lng, 0.05).body)
           r['crimes'] = crime['crimes']
+          r['score'] += r['crimes'].count * 1.0/pref.score
         when 'food'
           # type food
           #  pref.search is the search box on the criteria
@@ -249,7 +250,7 @@ class PropertiesController < ApplicationController
 
     params = { term: 'subway ' + term,
                category_filter: 'publictransport',
-               radius_filter: 1,
+               radius_filter: 0.5,
                limit: 4
              }
 
