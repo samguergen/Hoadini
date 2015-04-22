@@ -27,12 +27,11 @@ a:hover {
 html,
 body {
   height: 100%;
-  background-color: rgb(251, 249, 249);
 }
 body {
   color: #004853;
   text-align: center;
-  
+
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */

@@ -1,46 +1,21 @@
-<header class="business-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-
-
-            </div>
-        </div>
-    </div>
-</header>
-
-<hr>
-
-<!-- <div class="container">
+<div class="favorites-header">
     <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <div class="user-preferences">
-                <p>
-
-                </p>
-                <h2>User Preferences</h2>
-                <#% @user_prefs = UserPreference.all.where(user_id: session[:user_id]) %>
-                    <#% @user_prefs.sort_by do |u| %>
-                        <h5><#%= u.criterium.description.capitalize %>    <em><#%= u.search %></em></h5>
-                         <p>Rating: <#%= u.score %></p>
-                    <#% end %>
-            </div>
-        </div>
-    </div>
-<hr> -->
-     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <p>
                 <a class="btn btn-primary btn-md" href="/user_preferences" role="button">Edit Preferences</a>
                 <a class="btn btn-primary btn-md" href="/properties" role="button">Search Properties</a>
             </p>
+         </div>
+    </div>
+</div>
             <h2>My Favorites</h2>
+
                 <div class="row">
                     <div class="property">
                     <% @properties.each do |property| %>
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-                            <div class="property-image">
-                            <%= image_tag(property.picture) %>
+                            <div class="property-image user_fave_div">
+                            <%= image_tag(property.picture, class: 'user_fave_img') %>
                             </div>
                             <h3><%= property.title %></h3>
                                 <p><%= property.address %></p>
@@ -52,8 +27,6 @@
             </div>
         </div>
     </div>
-
-<hr>
 
 <!-- Footer -->
     <footer>

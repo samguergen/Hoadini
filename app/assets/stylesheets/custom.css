@@ -1,33 +1,89 @@
-/*html {
-  background-color: yellow;
-}*/
+html {
+  background-color: white;
+}
 
+.favorites-header {
+  margin-top: 20px;
+}
 /*.container {
   width: 100%;
   height: 100%;
   background-color: #C9E2E9;
 }*/
-.navbar-default {
-  border-color: #232838 !important;
+.top-nav {
+  background: black;
+  height: 60px;
+  margin: 0;
+  line-height: 50px;
+  color: white;
 }
+
+.nav a {
+  color: white;
+  font: Ubuntu 300;
+}
+
+.nav li:hover {
+  background-color: black;
+  font: Ubuntu 300;
+}
+
+.photo-carousel {
+  margin-top: 0px;
+  font-size: 0;
+  overflow: auto;
+  width: 100%;
+  height: 182px;
+}
+
 .rating-criteria {
   text-align: center;
+  width: 100;
+}
+
+.rating-criteria, li {
+  color: #232838;
 }
 
 hr {
   color: #232838 !important;
 }
 
-.property-show {
+.description {
   text-align: left;
+  border: 2px solid #A7BED3;
+  padding: 20px;
+  margin: 10px;
 }
 
-.navbar-right a {
+.renting-info {
+  text-align: left;
+  border: 2px solid #A7BED3;
+  padding: 20px;
+  height: 250px;
+  margin-bottom: 10px;
+}
+
+.pricing-info {
+  text-align: left;
+  border: 2px solid #A7BED3;
+  padding: 20px;
+  height: 250px;
+  margin-bottom: 10px;
+}
+
+.user-criteria-info {
+  text-align: left;
+  border: 2px solid #A7BED3;
+  padding: 20px;
+}
+
+/*.navbar-right a {
   font-family: Ubuntu 300;
   font-weight: bolder;
   font-size: 15px;
   color: #232838 !important;
-}
+}*/
 
 .navbar-right a:hover {
   color: #A3C4BC !important;
@@ -46,13 +102,12 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
   font-family: Ubuntu 300 !important;
-  color: #8DA1B9 !important;
+  color: #232838 !important;
 }
 
-.container .favorite-button {
+/*.container .favorite-button {
   padding: 5px;
   background-color: #F63700;
-  margin-left: 85%;
   border-radius: 6px;
   border: 2px dotted #004853;
 }
@@ -60,7 +115,7 @@ p {
 .container .favorite-button a {
   color: #A3C4BC;
   font-weight: bolder;
-}
+}*/
 
 /*img {
     width:inherit;
@@ -75,12 +130,26 @@ p {
     padding: 3px;
 }
 
+.user_fave_div{
+  height: 100px !important;
+  width: 140px !important;
+}
+.user_fave_img{
+  height: 100% !important;
+  width: 100% !important;
+  border-radius: 20px;
+  border: 5px solid #232838;
+}
+
+
+/*
 .property-image img {
   width: 100%;
   height: 100%;
-  border-radius: 75px;
+  border-radius: 20px;
   border: 5px solid #232838;
 }
+*/
 
 /*.jumbotron {
   text-align: center;
@@ -127,7 +196,6 @@ p {
     visibility: visible !important;
     position: absolute !important;
     height: 100%;
-    margin-top: 50px;
 /*    padding: 30px 0px 0px 30px;*/
     width: 100%;
     background: transparent;
@@ -211,16 +279,16 @@ p {
   border: 5px solid #232838;
   margin: 0 auto;
 }
-  .prop-item{
-    height: 200px !important;
-    width: 200px !important;
-  }
-  .prop-img{
-    height: 100% !important;
-    width: 100% !important;
-  }
+.prop-item{
+  height: 200px !important;
+  width: 200px !important;
+}
+.prop-img{
+  height: 100% !important;
+  width: 100% !important;
+}
 
-  .carousel-control.left, .carousel-control.right {
+.carousel-control.left, .carousel-control.right {
     background-image: none
 }
 /*the color of the box shadow needs to be adjusted to fit overall design scheme
