@@ -120,22 +120,22 @@ function print_properties(jsonArray, map) {
             '<li data-target="#carousel-example-generic" data-slide-to="2"></li>'+
       '</ol>'+
     '<div class="carousel-inner" role="listbox">'+
-      '<div class="item active">'+
-        "<a href='/properties/" + json.id + "'><img src='"+ json.photos[0].small + "'height = '200' width = '200'>"+
+      '<div class="item prop-item active">'+
+        "<a href='/properties/" + json.id + "'><img class='prop-img' src='"+ json.photos[0].small + "'>"+
         "</a>"+
           '<div class="carousel-caption">'+
            // ''+ json.attr.heading + ''+
           '</div>'+
         '</div>'+
-        '<div class="item">'+
-          "<a href='/properties/" + json.id + "'><img src='"+ json.photos[1].small + "''height = '200' width = '200'>"+
+        '<div class="item prop-item ">'+
+          "<a href='/properties/" + json.id + "'><img class='prop-img' src='"+ json.photos[1].small + "'>"+
           "</a>"+
           '<div class="carousel-caption">'+
           // ''+ json.attr.heading + ''+
         '</div>'+
       '</div>'+
-        '<div class="item">'+
-          "<a href='/properties/" + json.id + "'><img src='"+ json.photos[2].small + "''height = '200' width = '200'>"+
+        '<div class="item prop-item ">'+
+          "<a href='/properties/" + json.id + "'><img class='prop-img' src='"+ json.photos[2].small + "'>"+
           "</a>"+
           '<div class="carousel-caption">'+
           // ''+ json.attr.heading + ''+
