@@ -11,7 +11,7 @@ hr {
 }
 
 body {
-    padding-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    padding-top: 0; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
 /* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
@@ -30,18 +30,14 @@ body {
   -o-background-size: cover;
 }
 
-
-.circular-image {
-  border-color:;
-}
 /* Customize the text color and shadow color and to optimize text legibility. */
 
 .tagline {
-  text-shadow: 0 0 5px #8DA1B9;
+  text-shadow: 0 0 5px white;
   color: #232838;
-  font-size: 50px;
+  font-size: 35px;
   text-align: left;
-  font-family: Ubuntu 500;
+  font-family: Ubuntu 700;
 }
 
 img {
@@ -55,5 +51,5 @@ footer {
 }
 
 .user-preferences {
-  text-align: left;
+  text-align: center;
 }
