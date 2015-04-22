@@ -13,9 +13,6 @@ function initialize() {
           zoom: 15
         };
 
-
-
-
   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
   // Create the search box and link it to the UI element.
