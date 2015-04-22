@@ -13,17 +13,39 @@ html {
   margin-left: auto;
   margin-right: auto;
 }
-/*.container {
-  width: 100%;
-  height: 100%;
-  background-color: #C9E2E9;
-}*/
+
+.property-top-nav{
+  height: 60px;
+  margin: 0;
+  line-height: 50px;
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+li .property-header{
+  color: black;
+}
+
+.property-header{
+  text-shadow: 0 0 5px white !important;
+  color: #232838;
+}
+
 .top-nav {
   background: black;
   height: 60px;
   margin: 0;
   line-height: 50px;
   color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
 }
 
 .nav a {
@@ -113,22 +135,6 @@ p {
   color: #232838 !important;
 }
 
-/*.container .favorite-button {
-  padding: 5px;
-  background-color: #F63700;
-  border-radius: 6px;
-  border: 2px dotted #004853;
-}
-
-.container .favorite-button a {
-  color: #A3C4BC;
-  font-weight: bolder;
-}*/
-
-/*img {
-    width:inherit;
-}*/
-
 .property {
     width: 500px;
     height: auto;
@@ -152,28 +158,6 @@ p {
   border: 5px solid #232838;
 }
 
-
-/*
-.property-image img {
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
-  border: 5px solid #232838;
-}
-*/
-
-/*.jumbotron {
-  text-align: center;
-  background-color: #C9E2E9;
-  color: #2F8CAB;
-  width: 100%;
-}*/
-
-/*h1 { color: #d54d7b; font-family: "Great Vibes", cursive; font-size: 165px; line-height: 160px; font-weight: normal; margin-bottom: 0px; margin-top: 40px; text-align: center; text-shadow: 0 1px 1px #fff; }
-*/
-/* Kevin's CSS */
-
-
 .ui_avatar {
   width: 3.3em;
   height: 3.3em;
@@ -194,30 +178,19 @@ p {
 .team-member p {
   color: #8DA1B9;
 }
-/*nav bar*/
 
-/*#nav-menu{
-  text-align: center;
-  width: auto;
-  font-family: Helvetica, Arial, sans-serif;
-  color: #ffffff;
-}
-*/
   #map-canvas {
     visibility: visible !important;
     position: absolute !important;
     height: 100%;
-/*    padding: 30px 0px 0px 30px;*/
     width: 100%;
     background: transparent;
-
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
-/*
-  .container {
-    width:100%;
-    background-color: yellow;
-    ;
-  }*/
 
   .controls{
     margin-top: 16px;
@@ -267,7 +240,7 @@ p {
     visibility: visible !important;
     position: relative;
     text-align: center;
-    height: 100%;
+    height: 90%;
     margin-top: 50px;
     float: right;
     overflow: scroll;

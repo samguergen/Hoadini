@@ -2,6 +2,7 @@ class PropertiesController < ApplicationController
 
   def index
     @properties = FavoriteProperty.all
+    render layout: "property_layout"
   end
 
   def show
