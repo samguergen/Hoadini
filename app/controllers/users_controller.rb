@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
 
-
   def new
   end
 
@@ -12,7 +11,7 @@ class UsersController < ApplicationController
     else
       redirect to '/signup'
     end
-   end
+  end
 
 	def show
 		@user = User.find_by(id: session[:user_id])
@@ -24,4 +23,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :password, :first_name, :last_name, :age, :gender)
   end
- end
+end

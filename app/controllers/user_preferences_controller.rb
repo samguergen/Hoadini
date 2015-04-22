@@ -18,7 +18,7 @@ class UserPreferencesController < ApplicationController
 
 
   def create
-    p params
+    
     if session[:user_id]
       @new_user_pref = UserPreference.create!(userpref_params)
       render partial: "user_preferences/newcriteria"
@@ -62,6 +62,4 @@ private
   def userpref_params
     params.permit(:criterium_id, :score, :search).merge(user_id: session[:user_id])
   end
-
-
 end

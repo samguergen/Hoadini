@@ -17,13 +17,6 @@
     <!-- Custom CSS -->
     <link href="css/business-frontpage.css" rel="stylesheet">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
 </head>
 
 <body>
@@ -34,7 +27,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-
                 </div>
             </div>
         </div>
@@ -50,28 +42,22 @@
             <div class="preflist">
                 <h2> WHICH FEATURES ARE MOST IMPORTANT TO YOU? </h2>
                 <h4>Rate criteria based on a scale of 1 (least important) to 10 (most important)</h4>
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="user-preferences">
-                        <% @user_prefs.sort_by do |u| %>
-                            <h5 class='rating-criteria'><%= u.criterium.description.capitalize %> </h5>
-                            <h5 class='rating-criteria'><em><%= u.search %></em></h5>
-                            <p class='rating-criteria'>Rating: <%= u.score %></p>
-
-                            <%= link_to "Edit", edit_user_preference_path(u), id: "edit" %>
-
-                            <%= link_to "Delete", u,  method: :delete, data: {confirm: "Are you sure?"}, id: "delete" %>
-                        <% end %>
+                    <div class="col-md-12">
+                        <div class="user-preferences">
+                            <% @user_prefs.sort_by do |u| %>
+                                <h5 class='rating-criteria'><%= u.criterium.description.capitalize %></h5>
+                                <h5 class='rating-criteria'><em><%= u.search %></em></h5>
+                                <p class='rating-criteria'>Rating: <%= u.score %></p>
+                                <%= link_to "Edit", edit_user_preference_path(u), id: "edit" %>
+                                <%= link_to "Delete", u,  method: :delete, data: {confirm: "Are you sure?"}, id: "delete" %>
+                            <% end %>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
 
     <p><%= link_to "Add a criterium", new_user_preference_path, id: "add" %></p>
-
-
-
 
     <hr>
 
