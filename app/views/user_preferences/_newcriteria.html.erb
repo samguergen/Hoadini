@@ -11,5 +11,10 @@
         <%= link_to "Edit", edit_user_preference_path(@new_user_pref), id: "edit" %>
         <%= link_to "Delete", '#', class:'ajax-delete', data: {id:@new_user_pref.id }  %>
 
+      </div>
+
+&nbsp
+
+        <p><%= link_to "Add a criterium", new_user_preference_path, id: "add" %></p>
+
   </div>
-</div>
