@@ -50,7 +50,11 @@ class UserPreferencesController < ApplicationController
     @user_pref = UserPreference.find_by(id: params[:id])
     if session[:user_id] == @user_pref.user_id
       @user_pref.destroy!
-      redirect_to user_preferences_path
+      if request.xhr?
+        render text: 'Deleted'
+      else
+        redirect_to user_preferences_path
+      end
     else
       redirect_to user_preferences_path
     end

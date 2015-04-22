@@ -1,5 +1,5 @@
 
-  <div class="container">
+  <div id="crits_<%= @new_user_pref.id %>" class="container">
   <div class="row">
 <h5 class='rating-criteria'>
   <%= @new_user_pref.criterium.description.titleize %> </h5>
@@ -7,8 +7,7 @@
 <p class='rating-criteria'>Rating: <%= @new_user_pref.score %></p>
 
 <%= link_to "Edit", edit_user_preference_path(@new_user_pref), id: "edit" %>
-
-<%= link_to "Delete", @new_user_pref,  method: :delete, data: {confirm: "Are you sure?"}, id: "delete" %>
+<%= link_to "Delete", '#', class:'ajax-delete', data: {id:@new_user_pref.id }  %>
 
 </div>
 </div>
