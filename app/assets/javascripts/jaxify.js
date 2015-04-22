@@ -72,8 +72,8 @@ $.ajax({
     }
   }).done(function(result){
     console.log(result);
-    $('.editcrit').toggle(false);
     $('.editcrit').prepend(result);
+    // $('.editcrit').toggle(false);
   });
 });
 

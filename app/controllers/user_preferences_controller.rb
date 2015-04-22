@@ -34,7 +34,6 @@ class UserPreferencesController < ApplicationController
 
 
   def update
-    p "GETTING HERE #{params}"
     @user_pref = UserPreference.find_by(id: params[:id])
     if session[:user_id] == @user_pref.user_id
       @user_pref.update_attributes(userpref_params)
