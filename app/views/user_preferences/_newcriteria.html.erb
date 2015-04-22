@@ -1,0 +1,8 @@
+
+<%= @new_user_pref.criterium.description %>
+| <%= @new_user_pref.search %>
+| <%= @new_user_pref.score %>
+
+<%= link_to "Edit", edit_user_preference_path(@new_user_pref), id: "edit" %>
+
+<%= link_to "Delete", @new_user_pref,  method: :delete, data: {confirm: "Are you sure?"}, id: "delete" %>
