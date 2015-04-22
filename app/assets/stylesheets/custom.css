@@ -7,7 +7,9 @@
   height: 100%;
   background-color: #C9E2E9;
 }*/
-
+.navbar-default {
+  border-color: #232838 !important;
+}
 .rating-criteria {
   text-align: center;
 }
