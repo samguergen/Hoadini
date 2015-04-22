@@ -82,7 +82,7 @@ function initialize() {
 
 
   // find properties when map moves
-  google.maps.event.addListener(map, 'dragend zoom_changed', function() {
+  google.maps.event.addListener(map, 'idle', function() {
     //TODO placeholder for showing loading
     $('.properties-list ul').html('Loading');
     var bounds = map.getBounds();
