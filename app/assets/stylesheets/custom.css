@@ -55,6 +55,23 @@ p {
   font-weight: bolder;
 }
 
+img {
+    width:inherit;
+}
+
+.property {
+    width: 600px;
+    height: auto;
+    float: left;
+    margin: 3px;
+    padding: 3px;
+}
+
+img {
+  border-radius: 200px;
+  border: 5px solid #004853;
+  margin: 0 auto;
+}
 
 /*.jumbotron {
   text-align: center;
@@ -62,7 +79,7 @@ p {
   color: #2F8CAB;
   width: 100%;
 }*/
-*/
+
 /*h1 { color: #d54d7b; font-family: "Great Vibes", cursive; font-size: 165px; line-height: 160px; font-weight: normal; margin-bottom: 0px; margin-top: 40px; text-align: center; text-shadow: 0 1px 1px #fff; }
 */
 /* Kevin's CSS */
