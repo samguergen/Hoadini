@@ -33,7 +33,8 @@ $.ajax({
       search: search
     }
   }).done(function(result){
-    $('.newcrit').prepend(result);
+    $('.preflist').append(result);
+    $('.newcrit').toggle(false);
   });
 });
 
