@@ -1,0 +1,14 @@
+
+  <div class="container">
+  <div class="row">
+<h5 class='rating-criteria'>
+  <%= @user_pref.criterium.description.titleize %> </h5>
+<h5 class='rating-criteria'><%= @user_pref.search %></h5>
+<p class='rating-criteria'>Rating: <%= @user_pref.score %></p>
+
+<%= link_to "Edit", edit_user_preference_path(@user_pref), id: "edit" %>
+
+<%= link_to "Delete", @user_pref,  method: :delete, data: {confirm: "Are you sure?"}, id: "delete" %>
+
+</div>
+</div>
