@@ -32,27 +32,7 @@
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <%if current_user%>
-
-                        <li class='property-header'>
-                            <a href="/users/<%=current_user.id%>">My Favorites</a>
-                        </li>
-
-                        <li class='property-header'>
-                            <a href="/users/<%=current_user.id%>">Logged in as: <%=current_user.name%></a>
-                        </li>
-                        <li class='property-header'>
-                            <a href="/logout">Logout</a>
-                        </li>
-                    <% else %>
-                        <li class='property-header'>
-                            <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
-                        </li>
-                  <%end%>
-               </ul>
-            </div>
+            
         </div>
     </nav>
         <%= yield %>
