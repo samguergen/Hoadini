@@ -158,16 +158,7 @@ function print_properties(jsonArray, map) {
   console.log(html);
   return html;
 }
-    // html += "<li class='property'>" +
-    //           "<a href='/properties/" + json.id + "'>" +
-    //             "<h4 class='property-title'>" + json.attr.heading + "</h4>" +
-    //               "<nobr><ul class=property-img-list>";
-    // for(i=0;i < json.photos.length;i++){
-    //   html +=       "<img class=property-img src='" + json.photos[i].small + "'>";
-    // }
-    // html +=       "</ul></nobr>" +
-    //            "</a>" +
-    //          "</li>";
+
  function set_map(jsonArray, map) {   
   jsonArray.forEach(function(json){
     var myLatlng = new google.maps.LatLng(json.latLng[0],json.latLng[1]);
