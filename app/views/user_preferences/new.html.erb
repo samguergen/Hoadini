@@ -1,10 +1,11 @@
 
 <div class="newcrit">
-    <%= form_for @new_user_pref do |f| %>
-      <h3> What features are most important to you?</h3>
-        <% @criteria.each do |c| %>
+  &nbsp
+  <%= form_for @new_user_pref do |f| %>
+    <h3> What features are most important to you?</h3>
+      <% @criteria.each do |c| %>
 
-        <input type="radio" name="criterium_id" value= <%= c.id %> > <%=c.description%>
+      <input type="radio" name="criterium_id" value= <%= c.id %> > <%=c.description%>
 
        <br>
       <% end %>
@@ -13,3 +14,7 @@
       <p><%= f.submit value="Add your preference!" %></p>
     <% end %>
 </div>
+
+
+
+
