@@ -65,6 +65,7 @@ class PropertiesController < ApplicationController
 
     # save each json into each result for calculation
     list['result'].each do |r|
+      r['score'] ||= 0
       lat = r['latLng'][0]
       lng = r['latLng'][1]
       UserPreference.get_user_pref(current_user).each do |pref|
@@ -74,48 +75,66 @@ class PropertiesController < ApplicationController
           m = yelp_distance_museum_call(lat, lng, pref.search)
           # put in list of businesses into each property
           r['museums'] = m
+          m.each do |business|
+            r['score'] += business.distance * 1.0/pref.score
+          end
         when 'park'
           # type park
           p = yelp_distance_park_call(lat, lng, pref.search)
           # put in list of businesses into each property
           r['parks'] = p
+          p.each do |business|
+            r['score'] += business.distance * 1.0/pref.score
+          end
         when 'price'
           # price range per day
-
-          r['prices'] = []
+          diff = (r['price']['nightly'] - pref.search.to_i).abs
+          r['score'] += diff * 1.0/pref.score
         when 'crime'
           # less is better
           # get crime in a 0.05 miles radius
 
           crime = JSON.parse(crime_call(lat, lng, 0.05).body)
           r['crimes'] = crime['crimes']
+          r['score'] += r['crimes'].count * 1.0/pref.score
         when 'food'
           # type food
           #  pref.search is the search box on the criteria
           f = yelp_distance_food_call(lat, lng, pref.search)
           # put in list of businesses into each property
           r['foods'] = f
+          f.each do |business|
+            r['score'] += business.distance * 1.0/pref.score
+          end
         when 'subway station'
           # distance to closest subway
           sub = yelp_distance_subway_call(lat, lng, pref.search)
           # put in list of businesses into each property
-          r['subway stations'] = sub
+          r['subways'] = sub
+          sub.each do |business|
+            r['score'] += business.distance * 1.0/pref.score
+          end
         when 'landmark'
           # distance to landmark
           l = yelp_distance_landmark_call(lat, lng, pref.search)
 
           r['landmarks'] = l
+          l.each do |business|
+            r['score'] += business.distance * 1.0/pref.score
+          end
         when 'shopping'
           # distance to shopping
           shop = yelp_distance_shopping_call(lat, lng, pref.search)
 
           r['shops'] = shop
+          shop.each do |business|
+            r['score'] += business.distance * 1.0/pref.score
+          end
         end
       end
     end
 
-    # sort later .sort {|x,y| y['calc']<=>x['calc']}
-    top_list = list['result'][0..7]
+    top_list = list['result'][0..7].sort {|x,y| x['score']<=>y['score']}
 
     render json: top_list
   end
@@ -272,7 +291,7 @@ class PropertiesController < ApplicationController
 
     params = { term: 'subway ' + term,
                category_filter: 'publictransport',
-               radius_filter: 1,
+               radius_filter: 0.5,
                limit: 4
              }
 

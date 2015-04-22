@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: hoadini_production
-  username: hoadini
-  password: <%= ENV['HOADINI_DATABASE_PASSWORD'] %>
+#  username: hoadini
+#  password: <%= ENV['HOADINI_DATABASE_PASSWORD'] %>

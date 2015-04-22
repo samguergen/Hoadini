@@ -33,7 +33,6 @@ $.ajax({
       search: search
     }
   }).done(function(result){
-    console.log(result);
     $('.newcrit').prepend(result);
   });
 });
