@@ -46,7 +46,7 @@ $('.edit').on('click', function(event){
   $.ajax({
     url: target.pathname
   }).done(function(result){
-    $('#edit').toggle(false);
+    $('.edit').toggle(false);
     $('.preflist').append(result);
   });
   });
