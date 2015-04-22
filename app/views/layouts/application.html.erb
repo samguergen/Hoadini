@@ -9,6 +9,7 @@
     <meta name="author" content="">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<link href='http://fonts.googleapis.com/css?family=Luckiest+Guy|Montserrat:400,700|Gorditas|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
     <%= csrf_meta_tags %>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
     <!-- Latest compiled and minified CSS -->
@@ -32,19 +33,18 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
+                    <%if current_user%>
                     <li>
                         <a href="/properties">Search Properties</a>
                     </li>
-                    <%if current_user%>
                     <li>
                         <a href="/users/<%=current_user.id%>">My Favorites</a>
                     </li>
                   <li><a href="/users/<%=current_user.id%>">Logged in as: <%=current_user.name%></a></li>
+                  <li><a href="/logout">Logout</a></li>
                     <% else %>
                     <li><%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %></li>
                   <%end%>
-
-                  <li><a href="/logout">Logout</a></li>
                </ul>
             </div>
             <!-- /.navbar-collapse -->

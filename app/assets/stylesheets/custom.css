@@ -8,20 +8,38 @@
   background-color: #C9E2E9;
 }*/
 
+hr {
+  color: #232838 !important;
+}
+
 .property-show {
   text-align: left;
 }
 
-h4 {
-  color: #004853 !important;
+.navbar-right a {
+  font-family: Open Sans Condensed;
+  font-weight: bolder;
+  font-size: 20px;
+  color: #232838 !important;
 }
 
-h1 {
+.navbar-right a:hover {
+  color: #F15946 !important;
+}
+
+.carousel-caption h1 {
   color: white;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+  color: #F15946;
+  text-shadow: 0 1px 3px #232838;
+  font-family: Luckiest Guy;
+  font-weight: bold 700;
+}
+
+p {
+  font-family: Open Sans Condensed;
 }
 
 .container .favorite-button {
@@ -38,27 +56,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-/*.hoadini-logo {
-  background-color: #C9E2E9;
-  color: #2F8CAB;
-  font-family: "Rouge Script",
-  cursive;
-  font-size: 60px;
-  line-height: 160px;
-  font-weight: normal;
-  margin-bottom: 0px;
-  margin-top: 40px;
-  text-align: center;
-  text-shadow: 0 1px 1px #fff;
-}
-
-.jumbotron {
+/*.jumbotron {
   text-align: center;
   background-color: #C9E2E9;
   color: #2F8CAB;
   width: 100%;
 }*/
-
+*/
 /*h1 { color: #d54d7b; font-family: "Great Vibes", cursive; font-size: 165px; line-height: 160px; font-weight: normal; margin-bottom: 0px; margin-top: 40px; text-align: center; text-shadow: 0 1px 1px #fff; }
 */
 /* Kevin's CSS */
@@ -77,8 +81,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .team-member img {
-  border-radius: 40px;
-  border: 5px solid #007E80;
+  border-radius: 50%;
+  border: 5px solid #232838;
 }
 /*nav bar*/
 
