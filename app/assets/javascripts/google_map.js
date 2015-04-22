@@ -188,7 +188,12 @@ function print_properties(jsonArray, map) {
           infowindow.open(map,marker);
           var selector = "#" + marker.id;
           $(selector).addClass('highlighted');
-          $(".properties-list").scrollTo(selector, 2000);
+      });
+
+      google.maps.event.addListener(marker, 'click', function() {
+          var selector = "#" + marker.id;
+          $(selector).addClass('highlighted');
+          $(".properties-list").scrollTo(selector, 200);
       });
 
       google.maps.event.addListener(marker, 'mouseout', function() {
