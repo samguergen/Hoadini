@@ -1,5 +1,5 @@
 <div class="editcrit">
-<%= form_for @user_pref do |f| %>
+<%= form_for @user_pref, :html => {:'data-crit-id' => @user_pref.id } do |f| %>
   <fieldset>
     <legend> Modify your feature preference. </legend>
     <div align="center"><br>
@@ -11,6 +11,8 @@
   </fieldset>
 <% end %>
 
-<%= link_to "Delete preference", @user_pref,  method: :delete, data: {confirm: "Are you sure?"} %>
+<%= link_to "Edit", edit_user_preference_path(@user_pref), class: "edit" %>
+
+<%= link_to "Delete", '#', class:'ajax-delete', data: {id:@user_pref.id } %>
 
 </div>

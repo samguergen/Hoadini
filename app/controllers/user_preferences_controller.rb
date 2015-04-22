@@ -18,7 +18,6 @@ class UserPreferencesController < ApplicationController
 
 
   def create
-    p params
     if session[:user_id]
       @new_user_pref = UserPreference.create!(userpref_params)
       render partial: "user_preferences/newcriteria"
@@ -38,7 +37,8 @@ class UserPreferencesController < ApplicationController
     @user_pref = UserPreference.find_by(id: params[:id])
     if session[:user_id] == @user_pref.user_id
       @user_pref.update_attributes(userpref_params)
-      redirect_to user_preferences_path
+      render partial: "user_preferences/editcriteria"
+      # redirect_to user_preferences_path
     else
       flash[:notice] = "You cannot edit these criteria"
       redirect_to edit_userpreference_path
@@ -50,7 +50,11 @@ class UserPreferencesController < ApplicationController
     @user_pref = UserPreference.find_by(id: params[:id])
     if session[:user_id] == @user_pref.user_id
       @user_pref.destroy!
-      redirect_to user_preferences_path
+      if request.xhr?
+        render text: 'Deleted'
+      else
+        redirect_to user_preferences_path
+      end
     else
       redirect_to user_preferences_path
     end

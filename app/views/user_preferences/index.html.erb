@@ -53,13 +53,16 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="user-preferences">
                         <% @user_prefs.sort_by do |u| %>
+                        <div id="crits_<%=u.id%>">
+
                             <h5 class='rating-criteria'><%= u.criterium.description.capitalize %> </h5>
                             <h5 class='rating-criteria'><em><%= u.search %></em></h5>
                             <p class='rating-criteria'>Rating: <%= u.score %></p>
 
-                            <%= link_to "Edit", edit_user_preference_path(u), id: "edit" %>
+                            <%= link_to "Edit", edit_user_preference_path(u), class: "edit" %>
 
-                            <%= link_to "Delete", u,  method: :delete, data: {confirm: "Are you sure?"}, id: "delete" %>
+                            <%= link_to "Delete", '#', class:'ajax-delete', data: {id:u.id } %>
+                            </div>
                         <% end %>
                     </div>
                 </div>
