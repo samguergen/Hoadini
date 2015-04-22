@@ -58,10 +58,10 @@
       <div class="pricing-info">
         <h3> Pricing </h3>
           <div>
-            <p>Monthly: <%= @property_hash["result"]["price"]["monthly"] %></p>
-            <p>Nightly: <%= @property_hash["result"]["price"]["nightly"] %> <p>
-            <p>Weekend: <%= @property_hash["result"]["price"]["weekend"] %> <p>
-            <p>Weekly: <%= @property_hash["result"]["price"]["weekly"] %> <p>
+            <li>Monthly: <%= @property_hash["result"]["price"]["monthly"] %></li>
+            <li>Nightly: <%= @property_hash["result"]["price"]["nightly"] %> </li>
+            <li>Weekend: <%= @property_hash["result"]["price"]["weekend"] %> </li>
+            <li>Weekly: <%= @property_hash["result"]["price"]["weekly"] %> </li>
           </div>
       </div>
     </div>
@@ -70,13 +70,13 @@
       <div class="renting-info">
         <h3>Renter Information</h3>
           <div>
-            <p>Room Type: <%= @property_hash["result"]["attr"]["roomType"]["text"] %></p>
-            <p>Property Type: <%= @property_hash["result"]["attr"]["propType"]["text"] %></p>
-            <p>Minimum Nights: <%= @property_hash["result"]["price"]["minNight"] %></p>
-            <p>Maximum Nights: <%= @property_hash["result"]["price"]["maxNight"] %></p>
-            <p>Number of Bathrooms: <%= @property_hash["result"]["attr"]["bathrooms"] %></p>
-            <p>Number of Bedrooms: <%= @property_hash["result"]["attr"]["bedrooms"] %></p>
-            <p>Total Occupancy: <%= @property_hash["result"]["attr"]["occupancy"] %></p>
+            <li>Room Type: <%= @property_hash["result"]["attr"]["roomType"]["text"] %></li>
+            <li>Property Type: <%= @property_hash["result"]["attr"]["propType"]["text"] %></li>
+            <li>Minimum Nights: <%= @property_hash["result"]["price"]["minNight"] %></li>
+            <li>Maximum Nights: <%= @property_hash["result"]["price"]["maxNight"] %></li>
+            <li>Number of Bathrooms: <%= @property_hash["result"]["attr"]["bathrooms"] %></li>
+            <li>Number of Bedrooms: <%= @property_hash["result"]["attr"]["bedrooms"] %></li>
+            <li>Total Occupancy: <%= @property_hash["result"]["attr"]["occupancy"] %></li>
           </div>
         </div>
       </div>
