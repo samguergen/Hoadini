@@ -1,8 +1,10 @@
 
+
   <div id="crits_<%= @new_user_pref.id %>" class="container">
   <div class="row">
 <h5 class='rating-criteria'>
-  <%= @new_user_pref.criterium.description.titleize %> </h5>
+
+  <br><%= @new_user_pref.criterium.description.titleize %> </h5>
 <h5 class='rating-criteria'><%= @new_user_pref.search %></h5>
 <p class='rating-criteria'>Rating: <%= @new_user_pref.score %></p>
 

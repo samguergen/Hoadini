@@ -57,6 +57,7 @@ $('.preflist').on('submit', '.editcrit', function(event){
   event.preventDefault();
     // debugger;
     target = event.target;
+    var id = $(event.target).data('critId');
 
   var $form = $( this ),
 
@@ -71,8 +72,7 @@ $.ajax({
       search: search
     }
   }).done(function(result){
-    $('.preflist').append(result);
-    $('.editcrit').toggle(false);
+    $('#crits_'+id).html(result);
   });
 });
 
