@@ -1,7 +1,14 @@
-<header class="business-header">
+<!-- <header class="business-header">
   <div class="container">
   </div>
-</header>
+</header> -->
+<div class="photo-carousel">
+  <nobr>
+  <% @property_hash["result"]["photos"].each do |photo| %>
+    <%= image_tag photo["medium"] %>
+  <% end %>
+  </nobr>
+</div>
 
 <div class="container">
   <div class="row">
@@ -30,36 +37,6 @@
   </div>
 </div>
 
-<hr>
-
-  <div class="row"
-    <div class="property-info">
-      <h3> Pricing </h3>
-        <div>
-          <p>Monthly: <%= @property_hash["result"]["price"]["monthly"] %></p>
-          <p>Nightly: <%= @property_hash["result"]["price"]["nightly"] %> <p>
-          <p>Weekend: <%= @property_hash["result"]["price"]["weekend"] %> <p>
-          <p>Weekly: <%= @property_hash["result"]["price"]["weekly"] %> <p>
-        </div>
-
-  <hr>
-
-      <h3>Renter Information</h3>
-        <div>
-          <p>Room Type: <%= @property_hash["result"]["attr"]["roomType"]["text"] %></p>
-          <p>Property Type: <%= @property_hash["result"]["attr"]["propType"]["text"] %></p>
-          <p>Minimum Nights: <%= @property_hash["result"]["price"]["minNight"] %></p>
-          <p>Maximum Nights: <%= @property_hash["result"]["price"]["maxNight"] %></p>
-          <p>Number of Bathrooms: <%= @property_hash["result"]["attr"]["bathrooms"] %></p>
-          <p>Number of Bedrooms: <%= @property_hash["result"]["attr"]["bedrooms"] %></p>
-          <p>Total Occupancy: <%= @property_hash["result"]["attr"]["occupancy"] %></p>
-        </div>
-      </div>
-    </div>
-
-
-<hr>
-
   <div class="container">
     <div class="row">
       <div class="description">
@@ -71,71 +48,95 @@
       </div>
     </div>
 
-        <div class="photo-carousel">
-          <nobr>
-          <% @property_hash["result"]["photos"].each do |photo| %>
-            <%= image_tag photo["medium"] %>
-          <% end %>
-          </nobr>
-        </div>
       </div>
     </div>
   </div>
 
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-lg-6">
+      <div class="pricing-info">
+        <h3> Pricing </h3>
+          <div>
+            <p>Monthly: <%= @property_hash["result"]["price"]["monthly"] %></p>
+            <p>Nightly: <%= @property_hash["result"]["price"]["nightly"] %> <p>
+            <p>Weekend: <%= @property_hash["result"]["price"]["weekend"] %> <p>
+            <p>Weekly: <%= @property_hash["result"]["price"]["weekly"] %> <p>
+          </div>
+      </div>
+    </div>
 
+    <div class="col-xs-12 col-md-6 col-lg-6">
+      <div class="renting-info">
+        <h3>Renter Information</h3>
+          <div>
+            <p>Room Type: <%= @property_hash["result"]["attr"]["roomType"]["text"] %></p>
+            <p>Property Type: <%= @property_hash["result"]["attr"]["propType"]["text"] %></p>
+            <p>Minimum Nights: <%= @property_hash["result"]["price"]["minNight"] %></p>
+            <p>Maximum Nights: <%= @property_hash["result"]["price"]["maxNight"] %></p>
+            <p>Number of Bathrooms: <%= @property_hash["result"]["attr"]["bathrooms"] %></p>
+            <p>Number of Bedrooms: <%= @property_hash["result"]["attr"]["bedrooms"] %></p>
+            <p>Total Occupancy: <%= @property_hash["result"]["attr"]["occupancy"] %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 <!-- RATINGS -->
-  <div class="container">
+<div class="container">
     <div class="row">
       <div class="col-xs-12 col-md-12 col-lg-12">
-        <div class="user-preferences">
+        <div class="user-criteria-info">
           <h3>Criteria Ratings</h4>
 
-        <% if @property_hash['museums'] %>
-        <h4>Nearby Museums</h3>
-          <% @property_hash['museums'].each do |m| %>
-            <li><%= "#{m.name}: #{m.distance} meters away" %></li>
+          <% if @property_hash['museums'] %>
+          <h4>Nearby Museums</h3>
+            <% @property_hash['museums'].each do |m| %>
+              <li><%= "#{m.name}: #{m.distance} meters away" %></li>
+            <%end%>
           <%end%>
-        <%end%>
 
-        <% if @property_hash['parks'] %>
-        <h4>Nearby Parks</h4>
-          <% @property_hash['parks'].each do |p| %>
-            <li><%= "#{p.name}: #{p.distance} meters away" %></li>
+          <% if @property_hash['parks'] %>
+          <h4>Nearby Parks</h4>
+            <% @property_hash['parks'].each do |p| %>
+              <li><%= "#{p.name}: #{p.distance} meters away" %></li>
+            <%end%>
           <%end%>
-        <%end%>
 
-        <% if @property_hash['food'] %>
-        <h4>Nearby Food</h4>
-          <% @property_hash['food'].each do |f| %>
-            <li><%= "#{f.name}: #{f.distance} meters away" %></li>
-         <%end%>
-        <%end%>
-
-        <% if @property_hash['subway station'] %>
-        <h4>Nearby Subways</h4>
-          # <% @property_hash['subway station'].each do |ss| %>
-            <li><%= "#{ss.name}: #{ss.distance} meters away" %></li>
+          <% if @property_hash['food'] %>
+          <h4>Nearby Food</h4>
+            <% @property_hash['food'].each do |f| %>
+              <li><%= "#{f.name}: #{f.distance} meters away" %></li>
+           <%end%>
           <%end%>
-        <%end%>
 
-        <% if @property_hash['landmarks'] %>
-        <h4>Nearby Landmarks</h4>
-          <% @property_hash['landmarks'].each do |l| %>
-            <li><%= "#{l.name}: #{l.distance} meters away" %></li>
+          <% if @property_hash['subway station'] %>
+          <h4>Nearby Subways</h4>
+            # <% @property_hash['subway station'].each do |ss| %>
+              <li><%= "#{ss.name}: #{ss.distance} meters away" %></li>
+            <%end%>
           <%end%>
-        <%end%>
 
-        <% if @property_hash['shops'] %>
-        <h4>Nearby Shops</h4>
-          <% @property_hash['shops'].each do |s| %>
-            <li><%= "#{s.name}: #{s.distance} meters away" %></li>
+          <% if @property_hash['landmarks'] %>
+          <h4>Nearby Landmarks</h4>
+            <% @property_hash['landmarks'].each do |l| %>
+              <li><%= "#{l.name}: #{l.distance} meters away" %></li>
+            <%end%>
           <%end%>
-        <%end%>
+
+          <% if @property_hash['shops'] %>
+          <h4>Nearby Shops</h4>
+            <% @property_hash['shops'].each do |s| %>
+              <li><%= "#{s.name}: #{s.distance} meters away" %></li>
+            <%end%>
+          <%end%>
 
         </div>
       </div>
     </div>
   </div>
+</div>
+
 <!-- Footer -->
 <footer>
   <div class="row">
