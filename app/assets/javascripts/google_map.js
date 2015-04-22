@@ -21,7 +21,7 @@ function initialize() {
   map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
   var searchBox = new google.maps.places.SearchBox(
-    /** @type {HTMLInputElement} */(input));
+    (input));
 
   // [START region_getplaces]
   // Listen for the event fired when the user selects an item from the
@@ -119,26 +119,23 @@ function print_properties(jsonArray, map) {
             '<li data-target="#carousel-example-generic" data-slide-to="1"></li>'+
             '<li data-target="#carousel-example-generic" data-slide-to="2"></li>'+
       '</ol>'+
-    '<div class="carousel-inner" role="listbox">'+
+    '<div class="carousel-inner" id='+json.id+' role="listbox">'+
       '<div class="item prop-item active">'+
         "<a href='/properties/" + json.id + "'><img class='prop-img' src='"+ json.photos[0].small + "'>"+
         "</a>"+
           '<div class="carousel-caption">'+
-           // ''+ json.attr.heading + ''+
           '</div>'+
         '</div>'+
         '<div class="item prop-item ">'+
           "<a href='/properties/" + json.id + "'><img class='prop-img' src='"+ json.photos[1].small + "'>"+
           "</a>"+
           '<div class="carousel-caption">'+
-          // ''+ json.attr.heading + ''+
         '</div>'+
       '</div>'+
         '<div class="item prop-item ">'+
           "<a href='/properties/" + json.id + "'><img class='prop-img' src='"+ json.photos[2].small + "'>"+
           "</a>"+
           '<div class="carousel-caption">'+
-          // ''+ json.attr.heading + ''+
         '</div>'+
       '</div>'+
     '</div>'+
@@ -165,7 +162,8 @@ function print_properties(jsonArray, map) {
         map: map,
         animation: google.maps.Animation.DROP,
         title: json.attr.heading,
-        icon: image
+        icon: image,
+        id: json.id
     });
     markersArray.push(marker);
 
@@ -174,9 +172,13 @@ function print_properties(jsonArray, map) {
          content: '<h6>' + json.location.all + '</h6>'
      });
 
-    google.maps.event.addListener(marker, 'click', function() {
-      infowindow.open(map,marker);
-    });
+      google.maps.event.addListener(marker, 'mouseover', function() {
+          infowindow.open(map,marker);
+      });
+
+      google.maps.event.addListener(marker, 'mouseout', function() {
+          infowindow.close();
+      });
 
 
   })
