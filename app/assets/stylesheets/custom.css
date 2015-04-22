@@ -7,6 +7,14 @@
   height: 100%;
   background-color: #C9E2E9;
 }*/
+
+.photo-carousel {
+  font-size: 0;
+  overflow: auto;
+  width: 100%;
+  height: 182px;
+}
+
 .navbar-default {
   border-color: #232838 !important;
 }
@@ -18,8 +26,8 @@ hr {
   color: #232838 !important;
 }
 
-.property-show {
-  text-align: left;
+.description {
+  color: black !important;
 }
 
 .navbar-right a {
@@ -49,10 +57,9 @@ p {
   color: #8DA1B9 !important;
 }
 
-.container .favorite-button {
+/*.container .favorite-button {
   padding: 5px;
   background-color: #F63700;
-  margin-left: 85%;
   border-radius: 6px;
   border: 2px dotted #004853;
 }
@@ -60,7 +67,7 @@ p {
 .container .favorite-button a {
   color: #A3C4BC;
   font-weight: bolder;
-}
+}*/
 
 /*img {
     width:inherit;

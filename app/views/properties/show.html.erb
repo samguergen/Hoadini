@@ -1,25 +1,97 @@
-
 <header class="business-header">
   <div class="container">
   </div>
 </header>
-<%if current_user %>
-<% if !current_user.favorite_properties.exists?(z_id: params[:id]) %>
-  <div class="container">
-    <p class="favorite-button">
-      <%= link_to 'FAVORITE ME', favorite_properties_path(:favorite_properties => {:z_id => @property_hash["result"]["id"], :address => @property_hash["result"]["location"]["all"], :address => @property_hash["result"]["location"]["all"], :rating => 0, :price => @property_hash["result"]["price"]["monthly"], :picture => @property_hash["result"]["photos"][0]["medium"], :title => @property_hash["result"]["attr"]["propType"]["text"]}), {:method=>:post} %>
-    </p>
-    <%end%>
-    <%end%>
-    <hr>
 
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-12 col-lg-12">
+      <div class="user-preferences">
+        <h2><%= @property_hash["result"]["location"]["all"] %></h2>
+      </div>
+    </div>
+    <div class="row">
+         <p>
+          <a class="btn btn-primary btn-lg" href="/properties" role="button">Back to Properties</a>
+          <a class="btn btn-primary btn-lg" href="#" role="button">Add to Favorites</a>
+         </p>
+    </div>
+    <!-- CHANGE LINK TO NEW BUTTON -->
+      <!-- <div class="col-xs-12 col-md-6 col-lg-6">
+      <#%if current_user %>
+        <#% if !current_user.favorite_properties.exists?(z_id: params[:id]) %>
+        <!TODO: MAKE BUTTON SAME format
+          <#p class="favorite-button">
+          <#%= link_to 'FAVORITE ME', favorite_properties_path(:favorite_properties => {:z_id => @property_hash["result"]["id"], :address => @property_hash["result"]["location"]["all"], :address => @property_hash["result"]["location"]["all"], :rating => 0, :price =>@property_hash["result"]["price"]["monthly"], :picture => @property_hash["result"]["photos"][0]["medium"], :title => @property_hash["result"]["attr"]["propType"]["text"]}), {:method=>:post} %>
+          </p>
+        <#%end%>
+      <#%end%>
+      </div> -->
+  </div>
+</div>
+
+<hr>
+
+  <div class="row"
+    <div class="property-info">
+      <h3> Pricing </h3>
+        <div>
+          <p>Monthly: <%= @property_hash["result"]["price"]["monthly"] %></p>
+          <p>Nightly: <%= @property_hash["result"]["price"]["nightly"] %> <p>
+          <p>Weekend: <%= @property_hash["result"]["price"]["weekend"] %> <p>
+          <p>Weekly: <%= @property_hash["result"]["price"]["weekly"] %> <p>
+        </div>
+
+  <hr>
+
+      <h3>Renter Information</h3>
+        <div>
+          <p>Room Type: <%= @property_hash["result"]["attr"]["roomType"]["text"] %></p>
+          <p>Property Type: <%= @property_hash["result"]["attr"]["propType"]["text"] %></p>
+          <p>Minimum Nights: <%= @property_hash["result"]["price"]["minNight"] %></p>
+          <p>Maximum Nights: <%= @property_hash["result"]["price"]["maxNight"] %></p>
+          <p>Number of Bathrooms: <%= @property_hash["result"]["attr"]["bathrooms"] %></p>
+          <p>Number of Bedrooms: <%= @property_hash["result"]["attr"]["bedrooms"] %></p>
+          <p>Total Occupancy: <%= @property_hash["result"]["attr"]["occupancy"] %></p>
+        </div>
+      </div>
+    </div>
+
+
+<hr>
+
+  <div class="container">
+    <div class="row">
+      <div class="description">
+        <h3>Description</h3>
+          <div>
+            <p><%= @property_hash["result"]["attr"]["description"] %><p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+        <div class="photo-carousel">
+          <nobr>
+          <% @property_hash["result"]["photos"].each do |photo| %>
+            <%= image_tag photo["medium"] %>
+          <% end %>
+          </nobr>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- RATINGS -->
+  <div class="container">
     <div class="row">
       <div class="col-xs-12 col-md-12 col-lg-12">
         <div class="user-preferences">
-          <h2>Ratings per Preferences</h2>
+          <h3>Criteria Ratings</h4>
 
         <% if @property_hash['museums'] %>
-        <h4>Nearby Museums</h4>
+        <h4>Nearby Museums</h3>
           <% @property_hash['museums'].each do |m| %>
             <li><%= "#{m.name}: #{m.distance} meters away" %></li>
           <%end%>
@@ -63,60 +135,7 @@
         </div>
       </div>
     </div>
-
-    <div class="row">
-      <div class="col-xs-12 col-md-12 col-lg-12">
-        <div class="user-preferences">
-          <h2><%= @property_hash["result"]["location"]["all"] %></h2>
-        </div>
-        <div>
-         <p>
-          <a class="btn btn-primary btn-lg" href="/properties" role="button">Back to Properties</a>
-         </p>
-        </div>
-      </div>
-    </div>
-
-    <hr>
-
-    <div class="property-show">
-      <h4> Pricing </h4>
-        <div>
-          Monthly: <%= @property_hash["result"]["price"]["monthly"] %> |
-          Nightly: <%= @property_hash["result"]["price"]["nightly"] %> |
-          Weekend: <%= @property_hash["result"]["price"]["weekend"] %> |
-          Weekly: <%= @property_hash["result"]["price"]["weekly"] %>
-        </div>
-
-      <h4>Renter Information</h4>
-        <div>
-          <li>Room Type: <%= @property_hash["result"]["attr"]["roomType"]["text"] %></li>
-          <li>Property Type: <%= @property_hash["result"]["attr"]["propType"]["text"] %></li>
-          <li>Minimum Nights: <%= @property_hash["result"]["price"]["minNight"] %></li>
-          <li>Maximum Nights: <%= @property_hash["result"]["price"]["maxNight"] %></li>
-          <li>Number of Bathrooms: <%= @property_hash["result"]["attr"]["bathrooms"] %></li>
-          <li>Number of Bedrooms: <%= @property_hash["result"]["attr"]["bedrooms"] %></li>
-          <li>Total Occupancy: <%= @property_hash["result"]["attr"]["occupancy"] %></li>
-        </div>
-
-      <h4>Description</h4>
-        <div>
-          <p><%= @property_hash["result"]["attr"]["description"] %><p>
-        </div>
-
-
-      <h4>Photos</h4>
-        <div>
-          <% @property_hash["result"]["photos"].each do |photo| %>
-            <%= image_tag photo["medium"] %>
-          <% end %>
-        </div>
-
-      </div>
-    </div>
   </div>
-
-  <hr>
 <!-- Footer -->
 <footer>
   <div class="row">
