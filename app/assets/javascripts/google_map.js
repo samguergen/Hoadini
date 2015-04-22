@@ -21,7 +21,7 @@ function initialize() {
   map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
   var searchBox = new google.maps.places.SearchBox(
-    /** @type {HTMLInputElement} */(input));
+    (input));
 
   // [START region_getplaces]
   // Listen for the event fired when the user selects an item from the
@@ -110,7 +110,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 
 function print_properties(jsonArray, map) {
-  html = ''
+  html = '<div #carousel-container';
   jsonArray.forEach(function(json){
    html += '<h6>'+json.attr.heading+'</h6>'+'<div id="carousel-example-generic-' + json.id + '" class="carousel slide" data-ride="carousel">'+
       '<ol class="carousel-indicators">'+
@@ -119,26 +119,23 @@ function print_properties(jsonArray, map) {
             '<li data-target="#carousel-example-generic" data-slide-to="1"></li>'+
             '<li data-target="#carousel-example-generic" data-slide-to="2"></li>'+
       '</ol>'+
-    '<div class="carousel-inner" role="listbox">'+
+    '<div class="carousel-inner" id='+json.id+' role="listbox">'+
       '<div class="item prop-item active">'+
         "<a href='/properties/" + json.id + "'><img class='prop-img' src='"+ json.photos[0].small + "'>"+
         "</a>"+
           '<div class="carousel-caption">'+
-           // ''+ json.attr.heading + ''+
           '</div>'+
         '</div>'+
         '<div class="item prop-item ">'+
           "<a href='/properties/" + json.id + "'><img class='prop-img' src='"+ json.photos[1].small + "'>"+
           "</a>"+
           '<div class="carousel-caption">'+
-          // ''+ json.attr.heading + ''+
         '</div>'+
       '</div>'+
         '<div class="item prop-item ">'+
           "<a href='/properties/" + json.id + "'><img class='prop-img' src='"+ json.photos[2].small + "'>"+
           "</a>"+
           '<div class="carousel-caption">'+
-          // ''+ json.attr.heading + ''+
         '</div>'+
       '</div>'+
     '</div>'+
@@ -153,6 +150,7 @@ function print_properties(jsonArray, map) {
     '</a>'+
     '</div>';
   })
+  html += "</div>";
   return html;
 }
 
@@ -164,19 +162,45 @@ function print_properties(jsonArray, map) {
         position: myLatlng,
         map: map,
         animation: google.maps.Animation.DROP,
-        title: json.attr.heading,
-        icon: image
+        title: json.location.all,
+        icon: image,
+        id: json.id
     });
     markersArray.push(marker);
 
     //Sets info window for marker
     var infowindow = new google.maps.InfoWindow({
-         content: '<h6>' + json.location.all + '</h6>'
+         content: '<h6>' + json.attr.heading + '</h6>'
      });
 
-    google.maps.event.addListener(marker, 'click', function() {
-      infowindow.open(map,marker);
-    });
+    //custom scrollTo function for property
+    jQuery.fn.scrollTo = function(elem, speed) { 
+        $(this).animate({
+            scrollTop:  $(this).scrollTop() - $(this).offset().top + $(elem).offset().top 
+        }, speed == undefined ? 1000 : speed); 
+        return this; 
+    };
+
+
+
+    //Open Info Window from marker when mouseover
+      google.maps.event.addListener(marker, 'mouseover', function() {
+          infowindow.open(map,marker);
+          var selector = "#" + marker.id;
+          $(selector).addClass('highlighted');
+      });
+
+      google.maps.event.addListener(marker, 'click', function() {
+          var selector = "#" + marker.id;
+          $(selector).addClass('highlighted');
+          $(".properties-list").scrollTo(selector, 200);
+      });
+
+      google.maps.event.addListener(marker, 'mouseout', function() {
+          infowindow.close();
+          var selector = "#" + marker.id;
+          $(selector).removeClass('highlighted');
+      });
 
 
   })

@@ -139,7 +139,7 @@ class PropertiesController < ApplicationController
         end
       end
 
-      list['result'][0..7].sort {|x,y| x['score']<=>y['score']}
+      list['result'][0..20].sort {|x,y| x['score']<=>y['score']}
     end
 
     render json: top_list
