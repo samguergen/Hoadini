@@ -119,21 +119,21 @@ function print_properties(jsonArray, map) {
             '<li data-target="#carousel-example-generic" data-slide-to="1"></li>'+
             '<li data-target="#carousel-example-generic" data-slide-to="2"></li>'+
       '</ol>'+
-    '<div class="carousel-inner" id='+json.id+' role="listbox">'+
+    '<div class="carousel-inner" role="listbox">'+
       '<div class="item prop-item active">'+
-        "<a href='/properties/" + json.id + "'><img class='prop-img' src='"+ json.photos[0].small + "'>"+
+        "<a href='/properties/" + json.id + "'><img class='prop-img' id="+json.id+" src='"+ json.photos[0].small + "'>"+
         "</a>"+
           '<div class="carousel-caption">'+
           '</div>'+
         '</div>'+
         '<div class="item prop-item ">'+
-          "<a href='/properties/" + json.id + "'><img class='prop-img' src='"+ json.photos[1].small + "'>"+
+          "<a href='/properties/" + json.id + "'><img class='prop-img' id="+json.id+" src='"+ json.photos[1].small + "'>"+
           "</a>"+
           '<div class="carousel-caption">'+
         '</div>'+
       '</div>'+
         '<div class="item prop-item ">'+
-          "<a href='/properties/" + json.id + "'><img class='prop-img' src='"+ json.photos[2].small + "'>"+
+          "<a href='/properties/" + json.id + "'><img class='prop-img' id="+json.id+" src='"+ json.photos[2].small + "'>"+
           "</a>"+
           '<div class="carousel-caption">'+
         '</div>'+
