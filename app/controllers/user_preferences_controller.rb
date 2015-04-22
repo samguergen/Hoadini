@@ -14,13 +14,15 @@ class UserPreferencesController < ApplicationController
   def new
     @new_user_pref = UserPreference.new
     @criteria = Criterium.all
+
+    render layout: false
   end
 
 
   def create
     if session[:user_id]
       @new_user_pref = UserPreference.create!(userpref_params)
-      render partial: "user_preferences/newcriteria"
+      render partial: "user_preferences/newcriteria", layout: false
     else
       flash[:notice] = "You must be a member to add your preference!"
       redirect_to new_user_preference_path
@@ -30,6 +32,8 @@ class UserPreferencesController < ApplicationController
 
   def edit
     @user_pref = UserPreference.find_by(id: params[:id])
+
+    render layout: false
   end
 
 
