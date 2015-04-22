@@ -223,9 +223,10 @@ p {
   .carousel-control.left, .carousel-control.right {
     background-image: none
 }
-
+/*the color of the box shadow needs to be adjusted to fit overall design scheme
+*/
 .highlighted {
-  -moz-box-shadow:    3px 3px 5px 6px #00CED1;
-  -webkit-box-shadow: 3px 3px 5px 6px #00CED1;
-  box-shadow:         3px 3px 5px 6px #00CED1;
+  -moz-box-shadow:    4px 4px 6px 7px #00CED1;
+  -webkit-box-shadow: 4px 4px 6px 7px #00CED1;
+  box-shadow:         4px 4px 6px 7px #00CED1;
 }
