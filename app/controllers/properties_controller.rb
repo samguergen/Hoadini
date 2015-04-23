@@ -10,7 +10,7 @@ class PropertiesController < ApplicationController
     up.pluck(:criterium_id, :user_id, :search, :score).to_json
 
     # make a super unique key for top list based on lng, lat, and 
-    @property_hash = Rails.cache.fetch "#{params[:nelatitude]}#{params[:nelongitude]}#{params[:swlatitude]}#{params[:swlongitude]}#{up.pluck(:criterium_id, :user_id, :search, :score).to_json}" do
+    @property_hash = Rails.cache.fetch "show#{params[:id]}#{up.pluck(:criterium_id, :user_id, :search, :score).to_json}" do
       property = HTTParty.get('https://zilyo.p.mashape.com/id',
                       {query: {id: params[:id]},
                        headers: {'X-Mashape-Key' => 'Aq8RN3VWDnmshWqAaThekfgTPEbap1a3Tn3jsnBYV3fjrNDyQZ'}

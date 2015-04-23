@@ -41,6 +41,7 @@ function initialize() {
   // Listen for the event fired when the user selects an item from the
   // pick list. Retrieve the matching places for that item.
   google.maps.event.addListener(searchBox, 'places_changed', function() {
+    clearMarker(markersArray);
     var places = searchBox.getPlaces();
 
     if (places.length == 0) {
