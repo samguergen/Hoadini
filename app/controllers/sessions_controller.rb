@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     @user = User.from_omniauth(env["omniauth.auth"])
     if @user
       session[:user_id] = @user.id
-      redirect_to "/users/#{@user.id}"
+      redirect_to "/user_preferences"
     else
       redirect_to '/login'
     end
