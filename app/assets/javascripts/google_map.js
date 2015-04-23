@@ -64,12 +64,12 @@ function initialize() {
       };
 
       // Create a marker for each place.
-      var marker = new google.maps.Marker({
-        map: map,
-        icon: image,
-        title: place.name,
-        position: place.geometry.location
-      });
+      // var marker = new google.maps.Marker({
+      //   map: map,
+      //   icon: image,
+      //   title: place.name,
+      //   position: place.geometry.location
+      // });
 
       markers.push(marker);
 
@@ -77,6 +77,13 @@ function initialize() {
     }
 
     map.fitBounds(bounds);
+    zoomChangeBoundsListener = 
+    google.maps.event.addListenerOnce(map, 'bounds_changed', function(event) {
+        if (this.getZoom()){
+            this.setZoom(15);
+        }
+    });
+    setTimeout(function(){google.maps.event.removeListener(zoomChangeBoundsListener)}, 2000);
   });
 
 
@@ -122,30 +129,6 @@ function initialize() {
   });
 
   
-
-  // find properties when map moves
-  // google.maps.event.addListener(map, 'idle', function() {
-  //   //TODO placeholder for showing loading
-  //   $('.properties-list ul').html('Loading');
-  //   var bounds = map.getBounds();
-  //   var ne = bounds.getNorthEast();
-  //   var sw = bounds.getSouthWest();
-  //   var nelat = ne.lat();
-  //   var nelng = ne.lng();
-  //   var swlat = sw.lat();
-  //   var swlng = sw.lng();
-  //   $.ajax({
-  //     url: '/properties/list',
-  //     data: {nelatitude: nelat,
-  //            nelongitude: nelng,
-  //            swlatitude: swlat,
-  //            swlongitude: swlng
-  //          }
-  //    }).done(function(response){
-  //     $('.properties-list ul').html(print_properties(response, map));
-  //     $('.properties-list ul').html(set_map(response, map));
-  //   });
-  // });
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
