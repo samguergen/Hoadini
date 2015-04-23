@@ -4,8 +4,7 @@
 
 /* Links */
 a,
-a:focus,
-a:hover {
+a:focus {
   color: black;
   font-weight: bold;
   font-size: 16px;
