@@ -13,46 +13,45 @@ class PropertiesController < ApplicationController
 
     @property_hash = JSON.parse(@property.body)
 
-    # p "prop hash: #{@property_hash['result']}"
 
-    lat = @property_hash['result']['latLng'][0]
-    lng = @property_hash['result']['latLng'][1]
-    UserPreference.get_user_pref(current_user).each do |pref|
-      case pref.criterium.description
+    # lat = @property_hash['result']['latLng'][0]
+    # lng = @property_hash['result']['latLng'][1]
+    # UserPreference.get_user_pref(current_user).each do |pref|
+    #   case pref.criterium.description
 
-      when 'museum'
-        m = yelp_distance_museum_call(lat, lng, pref.search)
-        @property_hash['museums'] = m
+    #   when 'museum'
+    #     m = yelp_distance_museum_call(lat, lng, pref.search)
+    #     @property_hash['museums'] = m
 
-      when 'park'
-        p = yelp_distance_park_call(lat, lng, pref.search)
-        @property_hash['parks'] = p
+    #   when 'park'
+    #     p = yelp_distance_park_call(lat, lng, pref.search)
+    #     @property_hash['parks'] = p
 
-      when 'price'
-        @property_hash['prices'] = []
+    #   when 'price'
+    #     @property_hash['prices'] = []
 
-      when 'crime'
-        crime = JSON.parse(crime_call(lat, lng, 0.05).body)
-        @property_hash['crimes'] = crime['crimes']
+    #   when 'crime'
+    #     crime = JSON.parse(crime_call(lat, lng, 0.05).body)
+    #     @property_hash['crimes'] = crime['crimes']
 
-      when 'food'
-        f = yelp_distance_food_call(lat, lng, pref.search)
-        @property_hash['foods'] = f
+    #   when 'food'
+    #     f = yelp_distance_food_call(lat, lng, pref.search)
+    #     @property_hash['foods'] = f
 
-      when 'subway station'
-        sub = yelp_distance_subway_call(lat, lng, pref.search)
-        @property_hash['subway stations'] = sub
+    #   when 'subway station'
+    #     sub = yelp_distance_subway_call(lat, lng, pref.search)
+    #     @property_hash['subway stations'] = sub
 
-      when 'landmark'
-        l = yelp_distance_landmark_call(lat, lng, pref.search)
-        @property_hash['landmarks'] = l
+    #   when 'landmark'
+    #     l = yelp_distance_landmark_call(lat, lng, pref.search)
+    #     @property_hash['landmarks'] = l
 
-      when 'shopping'
-        shop = yelp_distance_shopping_call(lat, lng, pref.search)
-        @property_hash['shops'] = shop
+    #   when 'shopping'
+    #     shop = yelp_distance_shopping_call(lat, lng, pref.search)
+    #     @property_hash['shops'] = shop
 
-      end
-    end
+    #   end
+    # end
 #example ?id=air1158977
   end
 
