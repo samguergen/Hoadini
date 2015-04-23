@@ -15,7 +15,13 @@ function initialize() {
           zoomControlOptions: {
               style: google.maps.ZoomControlStyle.LARGE,
               position: google.maps.ControlPosition.LEFT_CENTER
-          }
+          },
+          mapTypeControl: true,
+          mapTypeControlOptions: {
+              style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+              position: google.maps.ControlPosition.BOTTOM_CENTER
+          },
+          overviewMapControl: true
         };
 
   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);

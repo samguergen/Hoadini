@@ -2,8 +2,24 @@ html {
   background-color: white;
 }
 
+.show-margin {
+  margin-top: 60px;
+}
+.team-caption{
+  font-style: italic;
+  text-shadow: none;
+}
+
+.top-nav li.header > a:hover {
+  background: white;
+  color: black !important;
+}
+
 .favorites-header {
   margin-top: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .property-top-nav{
@@ -45,7 +61,7 @@ li .property-header{
   font: Ubuntu 300;
 }
 
-.nav li:hover {
+.top-nav li:hover {
   background-color: black;
   font: Ubuntu 300;
 }
@@ -67,10 +83,6 @@ li .property-header{
   color: #232838;
 }
 
-hr {
-  color: #232838 !important;
-}
-
 .description {
   text-align: left;
   border: 2px solid #A7BED3;
@@ -84,6 +96,7 @@ hr {
   padding: 20px;
   height: 250px;
   margin-bottom: 10px;
+
 }
 
 .pricing-info {
@@ -107,10 +120,6 @@ hr {
   color: #232838 !important;
 }*/
 
-.navbar-right a:hover {
-  color: #A3C4BC !important;
-}
-
 .carousel-caption h1 {
   color: white;
 }
@@ -128,17 +137,21 @@ p {
 }
 
 .property {
-    width: 500px;
-    height: auto;
-    float: left;
-    margin-left: 20%;
-    margin-right: 20%;
-    padding: 3px;
+  width: 500px;
+  height: auto;
+  margin-left: 20%;
+  margin-right: 20%;
+  padding: 3px;
+  display: table;
+  margin: auto;
 }
 
-.user_fave_div{
+.user_fave_div {
   height: 100px !important;
   width: 140px !important;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 .user_fave_img{
   height: 100% !important;
@@ -161,7 +174,7 @@ p {
 
 .team-member img {
   border-radius: 50%;
-  border: 5px solid #A3C4BC;
+  border: 5px solid #A7BED3;
 }
 
 .team-member p {
@@ -192,56 +205,56 @@ p {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   }
 /*Search bar*/
-  #pac-input{
-    background-color: #fff;
-    font-family: Ubuntu 300;
-    font-size: 15px;
-    font-weight: 300;
-    margin-left: 12px;
-    margin-top: 50px;
-    padding: 0px 11px 0px 13px;
-    text-overflow: ellipsis;
-    width: 400px;
-  }
+#pac-input{
+  background-color: #fff;
+  font-family: Ubuntu 300;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  margin-top: 50px;
+  padding: 0px 11px 0px 13px;
+  text-overflow: ellipsis;
+  width: 400px;
+}
 
-  #pac-input:focus {
-    border-color: #4d90fe;
-  }
+#pac-input:focus {
+  border-color: #4d90fe;
+}
 
-  .pac-container {
-    font-family: Ubuntu 300;
-  }
+.pac-container {
+  font-family: Ubuntu 300;
+}
 
-  #type-selector {
-    color: #fff;
-    background-color: #4d90fe;
-    padding: 5px 11px 0px 11px;
-  }
+#type-selector {
+  color: #fff;
+  background-color: #4d90fe;
+  padding: 5px 11px 0px 11px;
+}
 
-  #type-selector label {
-    font-family: Ubuntu 300;
-    font-size: 13px;
-    font-weight: 300;
-  }
+#type-selector label {
+  font-family: Ubuntu 300;
+  font-size: 13px;
+  font-weight: 300;
+}
 
-  .properties-list {
-    visibility: visible !important;
-    position: relative;
-    text-align: center;
-    height: 90%;
-    margin-top: 50px;
-    float: right;
-    overflow: scroll;
-    background: transparent;
-  }
+.properties-list {
+  visibility: visible !important;
+  position: relative;
+  text-align: center;
+  height: 90%;
+  margin-top: 50px;
+  float: right;
+  overflow: scroll;
+  background: transparent;
+}
 
 .properties-list .properties-pic {
-    width: 120px;
-    height: 120px;
-    height: auto;
-    float: left;
-    margin: 3px;
-    padding: 3px;
+  width: 120px;
+  height: 120px;
+  height: auto;
+  float: left;
+  margin: 3px;
+  padding: 3px;
 }
 
 .properties-list img {

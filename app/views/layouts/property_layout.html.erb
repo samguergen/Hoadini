@@ -16,7 +16,7 @@
     <!-- Latest compiled and minified CSS -->
 </head>
   <body>
-    
+
     <!-- Navigation -->
         <nav class="property-top-nav" role="navigation">
             <div class="container">
@@ -29,11 +29,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="tagline" href="/welcome">HOADINI</a><a class="mini-tagline" href="/users/<%=current_user.id%>">Favorites</a>
+                <a class="mini-tagline" href="/welcome">HOADINI</a> |
+                <a class="mini-tagline" href="/users/<%=current_user.id%>">FAVORITES</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-            
+
         </div>
     </nav>
         <%= yield %>
