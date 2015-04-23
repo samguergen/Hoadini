@@ -6,52 +6,59 @@ class PropertiesController < ApplicationController
   end
 
   def show
-    @property = HTTParty.get('https://zilyo.p.mashape.com/id',
-                    {query: {id: params[:id]},
-                     headers: {'X-Mashape-Key' => 'Aq8RN3VWDnmshWqAaThekfgTPEbap1a3Tn3jsnBYV3fjrNDyQZ'}
-                    })
+    up = UserPreference.get_user_pref(current_user)
+    up.pluck(:criterium_id, :user_id, :search, :score).to_json
 
-    @property_hash = JSON.parse(@property.body)
+    # make a super unique key for top list based on lng, lat, and 
+    @property_hash = Rails.cache.fetch "#{params[:nelatitude]}#{params[:nelongitude]}#{params[:swlatitude]}#{params[:swlongitude]}#{up.pluck(:criterium_id, :user_id, :search, :score).to_json}" do
+      property = HTTParty.get('https://zilyo.p.mashape.com/id',
+                      {query: {id: params[:id]},
+                       headers: {'X-Mashape-Key' => 'Aq8RN3VWDnmshWqAaThekfgTPEbap1a3Tn3jsnBYV3fjrNDyQZ'}
+                      })
+
+      property_hash = JSON.parse(property.body)
 
 
-    # lat = @property_hash['result']['latLng'][0]
-    # lng = @property_hash['result']['latLng'][1]
-    # UserPreference.get_user_pref(current_user).each do |pref|
-    #   case pref.criterium.description
+      lat = property_hash['result']['latLng'][0]
+      lng = property_hash['result']['latLng'][1]
+      UserPreference.get_user_pref(current_user).each do |pref|
+        case pref.criterium.description
 
-    #   when 'museum'
-    #     m = yelp_distance_museum_call(lat, lng, pref.search)
-    #     @property_hash['museums'] = m
+        when 'museum'
+          m = yelp_distance_museum_call(lat, lng, pref.search)
+          property_hash['museums'] = m
 
-    #   when 'park'
-    #     p = yelp_distance_park_call(lat, lng, pref.search)
-    #     @property_hash['parks'] = p
+        when 'park'
+          p = yelp_distance_park_call(lat, lng, pref.search)
+          property_hash['parks'] = p
 
-    #   when 'price'
-    #     @property_hash['prices'] = []
+        when 'price'
+          property_hash['prices'] = []
 
-    #   when 'crime'
-    #     crime = JSON.parse(crime_call(lat, lng, 0.05).body)
-    #     @property_hash['crimes'] = crime['crimes']
+        when 'crime'
+          crime = JSON.parse(crime_call(lat, lng, 0.05).body)
+          property_hash['crimes'] = crime['crimes']
 
-    #   when 'food'
-    #     f = yelp_distance_food_call(lat, lng, pref.search)
-    #     @property_hash['foods'] = f
+        when 'food'
+          f = yelp_distance_food_call(lat, lng, pref.search)
+          property_hash['foods'] = f
 
-    #   when 'subway station'
-    #     sub = yelp_distance_subway_call(lat, lng, pref.search)
-    #     @property_hash['subway stations'] = sub
+        when 'subway station'
+          sub = yelp_distance_subway_call(lat, lng, pref.search)
+          property_hash['subway stations'] = sub
 
-    #   when 'landmark'
-    #     l = yelp_distance_landmark_call(lat, lng, pref.search)
-    #     @property_hash['landmarks'] = l
+        when 'landmark'
+          l = yelp_distance_landmark_call(lat, lng, pref.search)
+          property_hash['landmarks'] = l
 
-    #   when 'shopping'
-    #     shop = yelp_distance_shopping_call(lat, lng, pref.search)
-    #     @property_hash['shops'] = shop
+        when 'shopping'
+          shop = yelp_distance_shopping_call(lat, lng, pref.search)
+          property_hash['shops'] = shop
 
-    #   end
-    # end
+        end
+      end
+      property_hash
+    end
 #example ?id=air1158977
   end
 
