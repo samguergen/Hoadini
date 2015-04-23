@@ -29,13 +29,14 @@ function initialize() {
   // Create the search box and link it to the UI element.
   var input = /** @type {HTMLInputElement} */(
       document.getElementById('pac-input'));
-  var magic = document.getElementById('pac-search');
   map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-  map.controls[google.maps.ControlPosition.LEFT_BOTTOM].push(magic);
 
   var searchBox = new google.maps.places.SearchBox(
     (input));
 
+  var magic = document.getElementById('pac-search');
+
+  map.controls[google.maps.ControlPosition.LEFT_BOTTOM].push(magic);
   // [START region_getplaces]
   // Listen for the event fired when the user selects an item from the
   // pick list. Retrieve the matching places for that item.
@@ -93,18 +94,19 @@ function initialize() {
   $('#pac-search').on('click', function(event){
     clearMarker(markersArray);
     event.preventDefault();
-    console.log(map.getBounds());
     //TODO placeholder for showing loading
     $('.properties-list ul').html('Loading');
     var bounds = map.getBounds();
     var ne = bounds.getNorthEast();
     var sw = bounds.getSouthWest();
-    var nelat = ne.lat();
-    var nelng = ne.lng();
+
+    var newNe = getNewBound(map);
+
+    var nelat = newNe.lat();
+    var nelng = newNe.lng();
     var swlat = sw.lat();
     var swlng = sw.lng();
 
-    getNewBound(map);
 
     $.ajax({
       url: '/properties/list',
@@ -202,15 +204,10 @@ function print_properties(jsonArray, map) {
   function getNewBound(map) {
     var bounds = map.getBounds();
     var ne = bounds.getNorthEast();
-    console.log(calculateEdge(map.getZoom()));
     var newBound = google.maps.geometry.spherical.computeOffset(ne, calculateEdge(map.getZoom()), 255);
     var pp = new google.maps.LatLng(newBound.k, newBound.D);
-    new google.maps.Marker({
-        position: pp,
-        map: map,
-        animation: google.maps.Animation.DROP,
-        title: "asdf"
-    });
+
+    return pp;
   }
 
   function calculateEdge(zoomLevel) {
