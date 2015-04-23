@@ -359,10 +359,9 @@ class PropertiesController < ApplicationController
                             })
 
     query = {  term: term,
-               category_filter: 'parks',
+               category_filter: 'amusementparks,parks',
                limit: 4,
-               radius_filter: 0.5,
-               sort: 1
+               radius_filter: 0.5
              }
 
     coordinates = { latitude: lat,

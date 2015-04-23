@@ -10,7 +10,18 @@ function initialize() {
   var mapOptions = {
           mapTypeId: google.maps.MapTypeId.ROADMAP,
           center: { lat: 40.7063634, lng: -74.0090963},
-          zoom: 15
+          zoom: 16,
+          zoomControl: true,
+          zoomControlOptions: {
+              style: google.maps.ZoomControlStyle.LARGE,
+              position: google.maps.ControlPosition.LEFT_CENTER
+          },
+          mapTypeControl: true,
+          mapTypeControlOptions: {
+              style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+              position: google.maps.ControlPosition.BOTTOM_CENTER
+          },
+          overviewMapControl: true
         };
 
   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
@@ -23,6 +34,9 @@ function initialize() {
   var searchBox = new google.maps.places.SearchBox(
     (input));
 
+  var magic = document.getElementById('pac-search');
+
+  map.controls[google.maps.ControlPosition.LEFT_BOTTOM].push(magic);
   // [START region_getplaces]
   // Listen for the event fired when the user selects an item from the
   // pick list. Retrieve the matching places for that item.
@@ -74,24 +88,26 @@ function initialize() {
     var bounds = map.getBounds();
     searchBox.setBounds(bounds);
 
-    for(i=0;i<markersArray.length; i++){
-      markersArray[i].setMap(null);
-    }
-
   });
 
 
-  // find properties when map moves
-  google.maps.event.addListener(map, 'idle', function() {
+  $('#pac-search').on('click', function(event){
+    clearMarker(markersArray);
+    event.preventDefault();
     //TODO placeholder for showing loading
     $('.properties-list ul').html('Loading');
     var bounds = map.getBounds();
     var ne = bounds.getNorthEast();
     var sw = bounds.getSouthWest();
-    var nelat = ne.lat();
-    var nelng = ne.lng();
+
+    var newNe = getNewBound(map);
+
+    var nelat = newNe.lat();
+    var nelng = newNe.lng();
     var swlat = sw.lat();
     var swlng = sw.lng();
+
+
     $.ajax({
       url: '/properties/list',
       data: {nelatitude: nelat,
@@ -104,6 +120,32 @@ function initialize() {
       $('.properties-list ul').html(set_map(response, map));
     });
   });
+
+  
+
+  // find properties when map moves
+  // google.maps.event.addListener(map, 'idle', function() {
+  //   //TODO placeholder for showing loading
+  //   $('.properties-list ul').html('Loading');
+  //   var bounds = map.getBounds();
+  //   var ne = bounds.getNorthEast();
+  //   var sw = bounds.getSouthWest();
+  //   var nelat = ne.lat();
+  //   var nelng = ne.lng();
+  //   var swlat = sw.lat();
+  //   var swlng = sw.lng();
+  //   $.ajax({
+  //     url: '/properties/list',
+  //     data: {nelatitude: nelat,
+  //            nelongitude: nelng,
+  //            swlatitude: swlat,
+  //            swlongitude: swlng
+  //          }
+  //    }).done(function(response){
+  //     $('.properties-list ul').html(print_properties(response, map));
+  //     $('.properties-list ul').html(set_map(response, map));
+  //   });
+  // });
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
@@ -112,7 +154,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 function print_properties(jsonArray, map) {
   html = '<div #carousel-container';
   jsonArray.forEach(function(json){
-   html += '<h6>'+json.attr.heading+'</h6>'+'<div id="carousel-example-generic-' + json.id + '" class="carousel slide" data-ride="carousel">'+
+   html += '<div id="carousel-example-generic-' + json.id + '" class="carousel slide" data-ride="carousel">'+
       '<ol class="carousel-indicators">'+
         '<li data-target="#carousel-example-generic" data-slide-to="0" class="active">'+
           '</li>'+
@@ -153,6 +195,30 @@ function print_properties(jsonArray, map) {
   html += "</div>";
   return html;
 }
+ function clearMarker(markersArray) {
+  for(i=0;i<markersArray.length; i++){
+    markersArray[i].setMap(null);
+  }
+ }
+
+  function getNewBound(map) {
+    var bounds = map.getBounds();
+    var ne = bounds.getNorthEast();
+    var newBound = google.maps.geometry.spherical.computeOffset(ne, calculateEdge(map.getZoom()), 255);
+    var pp = new google.maps.LatLng(newBound.k, newBound.D);
+
+    return pp;
+  }
+
+  function calculateEdge(zoomLevel) {
+    var edge = 14.0625;
+
+    for(;zoomLevel < 21; zoomLevel++) {
+      edge = edge * 2;
+    }
+
+    return edge;
+  }
 
  function set_map(jsonArray, map) {
   jsonArray.forEach(function(json){
@@ -181,28 +247,24 @@ function print_properties(jsonArray, map) {
         return this; 
     };
 
-
-
     //Open Info Window from marker when mouseover
-      google.maps.event.addListener(marker, 'mouseover', function() {
-          infowindow.open(map,marker);
-          var selector = "#" + marker.id;
-          $(selector).addClass('highlighted');
-      });
+    google.maps.event.addListener(marker, 'mouseover', function() {
+        infowindow.open(map,marker);
+        var selector = "#" + marker.id;
+        $(selector).addClass('highlighted');
+    });
 
-      google.maps.event.addListener(marker, 'click', function() {
-          var selector = "#" + marker.id;
-          $(selector).addClass('highlighted');
-          $(".properties-list").scrollTo(selector, 200);
-      });
+    google.maps.event.addListener(marker, 'click', function() {
+        var selector = "#" + marker.id;
+        $(selector).addClass('highlighted');
+        $(".properties-list").scrollTo(selector, 200);
+    });
 
-      google.maps.event.addListener(marker, 'mouseout', function() {
-          infowindow.close();
-          var selector = "#" + marker.id;
-          $(selector).removeClass('highlighted');
-      });
-
-
+    google.maps.event.addListener(marker, 'mouseout', function() {
+        infowindow.close();
+        var selector = "#" + marker.id;
+        $(selector).removeClass('highlighted');
+    });
   })
 }
 
