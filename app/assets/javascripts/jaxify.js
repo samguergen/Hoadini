@@ -74,6 +74,7 @@ $(document).ready(function(){
       }
     }).done(function(result){
       $('#crits_'+id).html(result);
+      $form.remove();
     });
   });
 
