@@ -78,7 +78,7 @@ function initialize() {
     }
 
     map.fitBounds(bounds);
-    zoomChangeBoundsListener = 
+    zoomChangeBoundsListener =
     google.maps.event.addListenerOnce(map, 'bounds_changed', function(event) {
         if (this.getZoom()){
             this.setZoom(15);
@@ -129,7 +129,7 @@ function initialize() {
     });
   });
 
-  
+
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
@@ -224,11 +224,11 @@ function print_properties(jsonArray, map) {
      });
 
     //custom scrollTo function for property
-    jQuery.fn.scrollTo = function(elem, speed) { 
+    jQuery.fn.scrollTo = function(elem, speed) {
         $(this).animate({
-            scrollTop:  $(this).scrollTop() - $(this).offset().top + $(elem).offset().top 
-        }, speed == undefined ? 1000 : speed); 
-        return this; 
+            scrollTop:  $(this).scrollTop() - $(this).offset().top + $(elem).offset().top
+        }, speed == undefined ? 1000 : speed);
+        return this;
     };
 
     //Open Info Window from marker when mouseover

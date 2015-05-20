@@ -16,7 +16,7 @@
     <div class="row">
         <div class="property">
         <% @properties.each do |property| %>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div id="prop-block" class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <div class="property-image user_fave_div">
                     <%= image_tag(property.picture, class: 'user_fave_img') %>
                 </div>

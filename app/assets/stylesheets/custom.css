@@ -181,29 +181,33 @@ p {
   color: #8DA1B9;
 }
 
-  #map-canvas {
-    visibility: visible !important;
-    position: absolute !important;
-    height: 100%;
-    width: 100%;
-    background: transparent;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
+#prop-block {
+  height: 300px;
+}
 
-  .controls{
-    margin-top: 16px;
-    border: 1px solid transparent;
-    border-radius: 2px 0 0 2px;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    height: 32px;
-    outline: none;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  }
+#map-canvas {
+  visibility: visible !important;
+  position: absolute !important;
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.controls{
+  margin-top: 16px;
+  border: 1px solid transparent;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 32px;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
 /*Search bar*/
 #pac-input{
   background-color: #fff;

@@ -66,7 +66,7 @@ $(document).ready(function(){
     search = $form.find( "input[name='search']" ).val();
     // url = $form.attr( "action" );
   $.ajax({
-      method: 'PATCH',
+      method: 'PUT',
       url: target.action,
       data: {
         score: score,
