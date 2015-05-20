@@ -221,6 +221,10 @@ p {
   width: 400px;
 }
 
+#pac-search {
+  margin-top: 1% !important;
+}
+
 #pac-input:focus {
   border-color: #4d90fe;
 }
