@@ -108,10 +108,8 @@ function initialize() {
     var ne = bounds.getNorthEast();
     var sw = bounds.getSouthWest();
 
-    var newNe = getNewBound(map);
-
-    var nelat = newNe.lat();
-    var nelng = newNe.lng();
+    var nelat = ne.lat();
+    var nelng = ne.lng();
     var swlat = sw.lat();
     var swlng = sw.lng();
 
