@@ -2,13 +2,13 @@ $(document).ready(function(){
 
 //ajax get for displaying new criteria form
 
-  $('#add').on('click', function(event){
+  $('.add-preference').on('click', '#add', function(event){
     event.preventDefault();
     $.ajax({
       url: '/user_preferences/new'
     }).done(function(result){
       $('#add').toggle(false);
-      $('.preflist').append(result);
+      $('.user-preferences').append(result);
     });
     });
 
@@ -42,13 +42,13 @@ $(document).ready(function(){
 
   //ajax get for displaying edit criteria form
 
-  $('.edit').on('click', function(event){
+  $('.user-preferences').on('click', '.edit', function(event){
     event.preventDefault();
     target = event.target;
     $.ajax({
       url: target.pathname
     }).done(function(result){
-      $('.preflist').append(result);
+      $('.user-preferences').append(result);
     });
     });
 
