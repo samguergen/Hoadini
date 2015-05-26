@@ -36,7 +36,7 @@ function initialize() {
 
   var magic = document.getElementById('pac-search');
 
-  map.controls[google.maps.ControlPosition.TOP_CENTER].push(magic);
+  map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(magic);
   // [START region_getplaces]
   // Listen for the event fired when the user selects an item from the
   // pick list. Retrieve the matching places for that item.
