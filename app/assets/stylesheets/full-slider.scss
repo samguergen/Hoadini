@@ -4,7 +4,7 @@ body {
 }
 
 #calibeach-img {
-  background-image: url("rio.jpg");
+  background-image: image-url("rio.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
@@ -32,7 +32,7 @@ body {
 }
 
 #grandcanyon-img {
-  background-image: url("paris.jpg");
+  background-image: image-url("paris.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
@@ -42,7 +42,7 @@ footer {
 }
 
 #nycskyline-img {
-  background-image: url("nycskyline.jpg");
+  background-image: image-url("nycskyline.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
