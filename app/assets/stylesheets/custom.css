@@ -286,3 +286,16 @@ p {
   -webkit-box-shadow: 4px 4px 6px 7px #00CED1;
   box-shadow:         4px 4px 6px 7px #00CED1;
 }
+
+
+
+
+ul.nav.navbar-nav.navbar-right {
+  margin-top: -6%;
+    margin-left: 15%;
+    width: 95%;
+}
+
+.tagline img {
+  margin-left: -103%;
+}
